@@ -7,27 +7,27 @@ This site is generated with Pelican_.
 
 .. _Pelican: http://getpelican.com
 
-Build Instructions
-==================
+Local Build Instructions
+========================
 
-Install miniconda_. Create an environment for this website::
+Install miniconda_ and then install Pelican::
 
-   $ conda create -n pelican python=2 pygments pip jinja2 docutils markupsafe python-dateutil pytz six unidecode fabric
-   $ source activate pelican
-   (pelican)$ pip install pelican ghp-import
+   $ conda install pelican
 
-Clone the plugin repository (for the render_math plugin)::
+Clone the plugin repository::
 
    $ mkdir ~/src
    $ git clone git@github.com:getpelican/pelican-plugins.git ~/src/
 
 Rebuild and serve the site locally::
 
-   (pelican)$ fab reserve
+   $ make devserver
 
-Push the site to Github pages::
+Access the site at http://localhost:8000.
 
-   (pelican)$ fab gh_pages
+Stop the server::
+
+   $ make stopserver
 
 .. _miniconda: http://conda.pydata.org/miniconda.html
 
