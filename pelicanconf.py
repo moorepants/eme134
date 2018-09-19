@@ -9,16 +9,11 @@ SITEURL = ''
 SOURCEURL = 'http://github.com/moorepants/eme134'
 
 PATH = 'content'
-THEME = 'theme'
 PAGE_ORDER_BY = 'sortorder'
 
 TIMEZONE = 'US/Pacific'
 
 DEFAULT_LANG = 'en'
-
-PLUGIN_PATHS = [join(expanduser("~"), 'src', 'pelican-plugins')]
-PLUGINS = ['render_math']
-MATH_JAX = {'color': 'black'}
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -28,8 +23,6 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 DEFAULT_PAGINATION = False
-
-STATIC_PATHS = ['materials', 'images']
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
