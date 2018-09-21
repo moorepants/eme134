@@ -4,6 +4,7 @@
 ./index.html
 ./pages/schedule.html
 ./tags.html
+./theme/css/custom.css
 ./theme/css/main.css
 ./theme/css/pygment.css
 ./theme/css/reset.css
