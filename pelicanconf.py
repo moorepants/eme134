@@ -11,6 +11,8 @@ SOURCEURL = 'http://github.com/moorepants/eme134'
 PATH = 'content'
 PAGE_ORDER_BY = 'sortorder'
 
+THEME = 'theme'
+
 TIMEZONE = 'US/Pacific'
 
 DEFAULT_LANG = 'en'
