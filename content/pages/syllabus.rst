@@ -120,8 +120,9 @@ We will use the following book as the official and required textbook:
    ISBN 978-1-4665-6085-7 [`Book Information`_]
 
 The first edition of the book, titled "Vehicle Stability" is likely sufficient
-but the problem sets will not necessarily match. We will also provide you with
-free online resources and other supplementary materials.
+but the problem sets will not necessarily match. You will find an errata for
+the book on Canvas "Files". We will also provide you with free online resources
+and other supplementary materials.
 
 .. _Book Information: https://www.crcpress.com/Vehicle-Dynamics-Stability-and-Control-Second-Edition/Karnopp/p/book/9781466560857
 
