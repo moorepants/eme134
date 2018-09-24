@@ -12,21 +12,24 @@ Course Description
 | 2018 Fall, Lecture: MWF 11:00-11:50 AM in Olson 250
 | CRN: 43393
 
-The world is full of a variety of vehicles that transport people and goods for
+The world contains a variety of vehicles that transport people and goods for
 commerce, recreation, and exploration. Vehicles are designed to move through
 various environments (land, air, and sea) in efficient, safe, optimal, and
 performant manners. The motion of a vehicle is governed by the mechanism in
-which forces are applied to the vehicle by the environment. Two very common
-concerns for vehicle designers are whether a vehicle will ever become unstable
-and whether is reasonably easy to control.
+which forces are applied to the vehicle by the environment. The interaction
+forces are a function of the vehicle's design and the travel medium. To
+understand these phenomena engineers often turn to mathematical models capable
+of predicting the observed motion. Two very common concerns for vehicle
+designers are 1) whether a vehicle will ever become unstable and 2) whether it
+is reasonably easy to control given the design choices.
 
 In this class, you will explore the dynamics of a number of different types of
 vehicles by developing and exercising simple mathematical models. You will also
-connect these models to interactive experimental demonstrations of the
-predicted behaviors. Both will provide insight about the design of vehicles for
-good performance and handling. When complete, you will be able to model
-vehicles, analyze their behavior, identify common design issues, and make
-decisions about design with respect to vehicle dynamics.
+connect this mathematical exploration to interactive experimental
+demonstrations of many of the vehicles. Both will provide insight about the
+design of vehicles for good performance and handling. When complete, you will
+be able to model vehicles, analyze their behavior, identify common design
+issues, and make decisions about design with respect to vehicle dynamics.
 
 Learning Objectives
 -------------------
@@ -116,9 +119,9 @@ We will use the following book as the official and required textbook:
    *Vehicle Dynamics, Stability, and Control*, Dean Karnopp, 2nd Edition, CRC Press.
    ISBN 978-1-4665-6085-7 [`Book Information`_]
 
-The first edition of the book, titled "Vehicle Stability" is likely sufficient.
-We will also provide you with free online resources and other supplementary
-materials.
+The first edition of the book, titled "Vehicle Stability" is likely sufficient
+but the problem sets will not necessarily match. We will also provide you with
+free online resources and other supplementary materials.
 
 .. _Book Information: https://www.crcpress.com/Vehicle-Dynamics-Stability-and-Control-Second-Edition/Karnopp/p/book/9781466560857
 
@@ -131,7 +134,7 @@ regular basis to gauge your performance. Keep in mind that **15% is deducted
 per business day late** on all assignments.
 
 ==================== =====
-Homeworks            10%
+Homework             10%
 Midterm              30%
 Final                60%
 ==================== =====
@@ -150,7 +153,7 @@ Canvas
 ======
 
 We will make use of Canvas for the course. Log in to canvas.ucdavis.edu_ with
-your Kerberos ID and passphrase then select **ENG 122 001 FQ 2017**.
+your Kerberos ID and passphrase then select **EME 134 001 FQ 2018**.
 
 We will be using several features in canvas:
 
@@ -159,7 +162,7 @@ Announcements
    will be forwarded automatically to your UCD email address. You are expected
    to read these either through your email program or on the Canvas website.
 Assignments
-   The electronic assignments will be distributed and collected here.
+   Any electronic assignments will be distributed and collected here.
 Grades
    Your grades and basic stats on your relative performance will be available
    as the course goes along.
