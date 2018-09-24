@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
-from os.path import expanduser, join
 
 AUTHOR = 'Jason K. Moore'
 SITENAME = 'EME 134: Vehicle Stability'
@@ -16,6 +15,10 @@ THEME = 'theme'
 TIMEZONE = 'US/Pacific'
 
 DEFAULT_LANG = 'en'
+
+# This sets the default pages to be top level items.
+PAGE_URL = '{slug}.html'
+PAGE_SAVE_AS = '{slug}.html'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
