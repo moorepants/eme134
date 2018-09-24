@@ -28,6 +28,16 @@ good performance and handling. When complete, you will be able to model
 vehicles, analyze their behavior, identify common design issues, and make
 decisions about design with respect to vehicle dynamics.
 
+Learning Objectives
+-------------------
+
+After completing the course students will be able to:
+
+- create simple mathematical models of a variety of vehicles
+- identify when vehicles are stable/unstable
+- identify parameters that affect stability
+- apply simple automatic control to stabilize vehicles
+
 Catalog Description
 -------------------
 
@@ -38,16 +48,6 @@ Catalog Description
    majors. Analytical and experimental studies of the dynamics, stability and
    control of vehicles such as cars, trailers, airplanes, motorcycles, bicycles
    and rail cars. GE credit: SE. Effective: 2017 Fall Quarter.
-
-Learning Objectives
--------------------
-
-After completing the course students will be able to:
-
-- create simple mathematical models of a variety of vehicles
-- identify when vehicles are stable/unstable
-- identify parameters that affect stability
-- apply simple automatic control to stabilize vehicles
 
 Prerequisites
 -------------
