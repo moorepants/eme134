@@ -39,6 +39,7 @@ After completing the course students will be able to:
 - create simple mathematical models of a variety of vehicles
 - identify when vehicles are stable/unstable
 - identify parameters that affect stability
+- describe typical modes of motion for various vehicles
 - apply simple automatic control to stabilize vehicles
 
 Catalog Description
@@ -83,8 +84,7 @@ Office Hours
 
 | Jason's Office Hours
 | Bainer 2095
-| Wednesday 1:10-2:00pm
-| Thursday 11:00-11:50am
+| Time TBA
 |
 | Ehsan's Office Hours
 | Location TBA
@@ -121,8 +121,8 @@ We will use the following book as the official and required textbook:
 
 The first edition of the book, titled "Vehicle Stability" is likely sufficient
 but the problem sets will not necessarily match. You will find an errata for
-the book on Canvas "Files". We will also provide you with free online resources
-and other supplementary materials.
+the latest book on Canvas "Files". We will also provide you with free online
+resources and other supplementary materials.
 
 .. _Book Information: https://www.crcpress.com/Vehicle-Dynamics-Stability-and-Control-Second-Edition/Karnopp/p/book/9781466560857
 
@@ -135,20 +135,21 @@ regular basis to gauge your performance. Keep in mind that **15% is deducted
 per business day late** on all assignments.
 
 ==================== =====
-Homework             10%
+Homework             30%
 Midterm              30%
-Final                60%
+Final                40%
 ==================== =====
 
 .. _canvas.ucdavis.edu: http://canvas.ucdavis.edu
 
 Homework
    Weekly homework will be assigned which will be due before class the
-   following week.
+   following week. Unique solutions are required from each student.
 Midterm
-   You will have to complete a one hour in class exam.
+   You will have to complete a take-home midterm exam. You may not work with
+   others on this exam.
 Final
-   You will have to complete a two hour in class exam.
+   You will have to complete a two hour in-class exam.
 
 Canvas
 ======
