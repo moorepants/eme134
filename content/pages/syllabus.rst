@@ -149,7 +149,7 @@ Midterm
    You will have to complete a take-home midterm exam. You may not work with
    others on this exam.
 Final
-   You will have to complete a two hour in-class exam.
+   You will have to complete a two-hour in-class exam.
 
 Canvas
 ======
@@ -183,7 +183,5 @@ Personal electronic correspondence from the instructors will be made to your
 UCD email address. It is your responsibility to check this regularly.
 
 Electronic announcements from the instructors to the whole class will be made
-through Canvas. By default, Canvas will automatically send the announcement to
-your UCD email address. You can change your Canvas settings to opt out, send it
-them to a different email, or as an SMS. You are responsible for reading the
-announcements made via canvas.
+through Canvas. By default, Canvas will automatically sends the announcement to
+your UCD email address. You can change your Canvas settings to opt out, send it to a different email, or as an SMS. You are responsible for reading the announcements made via canvas.
