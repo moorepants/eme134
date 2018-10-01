@@ -9,14 +9,15 @@ to the schedules of the various sponsors. **Check the schedule periodically for
 changes.**
 
 == ==========  ====================================  =========================  ===============
-#  Date        Topic                                 Reading                    Assignment Due
+#  Date        Topic                                 Materials                  Assignment Due
 == ==========  ====================================  =========================  ===============
-01 W Sep 26    Introduction
-02 F Sep 28    Elementary Vehicles                   Chapter 1
+01 W Sep 26    Introduction                          - Chapter 1
+                                                     - `Notes 01`_
+02 F Sep 28    Elementary Vehicles                   - `Notes 02`_
 -- ----------  ------------------------------------  -------------------------  ---------------
-03 M Oct 01    Rigid Body Motion                     Chapter 2
-04 W Oct 03    Stability                             Chapter 3
-05 F Oct 05                                                                     HW 1
+03 M Oct 01    Elementary Vehicles                   - `Notes 03`_
+04 W Oct 03    Rigid Body Motion                     Chapter 2
+05 F Oct 05    Stability                             Chapter 3                  HW 1
 NA             Lab 01: Videos
 -- ----------  ------------------------------------  -------------------------  ---------------
 06 M Oct 08    Pneumatic Tires                       Chapter 4
@@ -62,3 +63,7 @@ NA F Nov 23    Thanksgiving Holiday
 -- ----------  ------------------------------------  -------------------------  ---------------
 NA T Dec 11    - Final Exam: 10:30 AM
 == ==========  ====================================  =========================  ===============
+
+.. _Notes 01: https://objects-us-east-1.dream.io/eme134/lecture-notes/eme134-l01.pdf
+.. _Notes 02: https://objects-us-east-1.dream.io/eme134/lecture-notes/eme134-l02.pdf
+.. _Notes 03: https://objects-us-east-1.dream.io/eme134/lecture-notes/eme134-l03.pdf
