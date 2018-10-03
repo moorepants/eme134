@@ -16,7 +16,8 @@ changes.**
 02 F Sep 28    Elementary Vehicles                   - `Notes 02`_
 -- ----------  ------------------------------------  -------------------------  ---------------
 03 M Oct 01    Elementary Vehicles                   - `Notes 03`_
-04 W Oct 03    Rigid Body Motion                     Chapter 2
+04 W Oct 03    Rigid Body Motion                     - Chapter 2
+                                                     - `Notes 04`_
 05 F Oct 05    Stability                             Chapter 3                  HW 1
 NA             Lab 01: Videos
 -- ----------  ------------------------------------  -------------------------  ---------------
@@ -67,3 +68,4 @@ NA T Dec 11    - Final Exam: 10:30 AM
 .. _Notes 01: https://objects-us-east-1.dream.io/eme134/lecture-notes/eme134-l01.pdf
 .. _Notes 02: https://objects-us-east-1.dream.io/eme134/lecture-notes/eme134-l02.pdf
 .. _Notes 03: https://objects-us-east-1.dream.io/eme134/lecture-notes/eme134-l03.pdf
+.. _Notes 04: https://objects-us-east-1.dream.io/eme134/lecture-notes/eme134-l04.pdf
