@@ -84,11 +84,12 @@ Office Hours
 
 | Jason's Office Hours
 | Bainer 2095
-| Time TBA
+| Wednesday 3:10pm-4:00pm
+| Friday 1:10pm-2:00pm
 |
 | Ehsan's Office Hours
-| Location TBA
-| Time TBA
+| Bainer 2071
+| Thursdays 5:10pm-6:00pm
 
 If it is impossible to make office hours, schedule an appointment with Jason by
 checking his `work calendar`_ and select a free time between 8:00 AM and 6:30
