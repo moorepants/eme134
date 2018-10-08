@@ -21,8 +21,8 @@ changes.**
 05 F Oct 05    Rigid Body Motion                     - `Notes 05`_              HW 1
 NA             Lab 01: Videos
 -- ----------  ------------------------------------  -------------------------  ---------------
-06 M Oct 08    - Stability                           Chapter 3
-               - Trailer demo 4:10-5:00
+06 M Oct 08    - Stability                           - Chapter 3
+               - Trailer demo 4:10-5:00              - `Notes 06`_
 NA T Oct 07    Trailer demo 5:10-6:00                                           Lab 1
 07 W Oct 10    Pneumatic Tires                       Chapter 4
 08 F Oct 12    Trailers                              Chapter 5
@@ -70,8 +70,9 @@ NA T Dec 11    - Final Exam: 10:30 AM                                           
 
 .. [*] An * beside the homework indicates the due date for the second turn in.
 
-.. _Notes 01: https://objects-us-east-1.dream.io/eme134/lecture-notes/eme134-l01.pdf
-.. _Notes 02: https://objects-us-east-1.dream.io/eme134/lecture-notes/eme134-l02.pdf
-.. _Notes 03: https://objects-us-east-1.dream.io/eme134/lecture-notes/eme134-l03.pdf
-.. _Notes 04: https://objects-us-east-1.dream.io/eme134/lecture-notes/eme134-l04.pdf
-.. _Notes 05: https://objects-us-east-1.dream.io/eme134/lecture-notes/eme134-l05.pdf
+.. _Notes 01: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l01.pdf
+.. _Notes 02: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l02.pdf
+.. _Notes 03: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l03.pdf
+.. _Notes 04: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l04.pdf
+.. _Notes 05: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l05.pdf
+.. _Notes 06: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l06.pdf
