@@ -21,10 +21,12 @@ changes.**
 05 F Oct 05    Rigid Body Motion                     - `Notes 05`_              HW 1
 NA             Lab 01: Videos
 -- ----------  ------------------------------------  -------------------------  ---------------
-06 M Oct 08    Stability                             Chapter 3
-NA T Oct 07                                                                     Lab 1
+06 M Oct 08    - Stability                           Chapter 3
+               - Trailer demo 4:10-5:00
+NA T Oct 07    Trailer demo 5:10-6:00                                           Lab 1
 07 W Oct 10    Pneumatic Tires                       Chapter 4
-08 F Oct 12    Trailers                              Chapter 5                  HW 2
+08 F Oct 12    Trailers                              Chapter 5
+NA S Oct 13                                                                     HW 2
 NA             Lab 2: Trailer demo
 -- ----------  ------------------------------------  -------------------------  ---------------
 09 M Oct 15                                                                     HW 1\ [*]_
