@@ -26,7 +26,7 @@ NA             Lab 01: Videos
 NA T Oct 07    Trailer demo 5:10-6:00                                           Lab 1
 07 W Oct 10    Pneumatic Tires                       Chapter 4
 08 F Oct 12    Trailers                              Chapter 5
-NA S Oct 13                                                                     HW 2
+NA U Oct 14                                                                     HW 2
 NA             Lab 2: Trailer demo
 -- ----------  ------------------------------------  -------------------------  ---------------
 09 M Oct 15                                                                     HW 1\ [*]_
