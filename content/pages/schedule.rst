@@ -46,12 +46,11 @@ NA S Nov 03    Lab 4: Sprint Car Dirt Racing         `Stockton Track Website`_
 18 M Nov 05                                                                     HW 4*
 19 W Nov 07    Aircraft                              Chapter 9
 20 F Nov 09                                                                     HW 5
-NA             Lab 5: California Highway Patrol
 -- ----------  ------------------------------------  -------------------------  ---------------
 NA M Nov 12    Veterans Day
 21 W Nov 14
 22 F Nov 16    Aircraft                              Chapter 9                  HW 6
-NA             Lab 6: Flights
+NA             Lab 5: California Highway Patrol
 -- ----------  ------------------------------------  -------------------------  ---------------
 23 M Nov 19                                                                     HW 5*
 24 W Nov 21
@@ -60,6 +59,7 @@ NA F Nov 23    Thanksgiving Holiday
 25 M Nov 26    Electronic Stability Enhancement      Chapter 11                 HW 6*
 26 W Nov 28
 27 F Nov 30                                                                     HW 7
+NA             Lab 6: Flights
 -- ----------  ------------------------------------  -------------------------  ---------------
 28 M Dec 03    TBA
 29 W Dec 05
