@@ -24,12 +24,13 @@ NA             Lab 1: Vehicle Videos
 06 M Oct 08    - Stability                           - Chapter 3
                - Trailer demo 4:10-5:00              - `Notes 06`_
 NA T Oct 07    Trailer demo 5:10-6:00                                           Lab 1
-07 W Oct 10    Pneumatic Tires                       Chapter 4
-08 F Oct 12    Trailers                              Chapter 5
+07 W Oct 10    Stability                             - `Notes 07`_
+08 F Oct 12    Pneumatic Tires                       - Chapter 4
+                                                     - `Notes 08`_
 NA U Oct 14                                                                     HW 2
 NA             Lab 2: Trailer demo
 -- ----------  ------------------------------------  -------------------------  ---------------
-09 M Oct 15                                                                     HW 1\ [*]_
+09 M Oct 15    Trailers                              Chapter 5                  HW 1\ [*]_
 10 W Oct 17    Automobiles                           Chapter 6
 11 F Oct 19                                                                     HW 3
 -- ----------  ------------------------------------  -------------------------  ---------------
@@ -76,5 +77,7 @@ NA T Dec 11    Final Exam: 10:30 AM                                             
 .. _Notes 04: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l04.pdf
 .. _Notes 05: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l05.pdf
 .. _Notes 06: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l06.pdf
+.. _Notes 07: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l07.pdf
+.. _Notes 08: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l08.pdf
 
 .. _Stockton Track Website: http://www.stocktondirttrack.com/
