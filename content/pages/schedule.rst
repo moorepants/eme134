@@ -30,14 +30,14 @@ NA T Oct 07    Trailer demo 5:10-6:00                                           
 NA U Oct 14                                                                     HW 2
 NA             Lab 2: Trailer demo
 -- ----------  ------------------------------------  -------------------------  ---------------
-09 M Oct 15    Trailers                              Chapter 5                  HW 1\ [*]_
-10 W Oct 17    Automobiles                           Chapter 6
-11 F Oct 19                                                                     HW 3
+09 M Oct 15    Tires/Trailers                        - Chapter 5                HW 1\ [*]_
+                                                     - `Notes 09`_
+10 W Oct 17    Pnuematic Tires                       - `Notes 10`_
+11 F Oct 19    Trailers                                                         HW 3
 -- ----------  ------------------------------------  -------------------------  ---------------
-12 M Oct 22                                                                     HW 2*
-13 W Oct 24    Automobiles                           Chapter 6
+12 M Oct 22    Automobiles                           Chapter 6                  HW 2*
+13 W Oct 24
 14 F Oct 26                                                                     HW 4
-NA             Lab 3: Bicycles
 -- ----------  ------------------------------------  -------------------------  ---------------
 15 M Oct 29                                                                     HW 3*
 16 W Oct 31    Tilting Vehicles                      Chapter 7
@@ -47,6 +47,7 @@ NA S Nov 03    Lab 4: Sprint Car Dirt Racing         `Stockton Track Website`_
 18 M Nov 05                                                                     HW 4*
 19 W Nov 07    Aircraft                              Chapter 9
 20 F Nov 09                                                                     HW 5
+NA             Lab 3: Bicycles
 -- ----------  ------------------------------------  -------------------------  ---------------
 NA M Nov 12    Veterans Day
 21 W Nov 14
@@ -79,5 +80,7 @@ NA T Dec 11    Final Exam: 10:30 AM                                             
 .. _Notes 06: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l06.pdf
 .. _Notes 07: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l07.pdf
 .. _Notes 08: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l08.pdf
+.. _Notes 09: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l09.pdf
+.. _Notes 10: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l10.pdf
 
 .. _Stockton Track Website: http://www.stocktondirttrack.com/
