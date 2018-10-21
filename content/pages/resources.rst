@@ -4,6 +4,12 @@
 Videos
 ======
 
+Course video lectures
+---------------------
+
+- Physical Explanation of Complex Eigenvalues [16:30]: https://youtu.be/ReffvHejFnU
+- Pneumatic Tire Dynamics [1:29:26]: https://youtu.be/LxGyuFP16Ng
+
 Trains
 ------
 
