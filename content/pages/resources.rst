@@ -4,6 +4,8 @@
 Videos
 ======
 
+EME 134 Public Youtube Playlist: https://www.youtube.com/watch?v=4jk9H5AB4lM&list=PLK0jeQYhBx8Pv_xLPpvDgckeQv1dODZ_i
+
 Course video lectures
 ---------------------
 
