@@ -25,6 +25,7 @@ NA             Lab 1: Vehicle Videos
                - Trailer demo 4:10-5:00              - `Notes 06`_
 NA T Oct 07    Trailer demo 5:10-6:00                                           Lab 1
 07 W Oct 10    Stability                             - `Notes 07`_
+                                                     - `Video 07`_
 08 F Oct 12    Pneumatic Tires                       - Chapter 4
                                                      - `Notes 08`_
 NA U Oct 14                                                                     HW 2
@@ -34,37 +35,37 @@ NA             Lab 2: Trailer demo
                                                      - `Notes 09`_
 10 W Oct 17    Pnuematic Tires                       - `Notes 10`_
 11 F Oct 19    Trailers                              - `Notes 11`_
-NA U Oct 21                                                                     HW 3
+                                                     - `Video 11`_
 -- ----------  ------------------------------------  -------------------------  ---------------
-12 M Oct 22    Automobiles                           Chapter 6                  HW 2*
-13 W Oct 24
-14 F Oct 26                                                                     HW 4
+12 M Oct 22    Trailers                              - `Notes 12`_              HW 2*, HW 3
+13 W Oct 24    Trailers
+14 F Oct 26    Automobiles                           Chapter 6                  HW 4
 -- ----------  ------------------------------------  -------------------------  ---------------
-15 M Oct 29                                                                     HW 3*
-16 W Oct 31    Tilting Vehicles                      Chapter 7
-17 F Nov 02                                                                     Midterm
+15 M Oct 29    Automobiles                           Chapter 6                  HW 3*
+16 W Oct 31    Automobiles                           Chapter 6
+17 F Nov 02    Automobiles                           Chapter 6                  Midterm
 NA S Nov 03    Lab 4: Sprint Car Dirt Racing         `Stockton Track Website`_
 -- ----------  ------------------------------------  -------------------------  ---------------
-18 M Nov 05                                                                     HW 4*
-19 W Nov 07    Aircraft                              Chapter 9
-20 F Nov 09                                                                     HW 5
+18 M Nov 05    Automobiles                           Chapter 6                  HW 4*
+19 W Nov 07    Automobiles                           Chapter 6
+20 F Nov 09    Tilting Vehicles                      Chapter 7                  HW 5
 NA             Lab 3: Bicycles
 -- ----------  ------------------------------------  -------------------------  ---------------
 NA M Nov 12    Veterans Day
-21 W Nov 14
-22 F Nov 16    Aircraft                              Chapter 9                  HW 6
+21 W Nov 14    Tilting Vehicles                      Chapter 7
+22 F Nov 16    Tilting Vehicles                      Chapter 7                  HW 6
 NA             Lab 5: California Highway Patrol
 -- ----------  ------------------------------------  -------------------------  ---------------
-23 M Nov 19                                                                     HW 5*
+23 M Nov 19    Aircraft                              Chapter 9                  HW 5*
 24 W Nov 21
 NA F Nov 23    Thanksgiving Holiday
 -- ----------  ------------------------------------  -------------------------  ---------------
-25 M Nov 26    Electronic Stability Enhancement      Chapter 11                 HW 6*
+25 M Nov 26    Aircraft                              Chapter 9                  HW 6*
 26 W Nov 28
 27 F Nov 30                                                                     HW 7
 NA             Lab 6: Flights
 -- ----------  ------------------------------------  -------------------------  ---------------
-28 M Dec 03    TBA
+28 M Dec 03    Electronic Stability Enhancement      Chapter 11
 29 W Dec 05
 30 F Dec 07                                                                     HW 8
 -- ----------  ------------------------------------  -------------------------  ---------------
@@ -84,5 +85,9 @@ NA T Dec 11    Final Exam: 10:30 AM                                             
 .. _Notes 09: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l09.pdf
 .. _Notes 10: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l10.pdf
 .. _Notes 11: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l11.pdf
+.. _Notes 12: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l12.pdf
+
+.. _Video 07: https://youtu.be/ReffvHejFnU
+.. _Video 11: https://youtu.be/LxGyuFP16Ng
 
 .. _Stockton Track Website: http://www.stocktondirttrack.com/
