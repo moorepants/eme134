@@ -38,10 +38,11 @@ NA             Lab 2: Trailer demo
                                                      - `Video 11`_
 -- ----------  ------------------------------------  -------------------------  ---------------
 12 M Oct 22    Trailers                              - `Notes 12`_              HW 2*, HW 3
-13 W Oct 24    Trailers
-14 F Oct 26    Automobiles                           Chapter 6                  HW 4
+NA T Oct 23    Feedback response video               - `Notes v03`_
+13 W Oct 24    Trailers                              - `Notes 13`_
+14 F Oct 26    Trailers
 -- ----------  ------------------------------------  -------------------------  ---------------
-15 M Oct 29    Automobiles                           Chapter 6                  HW 3*
+15 M Oct 29    Automobiles                           Chapter 6                  HW 3*, HW 4
 16 W Oct 31    Automobiles                           Chapter 6
 17 F Nov 02    Automobiles                           Chapter 6                  Midterm
 NA S Nov 03    Lab 4: Sprint Car Dirt Racing         `Stockton Track Website`_
@@ -86,6 +87,9 @@ NA T Dec 11    Final Exam: 10:30 AM                                             
 .. _Notes 10: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l10.pdf
 .. _Notes 11: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l11.pdf
 .. _Notes 12: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l12.pdf
+.. _Notes 13: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l13.pdf
+
+.. _Notes v03: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-v03.pdf
 
 .. _Video 07: https://youtu.be/ReffvHejFnU
 .. _Video 11: https://youtu.be/LxGyuFP16Ng
