@@ -42,12 +42,12 @@ NA T Oct 23    Feedback response video               - `Notes v03`_
 13 W Oct 24    Trailers                              - `Notes 13`_
 14 F Oct 26    Trailers
 -- ----------  ------------------------------------  -------------------------  ---------------
-15 M Oct 29    Automobiles                           Chapter 6                  HW 3*, HW 4
+15 M Oct 29    Automobiles                           Chapter 6                  HW 4
 16 W Oct 31    Automobiles                           Chapter 6
 17 F Nov 02    Automobiles                           Chapter 6                  Midterm
 NA S Nov 03    Lab 4: Sprint Car Dirt Racing         `Stockton Track Website`_
 -- ----------  ------------------------------------  -------------------------  ---------------
-18 M Nov 05    Automobiles                           Chapter 6                  HW 4*
+18 M Nov 05    Automobiles                           Chapter 6                  HW 3*, HW 4*
 19 W Nov 07    Automobiles                           Chapter 6
 20 F Nov 09    Tilting Vehicles                      Chapter 7                  HW 5
 NA             Lab 3: Bicycles
