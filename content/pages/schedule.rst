@@ -44,15 +44,16 @@ NA T Oct 23    Feedback response video               - `Notes v03`_
 -- ----------  ------------------------------------  -------------------------  ---------------
 15 M Oct 29    Automobiles                           - Chapter 6                HW 4
                                                      - `Notes 15`_
-16 W Oct 31    Automobiles                           - Chapter 6
+16 W Oct 31    Automobiles                           - Chapter 6.1
                                                      - `Notes 16`_
-17 F Nov 02    Automobiles                           - Chapter 6                Midterm
+17 F Nov 02    Automobiles                           - Chapter 6.1                Midterm
                                                      - `Notes 17`_
 NA S Nov 03    Lab 4: Sprint Car Dirt Racing         `Stockton Track Website`_
 -- ----------  ------------------------------------  -------------------------  ---------------
-18 M Nov 05    Automobiles                           Chapter 6                  HW 3*
+18 M Nov 05    Automobiles                           - Chapter 6.2-6.3          HW 3*
+                                                     - `Notes 18`_
 19 W Nov 07    Automobiles                           Chapter 6
-20 F Nov 09    Tilting Vehicles                      Chapter 7                  HW 5
+20 F Nov 09    Automobiles                                                      HW 5
 NA             Lab 3: Bicycles
 -- ----------  ------------------------------------  -------------------------  ---------------
 NA M Nov 12    Veterans Day                                                     HW 4*
@@ -96,6 +97,7 @@ NA T Dec 11    Final Exam: 10:30 AM                                             
 .. _Notes 15: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l15.pdf
 .. _Notes 16: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l16.pdf
 .. _Notes 17: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l17.pdf
+.. _Notes 18: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l18.pdf
 
 .. _Notes v03: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-v03.pdf
 
