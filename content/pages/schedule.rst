@@ -52,22 +52,25 @@ NA S Nov 03    Lab 4: Sprint Car Dirt Racing         `Stockton Track Website`_
 -- ----------  ------------------------------------  -------------------------  ---------------
 18 M Nov 05    Automobiles                           - Chapter 6.2-6.3          HW 3*
                                                      - `Notes 18`_
-19 W Nov 07    Automobiles                           Chapter 6
-20 F Nov 09    Automobiles                                                      HW 5
-NA             Lab 3: Bicycles
+19 W Nov 07    Automobiles                           - Chapter 6
+                                                     - `Notes 19`_
+NA R Nov 08    Lab 3: Bicycles (5:00 PM)
+20 F Nov 09    - Automobiles                         - `Notes 20`_
+               - Lab 3: Bicycles (1:10 PM)
 -- ----------  ------------------------------------  -------------------------  ---------------
 NA M Nov 12    Veterans Day                                                     HW 4*
+NA T Nov 13                                                                     HW 5
 21 W Nov 14    Tilting Vehicles                      Chapter 7
+NA R Nov 15    Lab 5: California Highway Patrol
 22 F Nov 16    Tilting Vehicles                      Chapter 7                  HW 6
-NA             Lab 5: California Highway Patrol
 -- ----------  ------------------------------------  -------------------------  ---------------
-23 M Nov 19    Aircraft                              Chapter 9                  HW 5*
-24 W Nov 21
+23 M Nov 19    Tilting Vehicles                                                 HW 5*
+24 W Nov 21    Aircraft                              Chapter 9
 NA F Nov 23    Thanksgiving Holiday
 -- ----------  ------------------------------------  -------------------------  ---------------
 25 M Nov 26    Aircraft                              Chapter 9                  HW 6*
-26 W Nov 28
-27 F Nov 30                                                                     HW 7
+26 W Nov 28    Aircraft                              Chapter 9
+27 F Nov 30    Aircraft                              Chapter 9                  HW 7
 NA             Lab 6: Flights
 -- ----------  ------------------------------------  -------------------------  ---------------
 28 M Dec 03    Electronic Stability Enhancement      Chapter 11
@@ -98,6 +101,8 @@ NA T Dec 11    Final Exam: 10:30 AM                                             
 .. _Notes 16: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l16.pdf
 .. _Notes 17: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l17.pdf
 .. _Notes 18: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l18.pdf
+.. _Notes 19: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l19.pdf
+.. _Notes 20: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l20.pdf
 
 .. _Notes v03: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-v03.pdf
 
