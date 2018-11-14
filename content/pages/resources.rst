@@ -44,3 +44,40 @@ Trailers
 - Model of car + trailer [2:33]: https://youtu.be/PFzrWHTG5e8
 - Model with electronic stability system [2:46]: https://youtu.be/WJUuzifvDYQ
 - Simulation of trailers with and with stability system [0:14]: https://youtu.be/qWEHGlDqdcs
+
+Automobiles
+-----------
+
+- View of winged sprint car front wheel on oval track [2:20]: https://youtu.be/PfdNnyMuEMw
+
+
+Bicycles & Motorcycles
+----------------------
+
+Stability
+^^^^^^^^^
+
+- Bicycles rolling backwards are unstable [0:11]: https://youtu.be/VVrU_PFGAH8
+- Bicycle wheel and bicycle stability [1:13]: https://youtu.be/-Bw0BlzOg5M
+- Focused view of bicycle roll stability [0:10]: https://youtu.be/l15ChqNMaRw
+- Bicycle toy with gyroscope coupled to steering [2:01]: https://youtu.be/OoZHE90rIgI
+- Bicycle with an additional front wheel flywheel [0:09]: https://youtu.be/JSNBHvLPmDs
+- Children's bicycle with the "gyrowheel" [1:37]: https://youtu.be/YmtPNIu4WI0
+- Bicycle with no gyro and no trail [7:38]: https://youtu.be/84Wczsi4vHg
+- More info on bicycle with no gyro and no trail [2:38]: https://youtu.be/YdtE3aIUhbU
+
+Countersteering
+^^^^^^^^^^^^^^^
+
+- Bicyclist utilizing countersteering to turn right [0:07]: https://youtu.be/OdgIvq27hS4
+- Simulation of countersteering (Whipple/Carvallo model) [0:05]: https://youtu.be/QDHPBDlZbOs
+- Motorcycle countersteering explanation [8:19]: https://youtu.be/ljywO-B_yew
+- Motorcycle crash due to steering away from obstacle [3:10]: https://youtu.be/VVE79XT8-Mg
+- Bricycle: "The Zero Gravity Bicycle" [3:00]: https://youtu.be/rNQdSfgJDNM
+
+Wobble/Shimmy
+^^^^^^^^^^^^^
+
+- Bicycle speed wobble [0:57]: https://youtu.be/VfngbsIUSj8?t=26
+- Dunlop Motorcycle Wobble and Weave [10:12]: https://youtu.be/z3OQTU-kE2s
+- Motorcycle wobble and crash [0:16]: https://youtu.be/54fTFm5Dc-I
