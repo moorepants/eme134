@@ -60,25 +60,26 @@ NA R Nov 08    Lab 3: Bicycles (5:00 PM)
 -- ----------  ------------------------------------  -------------------------  ---------------
 NA M Nov 12    Veterans Day                                                     HW 4*
 NA T Nov 13                                                                     HW 5
-21 W Nov 14    Tilting Vehicles                      Chapter 7
+21 W Nov 14    Classes canceled
 NA R Nov 15    Lab 5: California Highway Patrol
-22 F Nov 16    Tilting Vehicles                      Chapter 7                  HW 6
+22 F Nov 16    Classes canceled
 -- ----------  ------------------------------------  -------------------------  ---------------
-23 M Nov 19    Tilting Vehicles                                                 HW 5*
-24 W Nov 21    Aircraft                              Chapter 9
+23 M Nov 19    Classes canceled
+24 W Nov 21    Classes canceled
 NA F Nov 23    Thanksgiving Holiday
 -- ----------  ------------------------------------  -------------------------  ---------------
-25 M Nov 26    Aircraft                              Chapter 9                  HW 6*
-26 W Nov 28    Aircraft                              Chapter 9
-27 F Nov 30    Aircraft                              Chapter 9                  HW 7
+25 M Nov 26    Tilting Vehicles                      Chapter 7                  HW 5*
+26 W Nov 28    Tilting Vehicles                      Chapter 7
+27 F Nov 30    Aircraft                              Chapter 9
 NA             Lab 6: Flights
 -- ----------  ------------------------------------  -------------------------  ---------------
-28 M Dec 03    Electronic Stability Enhancement      Chapter 11
-29 W Dec 05
-30 F Dec 07                                                                     HW 8
+28 M Dec 03    Aircraft                              Chapter 9                  HW 6
+29 W Dec 05    Aircraft                              Chapter 9
+30 F Dec 07    Aircraft                              Chapter 9
 NA             Lab 7: Computer Aided Tools
 -- ----------  ------------------------------------  -------------------------  ---------------
-NA T Dec 11    Final Exam: 10:30 AM                                             HW 7*
+NA U Dec 09                                                                     HW 7
+NA T Dec 11    Final Exam: 10:30 AM
 == ==========  ====================================  =========================  ===============
 
 .. [*] An * beside the homework indicates the due date for the second turn in.
