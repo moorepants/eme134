@@ -125,7 +125,7 @@ NA T Dec 11    Final Exam: 10:30 AM
 .. _Video 11: https://youtu.be/LxGyuFP16Ng
 .. _Video 27-01: https://youtu.be/OiITCEXylGo
 .. _Video 27-02: https://youtu.be/BOQYFepRtZY
-.. _Video 27-03:
-.. _Video 27-04:
+.. _Video 27-03: https://youtu.be/oB8qNVA9JGk
+.. _Video 27-04: https://youtu.be/qRi_XxXXEt8
 
 .. _Stockton Track Website: http://www.stocktondirttrack.com/
