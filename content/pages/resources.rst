@@ -12,6 +12,10 @@ Course video lectures
 - Physical Explanation of Complex Eigenvalues [16:30]: https://youtu.be/ReffvHejFnU
 - Pneumatic Tire Dynamics [1:29:26]: https://youtu.be/LxGyuFP16Ng
 - Response to feedback from weeks 1-4 [47:16]: https://youtu.be/o2e6gYowqk4
+- L27-01 Final Bicycle Equations of Motion: https://youtu.be/OiITCEXylGo
+- L27-02 Conclusions About Bicycle Equations of Motion: https://youtu.be/BOQYFepRtZY
+- L27-03 Bicycle Steer/Roll Transfer Function:
+- L27-04 Bicycle Negative Feedback Control
 
 Trains
 ------

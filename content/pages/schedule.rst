@@ -68,9 +68,18 @@ NA R Nov 15    Lab 5: California Highway Patrol
 24 W Nov 21    Classes canceled
 NA F Nov 23    Thanksgiving Holiday
 -- ----------  ------------------------------------  -------------------------  ---------------
-25 M Nov 26    Tilting Vehicles                      Chapter 7                  HW 5*
-26 W Nov 28    Tilting Vehicles                      Chapter 7
-27 F Nov 30    Aircraft                              Chapter 9
+25 M Nov 26    Tilting Vehicles                      - Chapter 7                  HW 5*
+                                                     - `Notes 25`_
+26 W Nov 28    Tilting Vehicles                      -Chapter 7
+                                                     - `Notes 26`_
+27 F Nov 30    Tilting Vehicles                      - Chapter 7
+                                                     - `Notes 27-01-02`_
+                                                     - `Video 27-01`_
+                                                     - `Video 27-02`_
+                                                     - `Notes 27-03`_
+                                                     - `Video 27-03`_
+                                                     - `Notes 27-04`_
+                                                     - `Video 27-04`_
 NA             Lab 6: Flights
 -- ----------  ------------------------------------  -------------------------  ---------------
 28 M Dec 03    Aircraft                              Chapter 9                  HW 6
@@ -104,10 +113,19 @@ NA T Dec 11    Final Exam: 10:30 AM
 .. _Notes 18: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l18.pdf
 .. _Notes 19: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l19.pdf
 .. _Notes 20: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l20.pdf
+.. _Notes 25: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l25.pdf
+.. _Notes 26: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l26.pdf
+.. _Notes 27-01-02: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l27-01-02.pdf
+.. _Notes 27-03: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l27-03.pdf
+.. _Notes 27-04: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l27-04.pdf
 
 .. _Notes v03: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-v03.pdf
 
 .. _Video 07: https://youtu.be/ReffvHejFnU
 .. _Video 11: https://youtu.be/LxGyuFP16Ng
+.. _Video 27-01: https://youtu.be/OiITCEXylGo
+.. _Video 27-02: https://youtu.be/BOQYFepRtZY
+.. _Video 27-03:
+.. _Video 27-04:
 
 .. _Stockton Track Website: http://www.stocktondirttrack.com/
