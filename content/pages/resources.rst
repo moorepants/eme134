@@ -85,3 +85,9 @@ Wobble/Shimmy
 - Bicycle speed wobble [0:57]: https://youtu.be/VfngbsIUSj8?t=26
 - Dunlop Motorcycle Wobble and Weave [10:12]: https://youtu.be/z3OQTU-kE2s
 - Motorcycle wobble and crash [0:16]: https://youtu.be/54fTFm5Dc-I
+
+Jupyter Notebooks
+=================
+
+- Symbolic Derivation of an Automobile's Lateral Dynamics Equations of Motion: http://nbviewer.jupyter.org/gist/moorepants/987a835e10106cbe54bb09c9b0843b2e
+- Numerical Simulation of an Automobile's Lateral Dynamics: http://nbviewer.jupyter.org/gist/moorepants/7623f22bf1ab317cfc857c1ff456d720/auto_lateral_dynamics_numeric.ipynb
