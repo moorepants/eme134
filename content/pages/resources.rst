@@ -89,5 +89,5 @@ Wobble/Shimmy
 Jupyter Notebooks
 =================
 
-- Symbolic Derivation of an Automobile's Lateral Dynamics Equations of Motion: http://nbviewer.jupyter.org/gist/moorepants/987a835e10106cbe54bb09c9b0843b2e
+- Symbolic Derivation of an Automobile's Lateral Dynamics Equations of Motion: http://nbviewer.jupyter.org/gist/moorepants/987a835e10106cbe54bb09c9b0843b2e/auto_lateral_dynamics_symbolic.ipynb
 - Numerical Simulation of an Automobile's Lateral Dynamics: http://nbviewer.jupyter.org/gist/moorepants/7623f22bf1ab317cfc857c1ff456d720/auto_lateral_dynamics_numeric.ipynb
