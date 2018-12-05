@@ -70,7 +70,7 @@ NA F Nov 23    Thanksgiving Holiday
 -- ----------  ------------------------------------  -------------------------  ---------------
 25 M Nov 26    Tilting Vehicles                      - Chapter 7                  HW 5*
                                                      - `Notes 25`_
-26 W Nov 28    Tilting Vehicles                      -Chapter 7
+26 W Nov 28    Tilting Vehicles                      - Chapter 7
                                                      - `Notes 26`_
 27 F Nov 30    Tilting Vehicles                      - Chapter 7
                                                      - `Notes 27-01-02`_
@@ -84,9 +84,11 @@ NA             Lab 6: Flights
 -- ----------  ------------------------------------  -------------------------  ---------------
 28 M Dec 03    Aircraft                              - Chapter 9                HW 6
                                                      - `Notes 28`_
-29 W Dec 05    Aircraft                              Chapter 9
-30 F Dec 07    Aircraft                              Chapter 9
-NA             Lab 7: Computer Aided Tools
+NA T Dec 06    Lab 7: Computer Aided Tools
+29 W Dec 05    Aircraft                              - Chapter 9
+                                                     - `Notes 29`_
+30 F Dec 07    Aircraft                              - Chapter 9
+NA F Dec 07    Lab 7: Computer Aided Tools
 -- ----------  ------------------------------------  -------------------------  ---------------
 NA U Dec 09                                                                     HW6*, HW 7
 NA T Dec 11    Final Exam: 10:30 AM
@@ -120,6 +122,7 @@ NA T Dec 11    Final Exam: 10:30 AM
 .. _Notes 27-03: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l27-03.pdf
 .. _Notes 27-04: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l27-04.pdf
 .. _Notes 28: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l28.pdf
+.. _Notes 29: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l29.pdf
 
 .. _Notes v03: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-v03.pdf
 
