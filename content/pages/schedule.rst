@@ -82,12 +82,13 @@ NA F Nov 23    Thanksgiving Holiday
                                                      - `Video 27-04`_
 NA             Lab 6: Flights
 -- ----------  ------------------------------------  -------------------------  ---------------
-28 M Dec 03    Aircraft                              Chapter 9                  HW 6
+28 M Dec 03    Aircraft                              - Chapter 9                HW 6
+                                                     - `Notes 28`_
 29 W Dec 05    Aircraft                              Chapter 9
 30 F Dec 07    Aircraft                              Chapter 9
 NA             Lab 7: Computer Aided Tools
 -- ----------  ------------------------------------  -------------------------  ---------------
-NA U Dec 09                                                                     HW 7
+NA U Dec 09                                                                     HW6*, HW 7
 NA T Dec 11    Final Exam: 10:30 AM
 == ==========  ====================================  =========================  ===============
 
@@ -118,6 +119,7 @@ NA T Dec 11    Final Exam: 10:30 AM
 .. _Notes 27-01-02: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l27-01-02.pdf
 .. _Notes 27-03: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l27-03.pdf
 .. _Notes 27-04: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l27-04.pdf
+.. _Notes 28: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l28.pdf
 
 .. _Notes v03: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-v03.pdf
 
