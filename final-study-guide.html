@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Final Study Guide</title>
+        <link rel="stylesheet" href="https://moorepants.github.io/eme134/theme/css/main.css" />
+        <link rel="stylesheet" href="https://moorepants.github.io/eme134/theme/css/custom.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <script type="text/javascript"
+          src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://moorepants.github.io/eme134/">EME 134: Vehicle Stability </a></h1>
+                <nav><ul>
+                    <li><a href="https://moorepants.github.io/eme134/">Syllabus</a></li>
+                    <li><a href="https://moorepants.github.io/eme134/schedule.html">Schedule</a></li>
+                    <li><a href="https://moorepants.github.io/eme134/resources.html">Resources</a></li>
+                    <li class="active"><a href="https://moorepants.github.io/eme134/final-study-guide.html">Final Study Guide</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+    <h1 class="entry-title">Final Study Guide</h1>
+    
+    <div class="section" id="chapter-by-chapter-big-picture-ideas">
+<h2>Chapter by Chapter Big Picture Ideas</h2>
+<ol class="arabic simple">
+<li>Introduction: Elementary Vehicles<ol class="arabic">
+<li>Stability of tapered wheelset</li>
+<li>Stability of shopping cart</li>
+<li>Physical parameters affect stability and motion (period, damping, etc)</li>
+</ol>
+</li>
+<li>Rigid Body Motion<ol class="arabic">
+<li>Why are body fixed coordinate systems are useful for vehicle equations of motion?</li>
+<li>What is the standard notation for body fixed coordinates?</li>
+<li>What do Newton and Euler’s equations look like in body fixed notation for 3D rigid body?</li>
+<li>What do the Newton/Euler body fixed equations reduce to for planar motion and simplified inertia.</li>
+</ol>
+</li>
+<li>Stability of Motion<ol class="arabic">
+<li>What is the difference between static stability and dynamic stability?</li>
+<li>What is the general solution to a set of coupled ordinary linear differential equations?</li>
+<li>What are the eigenvalues and how to they govern the motion of linear systems?</li>
+<li>Routh’s stability criterion allows you to determine dynamic stability/instability without finding eigenvalues. How do you apply it?</li>
+</ol>
+</li>
+<li>Pneumatic Tires<ol class="arabic">
+<li>What is the difference in slip and slide/skid for a tire?</li>
+<li>What does no-slip mean?</li>
+<li>What is the characteristic non-linear relationship between lateral force generation and slip angle?</li>
+<li>What is a lateral cornering coefficient?</li>
+<li>How does accelerating and braking affect lateral force generation?</li>
+</ol>
+</li>
+<li>Stability of Trailers<ol class="arabic">
+<li>How complex of a model do you need to explain observable phenomena? For trailer: 1 Dof? 2 Dof? 3 Dof?</li>
+<li>Calculation of slip angles.</li>
+<li>What are Lagrange’s equations and how do you formulate them?</li>
+<li>Analyzing a model’s characteristic equation for stability?</li>
+<li>What is a critical speed? How do you find it?</li>
+</ol>
+</li>
+<li>Automobiles<ol class="arabic">
+<li>Body fixed vs inertial coordinates: why does body fixed give you a reduced (in complexity) model?</li>
+<li>What is a transfer function and what does it tell us? Look at steady state (s=0) or step response (S goes to infinity). What are steady state gains?</li>
+<li>What do right half plane zeros cause?</li>
+<li>What does under, over, and neutral steer mean? What are consequences for cars that are over, under, or neutral?</li>
+<li>What does over, under, neutral mean for steady turning?</li>
+</ol>
+</li>
+<li>Two-wheel and Tilting Vehicles<ol class="arabic">
+<li>Derivation of 3D model: how to handle velocity and angular velocity vectors.</li>
+<li>What is a proportional controller?</li>
+<li>How to create a closed loop transfer function and analyze for stability.</li>
+<li>Facts from videos:<ol class="arabic">
+<li>Is a bicycle stable? What causes stability/instability? What is essential for stability?</li>
+<li>What is countersteering?</li>
+<li>What is the difference in the bicycle model of the car and the bicycle model?</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>NA</li>
+<li>Aerodynamics and the Stability of Aircraft<ol class="arabic">
+<li>How do forces and moments act on an airfoil with change in angle of attack?</li>
+<li>What is the aerodynamic center? What is the moment about the aerodynamic center?</li>
+<li>How to determine the trim state of an aircraft?</li>
+<li>How to determine if an aircraft is statically stable?</li>
+<li>Calculating the phugoid period.</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="learning-objectives">
+<h2>Learning Objectives</h2>
+<p>After completing the course students will be able to:</p>
+<dl class="docutils">
+<dt>create simple mathematical models of a variety of vehicles</dt>
+<dd><ul class="first last simple">
+<li>able to draw a free body diagram</li>
+<li>abe to utilize body fixed coordinate systems</li>
+<li>able to general 3D EoMs for single rigid body</li>
+<li>able to draw a velocity diagram</li>
+<li>able to determine important velocities</li>
+<li>able to determine important inertia terms</li>
+<li>able to formulate equations of motion with the Newton-Euler method</li>
+<li>able to formulate equations of motion with the Lagrange method</li>
+<li>able to write equations of motion in transfer function form</li>
+<li>able to identify type of linear ODE: m/k, m/c/k, overdamped/underdamped/critically damped</li>
+</ul>
+</dd>
+<dt>identify when vehicles are stable/unstable</dt>
+<dd><ul class="first last simple">
+<li>able to write the characteristic equation for a dynamic system</li>
+<li>able to apply Routh’s criteria to determine if a system is stable or unstable</li>
+<li>able to calculate the eigenvalues of a dynamic system</li>
+<li>able to determine vehicle critical speeds</li>
+<li>able to identify parameters that affect stability</li>
+<li>able to simplify and assess the linear equations of motion for important parameters</li>
+<li>able to draw and interpret a root locus</li>
+</ul>
+</dd>
+<dt>understand typical modes of motion for various vehicles</dt>
+<dd><ul class="first last simple">
+<li>tire force behavior</li>
+<li>able to interpret tire force data</li>
+<li>able to calculate the lateral slip angle</li>
+<li>able to interpret and explain under/over/neutral-steer in an automobile straight running</li>
+<li>able to interpret and explain under/over/neutral-steer in an automobile cornering</li>
+<li>able to balance forces with respect to airfoil angle of attack, trim, and aerodynamic center</li>
+<li>able to differentiate between static and dynamic stability of an aircraft</li>
+<li>able to utilize lift, drag, and moment coefficients in an aircraft static force balance</li>
+</ul>
+</dd>
+<dt>apply simple automatic control to stabilize vehicles</dt>
+<dd><ul class="first last simple">
+<li>formulate a closed loop transfer function</li>
+<li>evaluate proportional control stability</li>
+</ul>
+</dd>
+</dl>
+</div>
+
+</section>
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+          <address id="about" class="vcard body">
+            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
+            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+              <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+            </a>
+            <br />
+            This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+            </p>
+            Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+            <p>The source for the website is <a href="http://github.com/moorepants/eme134">hosted on Github</a>. Report issues
+              and make contributions there.</p>
+          </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-15966419-8', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</body>
+</html>
