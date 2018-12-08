@@ -88,6 +88,7 @@ NA T Dec 06    Lab 7: Computer Aided Tools
 29 W Dec 05    Aircraft                              - Chapter 9
                                                      - `Notes 29`_
 30 F Dec 07    Aircraft                              - Chapter 9
+                                                     - `Notes 30`_
 NA F Dec 07    Lab 7: Computer Aided Tools
 -- ----------  ------------------------------------  -------------------------  ---------------
 NA U Dec 09                                                                     HW6*, HW 7
@@ -123,6 +124,7 @@ NA T Dec 11    Final Exam: 10:30 AM
 .. _Notes 27-04: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l27-04.pdf
 .. _Notes 28: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l28.pdf
 .. _Notes 29: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l29.pdf
+.. _Notes 30: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l30.pdf
 
 .. _Notes v03: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-v03.pdf
 
