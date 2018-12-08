@@ -89,5 +89,19 @@ Wobble/Shimmy
 Jupyter Notebooks
 =================
 
+How to run the notebooks (3 options):
+
+- Go to the following notebook links and click the "Execute on Binder" button
+  in the top right hand corner of the screen. This will take a minute or two
+  but you will be able run the notebooks in a temporary Jupyter environment.
+- Download the notebook by right clicking on the "Download Notebook" link in
+  the upper right hand corner. Go to bicycle.ucdavis.edu, log in, and upload
+  the notebook to your home page. Then you can click it to open and execute it.
+- Download the notebook by right clicking on the "Download Notebook" link in
+  the upper right hand corner. Download and install Anaconda:
+  https://www.anaconda.com/download. Then you will need to install "resonance",
+  see: https://anaconda.org/conda-forge/resonance. Finally, open the notebook
+  with Jupyter and execute on your own computer.
+
 - Symbolic Derivation of an Automobile's Lateral Dynamics Equations of Motion: http://nbviewer.jupyter.org/gist/moorepants/987a835e10106cbe54bb09c9b0843b2e/auto_lateral_dynamics_symbolic.ipynb
 - Numerical Simulation of an Automobile's Lateral Dynamics: http://nbviewer.jupyter.org/gist/moorepants/7623f22bf1ab317cfc857c1ff456d720/auto_lateral_dynamics_numeric.ipynb
