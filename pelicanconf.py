@@ -4,18 +4,18 @@ from __future__ import unicode_literals
 
 import yaml
 
-AUTHOR = 'Jason K. Moore'
-SITENAME = 'EME 134: Vehicle Stability'
-SITEURL = ''
-SOURCEURL = 'http://github.com/moorepants/eme134'
-
 COURSE_TITLE = 'Vehicle Stability'
 COURSE_CODE = 'EME 134'
-COURSE_CRN = 43393
-COURSE_YEAR = 2018
-COURSE_QUARTER = 'Fall'
-COURSE_LOCATION = 'Olson 250'
-COURSE_TIME = 'MWF 11:00-11:50 AM'
+COURSE_CRN = 63533
+COURSE_YEAR = 2020
+COURSE_QUARTER = 'Spring'
+COURSE_LOCATION = 'Olson 147'
+COURSE_TIME = 'MWF 11:00-11:50 AM, F 12:10-3:00 PM'
+
+AUTHOR = 'Jason K. Moore'
+SITENAME = '{}: {}'.format(COURSE_CODE, COURSE_TITLE)
+SITEURL = ''
+SOURCEURL = 'http://github.com/moorepants/eme134'
 
 PATH = 'content'
 
