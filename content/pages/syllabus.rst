@@ -9,8 +9,8 @@ Course Description
 | University of California, Davis
 | Department of Mechanical and Aerospace Engineering
 | Vehicle Stability - EME 134
-| 2018 Fall, Lecture: MWF 11:00-11:50 AM in Olson 250
-| CRN: 43393
+| 2020 Spring, Lecture: MWF 11:00-11:50 AM, Lab: F 12:10-3:00 PM
+| CRN: 63533
 
 The world contains a variety of vehicles that transport people and goods for
 commerce, recreation, and exploration. Vehicles are designed to move through
@@ -63,17 +63,17 @@ Instructors
 
 | Jason K. Moore
 | 2095 Bainer Hall
-| 530-752-4805
+| 530-601-9791
 | jkm@ucdavis.edu
 |
-| Ehsan Arasteh
-| earasteh@ucdavis.edu
+| Russell Hawkins
+| rrhawkins@ucdavis.edu
 
 Time and Location
 =================
 
 The lecture/discussion meets on Mondays, Wednesdays, and Fridays from
-11:00-11:50 in Olson Hall 250.
+11:00-11:50. The lab meets on Fridays 12:10-3:00PM.
 
 **If you have any conflicts with the schedule, especially for the exams, you
 must tell me in the first week of class (emergencies will be the only
@@ -83,13 +83,12 @@ Office Hours
 ============
 
 | Jason's Office Hours
-| Bainer 2095
-| Wednesday 3:10pm-4:00pm
-| Friday 1:10pm-2:00pm
+| Location: TBA
+| Times: TBA
 |
-| Ehsan's Office Hours
-| Bainer 2071
-| Thursdays 5:10pm-6:00pm
+| Russell's Office Hours
+| Location: TBA
+| Times: TBA
 
 If it is impossible to make office hours, schedule an appointment with Jason by
 checking his `work calendar`_ and select a free time between 8:00 AM and 6:30
@@ -134,6 +133,8 @@ Grades will be available in the canvas.ucdavis.edu_ grade book periodically
 throughout the course along with class statistics. Check the website on a
 regular basis to gauge your performance. Keep in mind that **15% is deducted
 per business day late** on all assignments.
+
+.. class:: table table-striped table-bordered
 
 ==================== =====
 Homework             30%
