@@ -10,11 +10,20 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
-SITEURL = 'https://moorepants.github.io/eme134'
+THEME = "pelican-alchemy/alchemy"
+PLUGIN_PATHS = "pelican-plugins"
+
 RELATIVE_URLS = False
 
-FEED_ATOM = None
-FEED_RSS = None
+if 'TRAVIS_TAG' in os.environ and os.environ.get('TRAVIS_TAG') is not '':
+    TAG_DIR = '/' + os.environ.get('TRAVIS_TAG')
+else:
+    TAG_DIR = ''
+
+SITEURL = 'https://moorepants.github.io/eme171{}'.format(TAG_DIR)
+
+FEED_ALL_ATOM = 'feeds/all.atom.xml'
+CATEGORY_FEED_ATOM = 'feeds/{slug}.atom.xml'
 
 DELETE_OUTPUT_DIRECTORY = True
 
