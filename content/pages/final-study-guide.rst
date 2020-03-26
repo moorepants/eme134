@@ -1,5 +1,6 @@
 :title: Final Study Guide
 :sortorder: 3
+:status: hidden
 
 Chapter by Chapter Big Picture Ideas
 ====================================
