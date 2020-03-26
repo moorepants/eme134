@@ -12,16 +12,18 @@ Course Description
 | 2020 Spring, Lecture: MWF 11:00-11:50 AM, Lab: F 12:10-3:00 PM
 | CRN: 63533
 
+------------------
+
 The world contains a variety of vehicles that transport people and goods for
 commerce, recreation, and exploration. Vehicles are designed to move through
 various environments (land, air, and sea) in efficient, safe, optimal, and
 performant manners. The motion of a vehicle is governed by the mechanism in
-which forces are applied to the vehicle by the environment. The interaction
-forces are a function of the vehicle's design and the travel medium. To
-understand these phenomena engineers often turn to mathematical models capable
-of predicting the observed motion. Two very common concerns for vehicle
-designers are 1) whether a vehicle will ever become unstable and 2) whether it
-is reasonably easy to control given the design choices.
+which forces are applied to the vehicle by the environment and vice versa. The
+interaction forces are a function of the vehicle's design and the travel
+medium. To understand these phenomena engineers often turn to mathematical
+models capable of predicting the observed motion. Two very common concerns for
+vehicle designers are 1) whether a vehicle will ever become unstable and 2)
+whether it is reasonably easy to control given the design choices.
 
 In this class, you will explore the dynamics of a number of different types of
 vehicles by developing and exercising simple mathematical models. You will also
@@ -41,6 +43,7 @@ After completing the course students will be able to:
 - identify parameters that affect stability
 - describe typical modes of motion for various vehicles
 - apply simple automatic control to stabilize vehicles
+- utilize simulations of vehicles for design purposes
 
 Catalog Description
 -------------------
@@ -62,22 +65,23 @@ Instructors
 ===========
 
 | Jason K. Moore
+| Assistant Professor of Teaching, Mechanical and Aerospace Engineering
 | 2095 Bainer Hall
 | 530-601-9791
 | jkm@ucdavis.edu
 |
 | Russell Hawkins
+| Graduate Student, Mechanical and Aerospace Engineering
 | rrhawkins@ucdavis.edu
 
 Time and Location
 =================
 
 The lecture/discussion meets on Mondays, Wednesdays, and Fridays from
-11:00-11:50. The lab meets on Fridays 12:10-3:00PM.
+11:00-11:50 AM. The lab meets on Fridays 12:10-3:00 PM.
 
-**If you have any conflicts with the schedule, especially for the exams, you
-must tell me in the first week of class (emergencies will be the only
-exception).**
+**If you have any conflicts with the schedule you must tell me in the first
+week of class (emergencies will be the only exception).**
 
 Office Hours
 ============
@@ -89,12 +93,13 @@ Office Hours
 | Russell's Office Hours
 | Location: TBA
 | Times: TBA
+|
 
 If it is impossible to make office hours, schedule an appointment with Jason by
 checking his `work calendar`_ and select a free time between 8:00 AM and 6:30
 PM Monday-Friday. Send him an email requesting an appointment at the suggested
-meeting times at least a day in advance. You can also email Ehsan and request a
-meeting.
+meeting times at least a day in advance. You can also email the teaching
+assistant and request a meeting.
 
 .. _work calendar: http://www.moorepants.info/work-calendar.html
 
@@ -107,9 +112,10 @@ Office of Student Judicial Affairs to review the campus' policy on academic
 responsibility and integrity and read the UC Davis `code of academic conduct
 <http://sja.ucdavis.edu/cac.html>`_.
 
-Feel free to discuss homework assignments and work on them together, but each
-student must turn in a *unique* solution. Keep in mind that actually doing all
-of the homework yourself is critical for learning and passing the course.
+Feel free to discuss homework and lab assignments and work on them together,
+but each student must turn in a *unique* solution. Keep in mind that actually
+doing all of the homework yourself is critical for learning and passing the
+course.
 
 Textbook
 ========
@@ -118,6 +124,8 @@ We will use the following book as the official and required textbook:
 
    *Vehicle Dynamics, Stability, and Control*, Dean Karnopp, 2nd Edition, CRC Press.
    ISBN 978-1-4665-6085-7 [`Book Information`_]
+
+The book is available via the Canvas Bookshelf page.
 
 The first edition of the book, titled "Vehicle Stability" is likely sufficient
 but the problem sets will not necessarily match. You will find an errata for
@@ -130,34 +138,38 @@ Assignments & Grades
 ====================
 
 Grades will be available in the canvas.ucdavis.edu_ grade book periodically
-throughout the course along with class statistics. Check the website on a
-regular basis to gauge your performance. Keep in mind that **15% is deducted
-per business day late** on all assignments.
+throughout the course along with class statistics. The Canvas projected final
+grades should be considered estimates. Check the website on a regular basis to
+gauge your performance. Keep in mind that **15% is deducted per business day
+late** on all assignments.
 
 .. class:: table table-striped table-bordered
 
 ==================== =====
 Homework             30%
-Midterm              30%
-Final                40%
+Labs                 40%
+Project              30%
 ==================== =====
 
 .. _canvas.ucdavis.edu: http://canvas.ucdavis.edu
 
 Homework
-   Weekly homework will be assigned which will be due before class the
-   following week. Unique solutions are required from each student.
-Midterm
-   You will have to complete a take-home midterm exam. You may not work with
-   others on this exam.
-Final
-   You will have to complete a two-hour in-class exam.
+   Weekly homework based mostly on textbook problems will be assigned each
+   week. Unique solutions are required from each student.
+Labs
+   Computational assignments will be due approximately every other week.
+   Students will be in groups of two and will submit a lab report detailing
+   their methods, analyses, and results.
+Project
+   Each lab group will develop a unique project on a topic of their choosing.
+   Two reports detailing research, methods, analyses, and results will be used
+   to assess the learning objectives of the project.
 
 Canvas
 ======
 
 We will make use of Canvas for the course. Log in to canvas.ucdavis.edu_ with
-your Kerberos ID and passphrase then select **EME 134 001 FQ 2018**.
+your Kerberos ID and passphrase then select **EME 134 001 SQ 2020**.
 
 We will be using several features in canvas:
 
@@ -178,6 +190,27 @@ Files
 Communications
 ==============
 
+Lectures
+--------
+
+Lectures, labs, and office hours will be delivered live through a video
+conferencing service, e.g. Zoom, at the appointed lecture times. The lectures
+will be recorded and the videos will be shared via Canvas as soon as they are
+processed. Students should attend the live lectures if at all possible but
+attendance is not required due to the extenuating circumstances. Contact the
+instructors ASAP if you have any factors that may limit your participation via
+video conferencing. **Beware that your participation in the lectures will be
+recorded and shared with the others taking course.**
+
+Canvas Discussions
+------------------
+
+All asynchronous questions should be asked via Canvas Discussions unless they
+are of a personal nature (see email below). Canvas discussions should be used
+for all questions about the class, homework, theory, projects, etc that is not
+of a private nature. This allows both the instructors and students to
+collectively answer questions for the whole class's benefit.
+
 Email
 -----
 
@@ -186,4 +219,21 @@ UCD email address. It is your responsibility to check this regularly.
 
 Electronic announcements from the instructors to the whole class will be made
 through Canvas. By default, Canvas will automatically sends the announcement to
-your UCD email address. You can change your Canvas settings to opt out, send it to a different email, or as an SMS. You are responsible for reading the announcements made via canvas.
+your UCD email address. You can change your Canvas settings to opt out, send it
+to a different email, or as an SMS. You are responsible for reading the
+announcements made via canvas.
+
+Accomodation
+============
+
+The primary instructor should be informed of any learning accommodations at
+least 1 full week before the desired accommodation is needed. I expect students
+to contact me to discuss any special arrangements with 1 week time to make and
+agree on the arrangements.
+
+Student Campus Resources
+========================
+
+This is a helpful page for students' frequently asked questions:
+
+https://ebeler.faculty.ucdavis.edu/resources/faq-student-resources/
