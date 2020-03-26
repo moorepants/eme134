@@ -8,94 +8,53 @@ go along, may or may not align with the suggested week below, and are subject
 to the schedules of the various sponsors. **Check the schedule periodically for
 changes.**
 
+.. class:: table table-striped table-bordered
+
 == ==========  ====================================  =========================  ===============
 #  Date        Topic                                 Materials                  Assignment Due
 == ==========  ====================================  =========================  ===============
-01 W Sep 26    Introduction                          - Chapter 1
-                                                     - `Notes 01`_
-02 F Sep 28    Elementary Vehicles                   - `Notes 02`_
+01 M Mar 30    Introduction                          - Chapter 1
+02 W Apr 01    Elementary Vehicles
+03 F Apr 03    Elementary Vehicles
 -- ----------  ------------------------------------  -------------------------  ---------------
-03 M Oct 01    Elementary Vehicles                   - `Notes 03`_
-04 W Oct 03    Elementary Vehicles                   - Chapter 2
-               Rigid Body Motion                     - `Notes 04`_
-05 F Oct 05    Rigid Body Motion                     - `Notes 05`_              HW 1
-NA             Lab 1: Vehicle Videos
+04 M Apr 06    Rigid Body Motion                     - Chapter 2
+05 W Apr 08    Rigid Body Motion                                                HW 1
+06 F Apr 10    Stability                             - Chapter 3                Lab 1
 -- ----------  ------------------------------------  -------------------------  ---------------
-06 M Oct 08    - Stability                           - Chapter 3
-               - Trailer demo 4:10-5:00              - `Notes 06`_
-NA T Oct 07    Trailer demo 5:10-6:00                                           Lab 1
-07 W Oct 10    Stability                             - `Notes 07`_
-                                                     - `Video 07`_
-08 F Oct 12    Pneumatic Tires                       - Chapter 4
-                                                     - `Notes 08`_
-NA U Oct 14                                                                     HW 2
-NA             Lab 2: Trailer demo
+07 M Apr 13    Stability
+08 W Apr 15    Pneumatic Tires                       - Chapter 4                HW 2
+09 F Apr 17    Tires/Trailers                        - Chapter 5
 -- ----------  ------------------------------------  -------------------------  ---------------
-09 M Oct 15    Tires/Trailers                        - Chapter 5                HW 1\ [*]_
-                                                     - `Notes 09`_
-10 W Oct 17    Pnuematic Tires                       - `Notes 10`_
-11 F Oct 19    Trailers                              - `Notes 11`_
-                                                     - `Video 11`_
+10 M Apr 20    Pneumatic Tires
+11 W Apr 22    Trailers                                                         HW 3
+12 F Apr 24    Trailers                                                         Lab 2
 -- ----------  ------------------------------------  -------------------------  ---------------
-12 M Oct 22    Trailers                              - `Notes 12`_              HW 2*, HW 3
-NA T Oct 23    Feedback response video               - `Notes v03`_
-13 W Oct 24    Trailers                              - `Notes 13`_
-14 F Oct 26    Trailers                              - `Notes 14`_
+13 M Apr 27    Trailers
+14 W Apr 29    Trailers                                                         HW 4
+15 F May 01    Automobiles                           - Chapter 6
 -- ----------  ------------------------------------  -------------------------  ---------------
-15 M Oct 29    Automobiles                           - Chapter 6                HW 4
-                                                     - `Notes 15`_
-16 W Oct 31    Automobiles                           - Chapter 6.1
-                                                     - `Notes 16`_
-17 F Nov 02    Automobiles                           - Chapter 6.1                Midterm
-                                                     - `Notes 17`_
-NA S Nov 03    Lab 4: Sprint Car Dirt Racing         `Stockton Track Website`_
+16 M May 04    Automobiles                           - Chapter 6.1
+17 W May 06    Automobiles                           - Chapter 6.1              HW 5
+18 F May 08    Automobiles                           - Chapter 6.2-6.3          Lab 3
 -- ----------  ------------------------------------  -------------------------  ---------------
-18 M Nov 05    Automobiles                           - Chapter 6.2-6.3          HW 3*
-                                                     - `Notes 18`_
-19 W Nov 07    Automobiles                           - Chapter 6
-                                                     - `Notes 19`_
-NA R Nov 08    Lab 3: Bicycles (5:00 PM)
-20 F Nov 09    - Automobiles                         - `Notes 20`_
-               - Lab 3: Bicycles (1:10 PM)
+19 M May 11    Automobiles                           - Chapter 6
+20 W May 13    Automobiles                                                      HW 6
+21 F May 15    Automobiles
 -- ----------  ------------------------------------  -------------------------  ---------------
-NA M Nov 12    Veterans Day                                                     HW 4*
-NA T Nov 13                                                                     HW 5
-21 W Nov 14    Classes canceled
-NA R Nov 15    Lab 5: California Highway Patrol
-22 F Nov 16    Classes canceled
+22 M May 18    Tilting Vehicles                      - Chapter 7
+23 W May 20    Tilting Vehicles                      - Chapter 7                HW 7
+24 F May 22    Tilting Vehicles                      - Chapter 7                Lab 4
 -- ----------  ------------------------------------  -------------------------  ---------------
-23 M Nov 19    Classes canceled
-24 W Nov 21    Classes canceled
-NA F Nov 23    Thanksgiving Holiday
+NA M May 25    Memorial Day Holiday
+25 W May 27    Aircraft                                                         HW 8
+26 F May 29    Aircraft
 -- ----------  ------------------------------------  -------------------------  ---------------
-25 M Nov 26    Tilting Vehicles                      - Chapter 7                  HW 5*
-                                                     - `Notes 25`_
-26 W Nov 28    Tilting Vehicles                      - Chapter 7
-                                                     - `Notes 26`_
-27 F Nov 30    Tilting Vehicles                      - Chapter 7
-                                                     - `Notes 27-01-02`_
-                                                     - `Video 27-01`_
-                                                     - `Video 27-02`_
-                                                     - `Notes 27-03`_
-                                                     - `Video 27-03`_
-                                                     - `Notes 27-04`_
-                                                     - `Video 27-04`_
-NA             Lab 6: Flights
+27 M Jun 01    Aircraft
+28 W Jun 03    Aircraft                              - Chapter 9                HW 9
+NA F Jun 05                                                                     Lab 5
 -- ----------  ------------------------------------  -------------------------  ---------------
-28 M Dec 03    Aircraft                              - Chapter 9                HW 6
-                                                     - `Notes 28`_
-NA T Dec 06    Lab 7: Computer Aided Tools
-29 W Dec 05    Aircraft                              - Chapter 9
-                                                     - `Notes 29`_
-30 F Dec 07    Aircraft                              - Chapter 9
-                                                     - `Notes 30`_
-NA F Dec 07    Lab 7: Computer Aided Tools
--- ----------  ------------------------------------  -------------------------  ---------------
-NA U Dec 09                                                                     HW6*, HW 7
-NA T Dec 11    Final Exam: 10:30 AM
+NA R Jun 11    Final Exam: 6:00 PM - 8:00 PM
 == ==========  ====================================  =========================  ===============
-
-.. [*] An * beside the homework indicates the due date for the second turn in.
 
 .. _Notes 01: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l01.pdf
 .. _Notes 02: https://objects-us-east-1.dream.io/eme134/lecture-notes/2018/eme134-l02.pdf
@@ -134,5 +93,3 @@ NA T Dec 11    Final Exam: 10:30 AM
 .. _Video 27-02: https://youtu.be/BOQYFepRtZY
 .. _Video 27-03: https://youtu.be/oB8qNVA9JGk
 .. _Video 27-04: https://youtu.be/qRi_XxXXEt8
-
-.. _Stockton Track Website: http://www.stocktondirttrack.com/
