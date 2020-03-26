@@ -6,16 +6,16 @@ Videos
 
 EME 134 Public Youtube Playlist: https://www.youtube.com/watch?v=4jk9H5AB4lM&list=PLK0jeQYhBx8Pv_xLPpvDgckeQv1dODZ_i
 
-Course video lectures
----------------------
+Past Course video lectures
+--------------------------
 
 - Physical Explanation of Complex Eigenvalues [16:30]: https://youtu.be/ReffvHejFnU
 - Pneumatic Tire Dynamics [1:29:26]: https://youtu.be/LxGyuFP16Ng
 - Response to feedback from weeks 1-4 [47:16]: https://youtu.be/o2e6gYowqk4
-- L27-01 Final Bicycle Equations of Motion: https://youtu.be/OiITCEXylGo
-- L27-02 Conclusions About Bicycle Equations of Motion: https://youtu.be/BOQYFepRtZY
-- L27-03 Bicycle Steer/Roll Transfer Function: https://youtu.be/oB8qNVA9JGk
-- L27-04 Bicycle Negative Feedback Control: https://youtu.be/qRi_XxXXEt8
+- L27-01 Final Bicycle Equations of Motion [7:49]: https://youtu.be/OiITCEXylGo
+- L27-02 Conclusions About Bicycle Equations of Motion [12:00]: https://youtu.be/BOQYFepRtZY
+- L27-03 Bicycle Steer/Roll Transfer Function [17:48]: https://youtu.be/oB8qNVA9JGk
+- L27-04 Bicycle Negative Feedback Control [25:25]: https://youtu.be/qRi_XxXXEt8
 
 Trains
 ------

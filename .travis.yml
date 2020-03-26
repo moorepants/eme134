@@ -1,12 +1,16 @@
 language: python
 python:
-  - 3.6
+  - 3.7
 env:
   global:
     # Doctr deploy key for moorepants/eme134
     - secure: "qz6er02onvusrFCeRqvHSCS9QPq0KvgczuOX6inZgu5EeXGMBEspR8ZQwyALGWSU1VgP7L0t/Hre+RJqvJlg9K2iSgTo8kwarvym04zmyJW+DJC/Ru6JvJvCRg7tFH0Z6VDYZ2iNmHVfpvYtl1tf4hEiQKn4BShNTMzWkqfsVXuMxjONVteT+jeu3190uW1eFsoW0g8a4j1b2kY/1DXjCjnuEeoGafRUhvRSW94B73j6j6tMP/PTLECvpoL1l6IR37ngiz21DrfxibU3k5s914HWCVrKC2dhjMxXnFBwPZ/Fsq13uAz9e5oP7WQWZW4CqImdmodXDCU2ODDQWPxhBkCvTguxisI5VH0sdJZ5UKpqn6pAYl8MKReff2Gcjbhy8n6K1Y25QgYMKNmhsvQT3fwrBpUrKoShMmr3sAWWfYdx2oDqOU2BNWDThjq2fhyAtW++HogHnC5lG24Z3Ao9ZAySOWWtWTEe7B5q2t7iBoMgCN57zELgoG+eC/N2JecGeSW7WC3kHBOvjh0qICoS6XoyMuj3akV462nAUeaSum4PHsXAEkQJxc5Mu8l9K415x3yptZYnotKPOt4y3SMbWV0E8x27kBRRyaf77KHYMZe+aCgXbizK9q9pbeGShS5ize1him5Be4s20deHazmq1xendojjzmBJMadhhtgyDVs="
 install:
   - pip install pelican doctr
+  - git clone --depth=1 --single-branch --branch mechmotum https://github.com/mechmotum/pelican-alchemy.git
+  - git clone --depth=1 https://github.com/getpelican/pelican-plugins.git
+  - cd pelican-plugins
+  - cd -
 before_script:
   - pip freeze
 script:
