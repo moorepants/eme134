@@ -20,7 +20,7 @@ if 'TRAVIS_TAG' in os.environ and os.environ.get('TRAVIS_TAG') is not '':
 else:
     TAG_DIR = ''
 
-SITEURL = 'https://moorepants.github.io/eme171{}'.format(TAG_DIR)
+SITEURL = 'https://moorepants.github.io/eme134{}'.format(TAG_DIR)
 
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
 CATEGORY_FEED_ATOM = 'feeds/{slug}.atom.xml'
