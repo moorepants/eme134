@@ -137,22 +137,18 @@ Wobble/Shimmy
 - Dunlop Motorcycle Wobble and Weave [10:12]: https://youtu.be/z3OQTU-kE2s
 - Motorcycle wobble and crash [0:16]: https://youtu.be/54fTFm5Dc-I
 
-Jupyter Notebooks
-=================
+Software
+========
 
-How to run the notebooks (3 options):
+You may use Matlab or Octave to complete the labs and the project.
 
-- Go to the following notebook links and click the "Execute on Binder" button
-  in the top right hand corner of the screen. This will take a minute or two
-  but you will be able run the notebooks in a temporary Jupyter environment.
-- Download the notebook by right clicking on the "Download Notebook" link in
-  the upper right hand corner. Go to bicycle.ucdavis.edu, log in, and upload
-  the notebook to your home page. Then you can click it to open and execute it.
-- Download the notebook by right clicking on the "Download Notebook" link in
-  the upper right hand corner. Download and install Anaconda:
-  https://www.anaconda.com/download. Then you will need to install "resonance",
-  see: https://anaconda.org/conda-forge/resonance. Finally, open the notebook
-  with Jupyter and execute on your own computer.
+There are three options for Matlab:
 
-- Symbolic Derivation of an Automobile's Lateral Dynamics Equations of Motion: http://nbviewer.jupyter.org/gist/moorepants/987a835e10106cbe54bb09c9b0843b2e/auto_lateral_dynamics_symbolic.ipynb
-- Numerical Simulation of an Automobile's Lateral Dynamics: http://nbviewer.jupyter.org/gist/moorepants/7623f22bf1ab317cfc857c1ff456d720/auto_lateral_dynamics_numeric.ipynb
+- Download the UCD provided student version and install on your computer
+- Use Matlab Online (I think UCD students get access to this)
+- Access the computer in the CAE lab remotely (this may be limited this
+  quarter, I'm getting more info on this)
+
+Octave is an open source clone of Matlab and has all of the features needed for
+this course. The software is free (forever) and can be installed on your
+computer. Download from https://www.gnu.org/software/octave/.
