@@ -144,7 +144,9 @@ You may use Matlab or Octave to complete the labs and the project.
 
 There are three options for Matlab:
 
-- Download the UCD provided student version and install on your computer
+- Download the UCD provided student version and install on your computer. You
+  can download the software from
+  https://www.mathworks.com/academia/tah-portal/university-of-california-davis-589250.html.
 - Use Matlab Online (I think UCD students get access to this)
 - Access the computer in the CAE lab remotely (this may be limited this
   quarter, I'm getting more info on this)
