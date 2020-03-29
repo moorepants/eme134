@@ -1,6 +1,57 @@
 :title: Resources
 :sortorder: 2
 
+Remote Learning
+===============
+
+Preparing for remote learning
+-----------------------------
+
+- `Video showing how students can download and set up Zoom <https://www.youtube.com/watch?v=8UwIQL2HT_c>`_
+- `Video showing how students can use Zoom in their classes <https://www.youtube.com/watch?v=vxK6PJOL5KY>`_
+- Zoom quick start guide for students (`PDF
+  <https://www.google.com/url?q=https%3A%2F%2Fwww.dropbox.com%2Fs%2Fnz243sq344dess7%2FQuick%2520Start.pdf%3Fdl%3D0&sa=D&sntz=1&usg=AFQjCNEhF2MeZzufMe7uH62kukgUcPN7Cw>`_ & `editable PowerPoint <https://www.google.com/url?q=https%3A%2F%2Fwww.dropbox.com%2Fs%2Fe9jd63maorqckka%2FQuick%2520Start.pptx%3Fdl%3D0&sa=D&sntz=1&usg=AFQjCNHsthMaQneOIlUS8_2g9bp454uJ0w>`_)
+- `Advice to students new to remote learning <https://www.youtube.com/watch?v=1IIUVU-d1DM&t=5s>`_
+- Student resources to keep learning:
+  https://keepteaching.ucdavis.edu/student-resourcesLinks to an external site.
+- UC Davis Campus Resources Guide:
+  https://ucdavis.app.box.com/s/3hfpl94pubh73xwjudx4rux1zatkx9bi (Links to an
+  external site.)
+- UC Davis Student Resources FAQ:
+  https://ebeler.faculty.ucdavis.edu/resources/faq-student-resourcesLinks to an
+  external site.
+
+Rules, etiquette, and tips for this class
+-----------------------------------------
+
+- Only registered students will be permitted in the video conference (unless
+  permission granted from the instructor)
+- You must use your official name in the video conference (preferred names or
+  nicknames can be in parentheses)
+- Keep your mic muted at all times (unless instructed otherwise)
+- Use headphones to reduce microphone/speaker interaction
+- You do not have to turn your video or mic on if your environment does not
+  permit you to do so. (Although I would like to see at least *some* student
+  faces so I'm not talking to a blank screen.)
+- Turn off your video if there are distractions in your background. You can set
+  a Zoom background to block out things behind you if you'd like but these
+  images must be tasteful.
+- Ask questions by "raising your hand" in the participants window and wait to
+  be called on OR ask questions by typing in the chat window.
+- Turning off the video feeds can reduce bandwidth and choppy connections.
+- Join the class a few minutes before the official start time.
+- The videos will be recorded and shared with the class including audio, text,
+  and video of any students that speak or share.
+- Videos of the class are copyrighted and shall not be shared outside of the
+  class participants.
+- Standard in-person classroom behavior extends to the virtual classroom. For
+  example, don't eat, talk, or be disruptive. Immaturity and abuse of the video
+  conferencing features will not be tolerated.
+- It is a violation of the Code of Academic Conduct and Principles of Community
+  if you disrupt class by abusing the video conference in any way.
+  Inappropriate text, images, or actions will results in rapid decent to a F
+  grade and removal from the course.
+
 Videos
 ======
 
