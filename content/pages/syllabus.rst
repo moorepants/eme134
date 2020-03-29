@@ -42,8 +42,9 @@ After completing the course students will be able to:
 - identify when vehicles are stable/unstable
 - identify parameters that affect stability
 - describe typical modes of motion for various vehicles
-- apply simple automatic control to stabilize vehicles
 - utilize simulations of vehicles for design purposes
+- analyze vehicle motion for desirable characteristics
+- apply simple automatic control to stabilize vehicles
 
 Catalog Description
 -------------------
@@ -78,7 +79,8 @@ Time and Location
 =================
 
 The lecture/discussion meets on Mondays, Wednesdays, and Fridays from
-11:00-11:50 AM. The lab meets on Fridays 12:10-3:00 PM.
+11:00-11:50 AM. The lab meets on Fridays 12:10-3:00 PM. The final exam is
+scheduled for Thursday June 11 6:00PM-8:00PM.
 
 **If you have any conflicts with the schedule you must tell me in the first
 week of class (emergencies will be the only exception).**
@@ -112,10 +114,16 @@ Office of Student Judicial Affairs to review the campus' policy on academic
 responsibility and integrity and read the UC Davis `code of academic conduct
 <http://sja.ucdavis.edu/cac.html>`_.
 
-Feel free to discuss homework and lab assignments and work on them together,
-but each student must turn in a *unique* solution. Keep in mind that actually
-doing all of the homework yourself is critical for learning and passing the
-course.
+**Under the coronavirus related remote teaching and learning, you are still
+expected to uphold the UC Davis Code of Academic Conduct and any suspected
+violations will be immediately reported to the SJA for investigation.**
+
+Feel free to discuss homework assignments and work on them together, but each
+student must turn in a *unique* solution. Each student will turn in an
+individual report for Lab 1 and you will be assigned a Lab partner for Labs
+2-5. You may discuss and work on labs together with other students but each lab
+report must be a *unique* solution. You may discuss and help each other on your
+project but each project report must be a *unique*.
 
 Textbook
 ========
@@ -125,7 +133,8 @@ We will use the following book as the official and required textbook:
    *Vehicle Dynamics, Stability, and Control*, Dean Karnopp, 2nd Edition, CRC Press.
    ISBN 978-1-4665-6085-7 [`Book Information`_]
 
-The book is available via the Canvas Bookshelf page.
+The book is available via the Canvas Bookshelf page. **You will need to opt-out
+if you don't want to be charged for the digital book.**
 
 The first edition of the book, titled "Vehicle Stability" is likely sufficient
 but the problem sets will not necessarily match. You will find an errata for
@@ -148,22 +157,26 @@ late** on all assignments.
 ==================== =====
 Homework             30%
 Labs                 40%
-Project              30%
+Project Presentation 5%
+Project Proposal     5%
+Project Report       20%
 ==================== =====
 
 .. _canvas.ucdavis.edu: http://canvas.ucdavis.edu
 
 Homework
    Weekly homework based mostly on textbook problems will be assigned each
-   week. Unique solutions are required from each student.
+   week. Unique solutions are required from each student. You may submit your
+   homework a second time to raise your grade (as long as met expectations on
+   the first submission).
 Labs
    Computational assignments will be due approximately every other week.
    Students will be in groups of two and will submit a lab report detailing
    their methods, analyses, and results.
 Project
    Each lab group will develop a unique project on a topic of their choosing.
-   Two reports detailing research, methods, analyses, and results will be used
-   to assess the learning objectives of the project.
+   Two written reports detailing research, methods, analyses, and results will
+   be used to assess the learning objectives of the project.
 
 Canvas
 ======
@@ -179,6 +192,10 @@ Announcements
    to read these either through your email program or on the Canvas website.
 Assignments
    Any electronic assignments will be distributed and collected here.
+Bookshelf
+   Access to your digital copy of the book.
+Discussions
+   Forum to ask and answer questions.
 Grades
    Your grades and basic stats on your relative performance will be available
    as the course goes along.
@@ -186,9 +203,20 @@ Files
    Copyrighted and private files, documents, and other resources will be
    available here for download. The rest will be available for download on this
    website.
+Zoom
+   Meeting information for the virtual lectures and lab/discussion sections.
 
 Communications
 ==============
+
+Instructor announcements
+------------------------
+
+Electronic announcements from the instructors to the whole class will be made
+through Canvas. By default, Canvas will automatically sends the announcement to
+your UCD email address. You can change your Canvas settings to opt out, send it
+to a different email, or as an SMS. You are responsible for reading the
+announcements made via canvas.
 
 Lectures
 --------
@@ -214,14 +242,7 @@ collectively answer questions for the whole class's benefit.
 Email
 -----
 
-Personal electronic correspondence from the instructors will be made to your
-UCD email address. It is your responsibility to check this regularly.
-
-Electronic announcements from the instructors to the whole class will be made
-through Canvas. By default, Canvas will automatically sends the announcement to
-your UCD email address. You can change your Canvas settings to opt out, send it
-to a different email, or as an SMS. You are responsible for reading the
-announcements made via canvas.
+Personal electronic correspondence to the instructors should be made by email.
 
 Accomodation
 ============
