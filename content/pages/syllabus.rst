@@ -165,10 +165,13 @@ Project Report       20%
 .. _canvas.ucdavis.edu: http://canvas.ucdavis.edu
 
 Homework
-   Weekly homework based mostly on textbook problems will be assigned each
-   week. Unique solutions are required from each student. You may submit your
-   homework a second time to raise your grade (as long as met expectations on
-   the first submission).
+   Weekly homework based mostly on textbook problems will be assigned which
+   will be due before class the following week. Homework will be assessed using
+   a rubric tied to the learning objectives. You will receive a "little or no
+   effort", "needs improvement", "meets expectations" for each objective. You
+   may turn in your homework a second time and any "needs improvements" can be
+   raised to "meets expectations". You cannot resubmit your homework if you
+   received a "little or no effort" on any item.
 Labs
    Computational assignments will be due approximately every other week.
    Students will be in groups of two and will submit a lab report detailing
