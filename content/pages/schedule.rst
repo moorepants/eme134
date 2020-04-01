@@ -16,7 +16,9 @@ The lecture notes will be shared via this page as a PDF download.
 #  Date        Topic                                 Materials                  Assignment Due
 == ==========  ====================================  =========================  ===============
 01 M Mar 30    Introduction                          - Chapter 1
-02 W Apr 01    Elementary Vehicles
+                                                     - `Notes 01`_
+                                                     - `Slides 01`_
+02 W Apr 01    Elementary Vehicles                   - `Notes 02`_
 03 F Apr 03    Elementary Vehicles
 -- ----------  ------------------------------------  -------------------------  ---------------
 04 M Apr 06    Rigid Body Motion                     - Chapter 2
@@ -60,27 +62,29 @@ NA M Jun 08                                                                     
 NA R Jun 11    Project Presentations: 6PM-8PM                                   HW8*, Project Report
 == ==========  ====================================  =========================  ===============
 
-.. _Notes 01: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l01.pdf
-.. _Notes 02: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l02.pdf
-.. _Notes 03: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l03.pdf
-.. _Notes 04: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l04.pdf
-.. _Notes 05: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l05.pdf
-.. _Notes 06: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l06.pdf
-.. _Notes 07: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l07.pdf
-.. _Notes 08: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l08.pdf
-.. _Notes 09: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l09.pdf
-.. _Notes 10: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l10.pdf
-.. _Notes 11: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l11.pdf
-.. _Notes 12: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l12.pdf
-.. _Notes 13: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l13.pdf
-.. _Notes 14: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l14.pdf
-.. _Notes 15: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l15.pdf
-.. _Notes 16: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l16.pdf
-.. _Notes 17: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l17.pdf
-.. _Notes 18: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l18.pdf
-.. _Notes 19: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l19.pdf
-.. _Notes 20: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l20.pdf
-.. _Notes 25: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l25.pdf
-.. _Notes 26: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l26.pdf
-.. _Notes 27: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l27.pdf
-.. _Notes 28: https://objects-us-east-1.dream.io/eme134/lecture-notes/2020/eme134-l28.pdf
+.. _Notes 01: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l01.pdf
+.. _Notes 02: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l02.pdf
+.. _Notes 03: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l03.pdf
+.. _Notes 04: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l04.pdf
+.. _Notes 05: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l05.pdf
+.. _Notes 06: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l06.pdf
+.. _Notes 07: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l07.pdf
+.. _Notes 08: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l08.pdf
+.. _Notes 09: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l09.pdf
+.. _Notes 10: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l10.pdf
+.. _Notes 11: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l11.pdf
+.. _Notes 12: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l12.pdf
+.. _Notes 13: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l13.pdf
+.. _Notes 14: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l14.pdf
+.. _Notes 15: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l15.pdf
+.. _Notes 16: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l16.pdf
+.. _Notes 17: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l17.pdf
+.. _Notes 18: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l18.pdf
+.. _Notes 19: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l19.pdf
+.. _Notes 20: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l20.pdf
+.. _Notes 25: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l25.pdf
+.. _Notes 26: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l26.pdf
+.. _Notes 27: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l27.pdf
+.. _Notes 28: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l28.pdf
+
+.. _Slides 01: https://docs.google.com/presentation/d/e/2PACX-1vStBzGiinB9GAwxWFeE4qjnFJ1ip0KnlLfKtQ73l5AZ1R8Fa80E4lFx_dAF9fE5jQql45tT0f6bFQNg/pub?start=false&loop=false&delayms=3000
