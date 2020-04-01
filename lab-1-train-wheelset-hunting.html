@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Lab 1: Train Wheelset Hunting | EME 134: Vehicle Stability
+</title>
+  <link rel="canonical" href="https://moorepants.github.io/eme134/lab-1-train-wheelset-hunting.html">
+
+
+  <link rel="stylesheet" href="https://moorepants.github.io/eme134/theme/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://moorepants.github.io/eme134/theme/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://moorepants.github.io/eme134/theme/css/pygments/emacs.min.css">
+  <link rel="stylesheet" href="https://moorepants.github.io/eme134/theme/css/theme.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://moorepants.github.io/eme134/feeds/all.atom.xml">
+  
+  <meta name="description" content="Contents Learning Objectives Introduction The Example System Dynamic Equations Constant Variables Outputs Initial Conditions Time Steps Deliverables Templates for Coding Defining the State Derivative Function Defining the Output Function Solving the Integration of ODEs Grading Rubric Learning Objectives After completing this lab you will be able to: translate ordinary differential …">
+  <script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o);
+      a.async = 1;
+      a.src = g;
+      m = s.getElementsByTagName(o)[0];
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-15966419-8', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+  <div class="col-sm-12">
+    <h1 class="title"><a href="https://moorepants.github.io/eme134/">EME 134: Vehicle Stability</a></h1>
+      <ul class="list-inline">
+            <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/">Syllabus</a></li>
+            <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/schedule.html">Schedule</a></li>
+            <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/labs.html">Labs</a></li>
+            <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/resources.html">Resources</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Lab 1: Train Wheelset Hunting
+</h1>
+      <hr>
+
+<article class="article">
+  <div class="content">
+    <div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#learning-objectives" id="id3">Learning Objectives</a></li>
+<li><a class="reference internal" href="#introduction" id="id4">Introduction</a></li>
+<li><a class="reference internal" href="#the-example-system" id="id5">The Example System</a><ul>
+<li><a class="reference internal" href="#dynamic-equations" id="id6">Dynamic Equations</a></li>
+<li><a class="reference internal" href="#constant-variables" id="id7">Constant Variables</a></li>
+<li><a class="reference internal" href="#outputs" id="id8">Outputs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#initial-conditions" id="id9">Initial Conditions</a></li>
+<li><a class="reference internal" href="#time-steps" id="id10">Time Steps</a></li>
+<li><a class="reference internal" href="#deliverables" id="id11">Deliverables</a></li>
+<li><a class="reference internal" href="#templates-for-coding" id="id12">Templates for Coding</a><ul>
+<li><a class="reference internal" href="#id2" id="id13">Defining the State Derivative Function</a></li>
+<li><a class="reference internal" href="#defining-the-output-function" id="id14">Defining the Output Function</a></li>
+<li><a class="reference internal" href="#solving-the-integration-of-odes" id="id15">Solving the Integration of ODEs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#grading-rubric" id="id16">Grading Rubric</a></li>
+</ul>
+</div>
+<div class="section" id="learning-objectives">
+<h2><a class="toc-backref" href="#id3">Learning Objectives</a></h2>
+<p>After completing this lab you will be able to:</p>
+<ul class="simple">
+<li>translate ordinary differential equations into a computer function that
+evaluates the equations at any given point in time</li>
+<li>numerically integrate ordinary differential equations with Octave/Matlab's
+<a class="reference external" href="https://www.mathworks.com/help/matlab/ref/ode45.html">ode45</a></li>
+<li>create complete and legible plots of the resulting input, state, and output
+trajectories</li>
+<li>create a report with textual explanations and plots of the simulation</li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id4">Introduction</a></h2>
+<p>This lab assignment deals with using engineering computation to numerically
+integrate the differential equations generated from modeling the dynamics of a
+system. The process of integrating these time dependent equations is called
+&quot;simulation&quot;. Simulation is a powerful tool for studying both linear and
+non-linear systems. In this case, the differential equations are provided to
+you and your job is to translate them into correctly functioning m-files and
+show through plots that the simulation is working as expected. As we move
+forward in the course you will apply this method to other problems.</p>
+<p>We have created a <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html">guide that explains how to create a working simulation of a
+simple torque driven pendulum system</a>.
+Using this guide, your goal for this lab is to apply the same methods to the
+vehicle dynamics example problem described below.</p>
+</div>
+<div class="section" id="the-example-system">
+<h2><a class="toc-backref" href="#id5">The Example System</a></h2>
+<p>A train car is generally mounted atop two <a class="reference external" href="https://en.wikipedia.org/wiki/Bogie">bogies</a>, one fore and one aft. The
+fixed axle <a class="reference external" href="https://en.wikipedia.org/wiki/Wheelset_(rail_transport)">wheelsets</a> are then mounted to the bogies. The bogies house the
+suspension system that isolates the train car from the wheelsets. The nature of
+the flexible coupling between the wheelsets and the train car as well as the
+dynamics of the wheelset-track interaction can cause oscillations to occur.
+These oscillations can even be unstable and cause derailments. The oscillations
+are called &quot;<a class="reference external" href="https://en.wikipedia.org/wiki/Hunting_oscillation">Hunting Oscillation</a>&quot; or &quot;truck hunting&quot; (&quot;truck&quot; refers to the
+boogie and wheelset). Take a look at these videos to see some examples and
+explanations of hunting oscillations:</p>
+<ul class="simple">
+<li>Train car hunting &#64; 1:38 [1:51]: <a class="reference external" href="https://youtu.be/n-EfKFxGJc4k">https://youtu.be/n-EfKFxGJc4k</a></li>
+<li>Damaged car hunting &#64; 1:08 [2:13]: <a class="reference external" href="https://youtu.be/JHT-WJWdjEk">https://youtu.be/JHT-WJWdjEk</a></li>
+<li>Several cars hunting [2:58]: <a class="reference external" href="https://youtu.be/3i-ViwHubeE">https://youtu.be/3i-ViwHubeE</a></li>
+<li>Animation of train truck hunting [0:28]: <a class="reference external" href="https://youtu.be/5GwF6x7F1LM">https://youtu.be/5GwF6x7F1LM</a></li>
+<li>Bullet train wheel design, hunting &#64; 2:45 [9:34]:
+<a class="reference external" href="https://youtu.be/SRsm7mv0Oh8">https://youtu.be/SRsm7mv0Oh8</a> (this is pretty unscientific and doesn't give
+precisely correct information but it has some good visuals regardless, so
+don't believe everything the host is saying)</li>
+</ul>
+<p>Below is a schematic of a simple model of this system. This schematic is
+explained in detail in Chapter 10 of the course textbook, but for the purposes
+of this lab you will need to have a basic understanding of the geometry. The
+fixed axle wheelset is connection to the car by for linear springs of
+stiffnesses <span class="math">\(k_1\)</span> and <span class="math">\(k_2\)</span>. The car and the center of the wheelset
+are moving at a constant speed <span class="math">\(V\)</span>. The wheelset can move laterally
+realtive to the car and tracks. This lateral deviation is tracked by the time
+varying variable <span class="math">\(q_1\)</span>. The yaw rotation angle of the wheelset relative
+to the car and tracks is measured by the time varying variable <span class="math">\(q_2\)</span>. The
+wheel-track connection is modeled by concave wheel surfaces rolling on a convex
+track surface with radii <span class="math">\(R\)</span> and <span class="math">\(R'\)</span>, respectively. When there is
+no lateral deviation and no yaw angle, <span class="math">\(q_1=q_2=0\)</span>, the nomial radius at
+the wheel-track contact location is <span class="math">\(r_0\)</span> and the angle of the line
+tangent to the connecting surfaces is <span class="math">\(\delta_0\)</span>.</p>
+<div class="figure align-center">
+<img alt="" src="https://objects-us-east-1.dream.io/eme134/2020s/lab-01-fig-01.png" style="width: 600px;" />
+<p class="caption"><strong>Figure 1</strong>: Schematics of the train wheelset model. See figures 10.1,
+10.2, and 10.3 in the book for more detail. The upper figure is the top view
+and the lower figure is a rear view.</p>
+</div>
+<div class="section" id="dynamic-equations">
+<h3><a class="toc-backref" href="#id6">Dynamic Equations</a></h3>
+<p>With careful attention to formulating the kinematics and dynamics, the explicit
+coupled first order linear ordinary differential equations that describe how
+the dynamics of the system change with respect to time can be found. You will
+learn how to generate these equations as we move forward in this class. For
+now, we provide you with the resulting four equations:</p>
+<div class="math">
+\begin{align*}
+\dot{q}_1 &amp; = u_1 \\
+\dot{q}_2 &amp; = u_2 \\
+\dot{u}_1 &amp; = -\left[\frac{2k_1}{m_W} + \frac{2N}{m_W(R-R')}\right]q_1 + \frac{2f_x}{m_W} q_2 - \frac{2f_x}{V m_W} u_1 \\
+\dot{u}_2 &amp; = -\frac{2f_y\lambda d}{r_0 I_W}q_1 - \frac{2k_2d_1^2}{I_W} q_2 - \frac{2f_yd^2}{V I_W} u_2
+\end{align*}
+</div>
+<p>These equations define expressions for the derivatives of the four time varying
+state variables <span class="math">\(q_1(t),q_2(t),u_1(t),\)</span> and <span class="math">\(u_2(t)\)</span> which are
+described below.</p>
+<table border="1" class="table table-striped table-bordered docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Symbol</th>
+<th class="head">Description</th>
+<th class="head">Units</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><span class="math">\(q_1\)</span></td>
+<td>Wheelset lateral deviation</td>
+<td><span class="math">\(\textrm{m}\)</span></td>
+</tr>
+<tr><td><span class="math">\(q_2\)</span></td>
+<td>Wheelset yaw angle</td>
+<td><span class="math">\(\textrm{rad}\)</span></td>
+</tr>
+<tr><td><span class="math">\(u_1\)</span></td>
+<td>Wheelset lateral velocity</td>
+<td><span class="math">\(\textrm{m/s}\)</span></td>
+</tr>
+<tr><td><span class="math">\(u_2\)</span></td>
+<td>Wheelset yaw angular velocity</td>
+<td><span class="math">\(\textrm{rad/s}\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="alert alert-info topic">
+<p class="topic-title">Terminology for differential equations</p>
+<ul class="simple">
+<li>differential equation: mathematical equation that relates functions and
+their derivatives</li>
+<li>ordinary differential equation: differential equations that only have
+deriviatives of a single variable; in our case time is the variable</li>
+<li>coupled: the same time varying variables appear in more than one equation</li>
+<li>explicit: all the time derivatives are on the lefthand side of the
+equations</li>
+<li>linear: the derivatives are strictly linear functions of the time varying
+variables on the right hand side</li>
+</ul>
+</div>
+</div>
+<div class="section" id="constant-variables">
+<h3><a class="toc-backref" href="#id7">Constant Variables</a></h3>
+<p>The majority of the variables in the four differential equations above do not
+vary with time, i.e. they are constant. Below is a table with an explanation of
+each variable, its value, and its units. Note that the units are a self
+consistent set of SI base units.</p>
+<table border="1" class="table table-striped table-bordered docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Symbol</th>
+<th class="head">Description</th>
+<th class="head">Value</th>
+<th class="head">Units</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><span class="math">\(I_W\)</span></td>
+<td>Yaw moment of inertia of the wheelset</td>
+<td><span class="math">\(m_w d^2\)</span></td>
+<td><span class="math">\(\textrm{kg}\cdot\textrm{m}^2\)</span></td>
+</tr>
+<tr><td><span class="math">\(N\)</span></td>
+<td>One quarter of the weight of the train car</td>
+<td><span class="math">\(W/4\)</span></td>
+<td><span class="math">\(\textrm{N}\)</span></td>
+</tr>
+<tr><td><span class="math">\(R\)</span></td>
+<td>Wheel surface radius</td>
+<td>0.23</td>
+<td><span class="math">\(\textrm{m}\)</span></td>
+</tr>
+<tr><td><span class="math">\(R'\)</span></td>
+<td>Rail surface radius</td>
+<td>0.2</td>
+<td><span class="math">\(\textrm{m}\)</span></td>
+</tr>
+<tr><td><span class="math">\(V\)</span></td>
+<td>Car longitudinal speed</td>
+<td>40</td>
+<td><span class="math">\(\textrm{m/s}\)</span></td>
+</tr>
+<tr><td><span class="math">\(W\)</span></td>
+<td>Train car weight</td>
+<td>80000</td>
+<td><span class="math">\(\textrm{N}\)</span></td>
+</tr>
+<tr><td><span class="math">\(d\)</span></td>
+<td>Half the track width</td>
+<td>0.72</td>
+<td><span class="math">\(\textrm{m}\)</span></td>
+</tr>
+<tr><td><span class="math">\(d_1\)</span></td>
+<td>Distance to yaw spring</td>
+<td><span class="math">\(d/2\)</span></td>
+<td><span class="math">\(\textrm{m}\)</span></td>
+</tr>
+<tr><td><span class="math">\(\delta_0\)</span></td>
+<td>Nominal wheel-rail contact angle</td>
+<td><span class="math">\(\pi/180\)</span></td>
+<td><span class="math">\(\textrm{rad}\)</span></td>
+</tr>
+<tr><td><span class="math">\(f_x\)</span></td>
+<td>Lateral creep coefficient</td>
+<td><span class="math">\(1\times10^6\)</span></td>
+<td>Unitless</td>
+</tr>
+<tr><td><span class="math">\(f_y\)</span></td>
+<td>Lateral creep coefficient</td>
+<td><span class="math">\(1\times10^6\)</span></td>
+<td>Unitless</td>
+</tr>
+<tr><td><span class="math">\(k_1\)</span></td>
+<td>Longitudinal spring stiffness</td>
+<td>13000</td>
+<td><span class="math">\(N/m\)</span></td>
+</tr>
+<tr><td><span class="math">\(k_2\)</span></td>
+<td>Lateral spring stiffness</td>
+<td>13000</td>
+<td><span class="math">\(N/m\)</span></td>
+</tr>
+<tr><td><span class="math">\(m_W\)</span></td>
+<td>Wheelset mass</td>
+<td>1000</td>
+<td><span class="math">\(\textrm{kg}\)</span></td>
+</tr>
+<tr><td><span class="math">\(r_0\)</span></td>
+<td>Nominal wheel contact radius</td>
+<td>0.46</td>
+<td><span class="math">\(\textrm{m}\)</span></td>
+</tr>
+<tr><td><span class="math">\(\lambda\)</span></td>
+<td>Conicity</td>
+<td><span class="math">\(\frac{R\delta_0}{R - R'}\)</span></td>
+<td>Unitless</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="outputs">
+<h3><a class="toc-backref" href="#id8">Outputs</a></h3>
+<p>A train designer may be interested in knowing how much force is applied to the
+wheels at the contact location so that they can size the components
+appropriately. The lateral and longitudinal wheel contact forces on the right
+wheel can be estimated by these functions:</p>
+<div class="math">
+\begin{align*}
+F_x(t) = \frac{f_x}{V} u_1 \\
+F_y(t) = \frac{f_y}{V} d u_2
+\end{align*}
+</div>
+<p>You will use the section <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#outputs-other-than-the-states">Outputs Other Than The States</a>
+to compute these values.</p>
+</div>
+</div>
+<div class="section" id="initial-conditions">
+<h2><a class="toc-backref" href="#id9">Initial Conditions</a></h2>
+<p>Initial conditions are the starting values for the integrated state variables
+in the systems. This system has four state variables, so there are four initial
+conditions. For this lab, use the initial values shown below. See <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#integrating-the-equations">Integrating
+the State Equations</a> for how to set up the initial condition vector.  Make
+sure that your initial conditions are arranged in the same order as your state
+variables.</p>
+<div class="math">
+\begin{align*}
+q_1(0) &amp; = 0.02 \textrm{m} \\
+q_2(0) &amp; = 1 \textrm{deg} \\
+u_1(0) &amp; = 0 \\
+u_2(0) &amp; = 0
+\end{align*}
+</div>
+</div>
+<div class="section" id="time-steps">
+<h2><a class="toc-backref" href="#id10">Time Steps</a></h2>
+<p>You will also have to decide on how long your simulation will run and at what
+time resolution you should report values of the states, inputs, and outputs.
+Some rules of thumb for making these choices:</p>
+<ul class="simple">
+<li>If your system is stable and decays, choose a simulation duration such that
+the amplitude has decayed at least 95% of the maximum amplitude.</li>
+<li>If your system oscillates, show at least 5 full periodic oscillations.</li>
+<li>If your system oscillates, plot as least fifty time points for the shortest
+observed oscillation period.</li>
+</ul>
+<p>Use these rules of thumb to select a simulation duration and time step spacing
+for your simulations.</p>
+</div>
+<div class="section" id="deliverables">
+<h2><a class="toc-backref" href="#id11">Deliverables</a></h2>
+<p>In your lab report, show your work for creating and evaluating the simulation
+model. Include any calculations you had to do, for example those for initial
+conditions, input equations, time parameters, and any other parameters.
+Additionally, provide the indicated plots and answer the questions below.
+Append a copy of your Matlab/Octave code to the end of the report. The report
+should follow the <a class="reference external" href="https://moorepants.github.io/eme171/lab-report-guidelines-and-template.html">report template and guidelines</a>.</p>
+<p>Submit a report as a single PDF file to Canvas by the due date that addresses
+the following items:</p>
+<ol class="arabic simple">
+<li>Create a function defined in an m-file that evaluates the right hand side of
+the ODEs, i.e. evaluates the state derivatives. See <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#defining-the-state-derivative-function">Defining the State
+Derivative Function</a> for an explanation.</li>
+<li>Create a function defined in an m-file that calculates the two outputs:
+lateral and longitudinal force at the right wheel.  See <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#outputs-other-than-the-states">Outputs Other Than
+the States</a> for an explanation.</li>
+<li>Create a script in an m-file that utilizes the above two functions to
+simulate the train system. This should setup the constants, integrate the
+dynamics equations, and plot each state, and output versus time. See
+<a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#integrating-the-equations">Integrating the State Equations</a> for an explanation.</li>
+<li>Simulate the system twice, first at V=20 m/s (72 km/h) and then at V=50 m/s
+(180 km/h). Use plots and written text to describe the differences in the
+observed motion.</li>
+<li>Simulate the system twice, both at V=20 m/s but make the wheel surface
+radius convex instead of concave (negative radius). Plot the resulting
+simulation and describe the motion and what you learn from it.</li>
+</ol>
+<p><strong>Use the templates below for developing your code and fill in the missing
+pieces.</strong></p>
+</div>
+<div class="section" id="templates-for-coding">
+<h2><a class="toc-backref" href="#id12">Templates for Coding</a></h2>
+<p>Provided below are templates to utilize in coding the first lab. Your code
+should be identical to the templates, but it is your job to fill in the missing
+information.</p>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id13">Defining the State Derivative Function</a></h3>
+<div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>xdot <span class="p">=</span><span class="w"> </span><span class="nf">eval_train_wheelset_rhs</span><span class="p">(</span>t, x, c<span class="p">)</span><span class="w"></span>
+<span class="c">% EVAL_TRAIN_WHEELSET_RHS - Returns the time derivative of the states, i.e.</span>
+<span class="c">% evaluates the right hand side of the explicit ordinary differential</span>
+<span class="c">% equations for the train wheelset model.</span>
+<span class="c">%</span>
+<span class="c">% Syntax: xdot = eval_train_wheelset_rhs(t, x, c)</span>
+<span class="c">%</span>
+<span class="c">% Inputs:</span>
+<span class="c">%   t - Scalar value of time, size 1x1.</span>
+<span class="c">%   x - State vector at time t, size 4x1, [q1; q2; u1; u2]</span>
+<span class="c">%   c - Constant parameter structure with 16 parameters.</span>
+<span class="c">% Outputs:</span>
+<span class="c">%   xdot - Time derivative of the states at time t, size 4x1.</span>
+
+<span class="c">% unpack the states into useful variable names</span>
+<span class="c">% replace the question marks with useful variable names</span>
+? <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+? <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+? <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+? <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+
+<span class="c">% unpack the parameters into useful variable names</span>
+<span class="c">% replace the question marks with your code and add all constants</span>
+? <span class="p">=</span> <span class="n">c</span><span class="p">.</span>?<span class="p">;</span>
+? <span class="p">=</span> <span class="n">c</span><span class="p">.</span>?<span class="p">;</span>
+? <span class="p">=</span> <span class="n">c</span><span class="p">.</span>?<span class="p">;</span>
+
+<span class="c">% calculate the derivatives of the state variables</span>
+
+<span class="n">replace</span> <span class="s">this</span> <span class="s">line</span> <span class="s">of</span> <span class="s">code</span> <span class="s">with</span> <span class="s">your</span> <span class="s">lines</span> <span class="s">of</span> <span class="s">code</span>
+
+<span class="c">% pack the state derivatives into an mx1 vector</span>
+<span class="n">xdot</span> <span class="p">=</span> <span class="p">[</span><span class="n">q1dot</span><span class="p">;</span> <span class="n">q2dot</span><span class="p">;</span> <span class="n">u1dot</span><span class="p">;</span> <span class="n">u2dot</span><span class="p">];</span>
+
+<span class="n">end</span>
+</pre></div>
+</div>
+<div class="section" id="defining-the-output-function">
+<h3><a class="toc-backref" href="#id14">Defining the Output Function</a></h3>
+<div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>y <span class="p">=</span><span class="w"> </span><span class="nf">eval_train_wheelset_outputs</span><span class="p">(</span>t, x, c<span class="p">)</span><span class="w"></span>
+<span class="c">% EVAL_TRAIN_WHEELSET_OUTPUTS - Returns the output vector at the specified</span>
+<span class="c">% time.</span>
+<span class="c">%</span>
+<span class="c">% Syntax: y = eval_quarter_car_outputs(t, x, c)</span>
+<span class="c">%</span>
+<span class="c">% Inputs:</span>
+<span class="c">%   t - Scalar value of time, size 1x1.</span>
+<span class="c">%   x - State vector at time t, size 4x1, [q1; q2; u1; u2]</span>
+<span class="c">%   c - Constant parameter structure with 16 parameters.</span>
+<span class="c">% Outputs:</span>
+<span class="c">%   y - Output vector at time t, size 2x1, [Fx; Fy].</span>
+
+<span class="c">% unpack xdot and x as needed</span>
+
+<span class="n">replace</span> <span class="s">this</span> <span class="s">line</span> <span class="s">with</span> <span class="s">your</span> <span class="s">lines</span>
+
+<span class="c">% unpack the parameters</span>
+
+<span class="n">replace</span> <span class="s">this</span> <span class="s">line</span> <span class="s">with</span> <span class="s">your</span> <span class="s">lines</span>
+
+<span class="c">% calculate the forces</span>
+
+<span class="n">replace</span> <span class="s">this</span> <span class="s">line</span> <span class="s">with</span> <span class="s">your</span> <span class="s">line(s)</span>
+
+<span class="c">% pack the outputs into a qx1 vector</span>
+<span class="n">y</span> <span class="p">=</span> <span class="p">[</span><span class="n">Fx</span><span class="p">;</span> <span class="n">Fy</span><span class="p">];</span>
+
+<span class="n">end</span>
+</pre></div>
+</div>
+<div class="section" id="solving-the-integration-of-odes">
+<h3><a class="toc-backref" href="#id15">Solving the Integration of ODEs</a></h3>
+<div class="highlight"><pre><span></span><span class="c">% define the initial conditions</span>
+<span class="n">x0</span> <span class="p">=</span> <span class="p">[</span>?<span class="p">;</span> ?<span class="p">;</span> ?<span class="p">;</span> ?<span class="p">];</span>
+
+<span class="c">% define a set of time values</span>
+<span class="n">ts</span> <span class="p">=</span> ?<span class="p">;</span>
+
+<span class="c">% set the numerical values for the constants</span>
+<span class="n">c</span><span class="p">.</span>? <span class="p">=</span> ?<span class="p">;</span>
+<span class="n">c</span><span class="p">.</span>? <span class="p">=</span> ?<span class="p">;</span>
+<span class="n">c</span><span class="p">.</span>? <span class="p">=</span> ?<span class="p">;</span>
+<span class="n">c</span><span class="p">.</span>? <span class="p">=</span> ?<span class="p">;</span>
+
+<span class="c">% integrate the differential equations</span>
+<span class="n">rhs</span> <span class="p">=</span> <span class="p">@(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="n">eval_train_wheelset_rhs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+<span class="p">[</span><span class="n">ts</span><span class="p">,</span> <span class="n">xs</span><span class="p">]</span> <span class="p">=</span> <span class="n">ode45</span><span class="p">(</span><span class="n">rhs</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="n">x0</span><span class="p">);</span>
+
+<span class="c">% evaluate the outputs</span>
+<span class="n">ys</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="n">ts</span><span class="p">),</span> <span class="mi">2</span><span class="p">);</span>  <span class="c">% place to store outputs</span>
+<span class="k">for</span> <span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+    <span class="c">% calculate the outputs and store them</span>
+    <span class="n">ys</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span> <span class="p">:)</span> <span class="p">=</span> <span class="n">eval_train_wheelset_outputs</span><span class="p">(</span><span class="n">ts</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span> <span class="n">xs</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span> <span class="p">:),</span> <span class="n">c</span><span class="p">);</span>
+<span class="n">end</span>
+
+<span class="s">%</span> <span class="s">write</span> <span class="s">your</span> <span class="s">code</span> <span class="s">to</span> <span class="s">make</span> <span class="s">the</span> <span class="s">plots</span> <span class="s">below</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="grading-rubric">
+<h2><a class="toc-backref" href="#id16">Grading Rubric</a></h2>
+<table border="1" class="table table-striped table-bordered docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Topic</th>
+<th class="head">[10 pts] Exceeds expectations</th>
+<th class="head">[5 pts] Needs improvement</th>
+<th class="head">[0 pts] Does not meet expectations</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Functions</td>
+<td>[20] All 4 functions (1 state derivative, 2 inputs, 1 output) are
+present and take correct inputs and produce the expected outputs.</td>
+<td>[10] Most functions are present and mostly take correct inputs and
+produce the expected outputs</td>
+<td>[0] No functions are present.</td>
+</tr>
+<tr><td>Main Script (10 points)</td>
+<td>[10] Constant parameters only defined once in main script(s);
+Integration produces the correct state, input, and output trajectories;
+Good choices in number of time steps and resolution are chosen</td>
+<td>[5] Parameters are defined in multiple places; Integration produces some
+correct state, input, and output trajectories; Poor choices in number of
+time steps and resolution are chosen</td>
+<td>[0] Constants defined redundantly; Integration produces incorrect
+trajectories; Poor choices in time duration and steps</td>
+</tr>
+<tr><td>Explanations (10 points)</td>
+<td>[10] Explanation of no damping is correct and well explained;
+Explanation of second road input behavior correctly describes results;
+Plots of appropriate variables are used in the explanations</td>
+<td>[5] Explanation of no damping is somewhat correct and reasonably
+explained; Explanation of second road input behavior somewhat correctly
+describes results; Plots of appropriate variables are used in the
+explanations, but some are missing</td>
+<td>[0] Explanation of no damping is incorrect and poorly explained;
+Explanation of second road input behavior incorrectly describes results</td>
+</tr>
+<tr><td>Report and Code Formatting (10 points)</td>
+<td>[10] All axes labeled with units, legible font sizes, informative
+captions; Functions are documented with docstrings which fully explain
+the inputs and outputs; Professional, very legible, quality writing; All
+report format requirements met</td>
+<td>[5] Some axes labeled with units, mostly legible font sizes,
+less-than-informative captions; Functions have docstrings but the inputs
+and outputs are not fully explained; Semi-professional, somewhat
+legible, writing needs improvement; Most report format requirements met</td>
+<td>[0] Axes do not have labels, legible font sizes, or informative
+captions; Functions do not have docstrings; Report is not professionally
+written and formatted; Report format requirements are not met</td>
+</tr>
+<tr><td>Contributions</td>
+<td>Clear that all team members have made equitable contributions.</td>
+<td>Need to improve balance of contributions.</td>
+<td>No indication of equitable contributions.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<script type='text/javascript'>if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+  </div>
+</article>
+
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/categories.html">Categories</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>
+<div class="row">
+  <div class="col-sm-4 mx-auto text-center text-muted" >
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+      <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+    </a>
+    <br />
+    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+  </div>
+</div>    </div>
+  </footer>
+</body>
+
+</html>

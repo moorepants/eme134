@@ -4,8 +4,13 @@
 ./feeds/all.atom.xml
 ./final-study-guide.html
 ./index.html
+./lab-1-train-wheelset-hunting.html
+./labs.html
 ./resources.html
 ./schedule.html
+./scripts/eval_train_wheelset_outputs.m
+./scripts/eval_train_wheelset_rhs.m
+./scripts/simulate_train_wheelset.m
 ./tags.html
 ./theme/css/bootstrap.min.css
 ./theme/css/font-awesome.min.css
