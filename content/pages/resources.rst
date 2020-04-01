@@ -72,7 +72,7 @@ Trains
 ------
 
 Conical Wheels
-~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^
 
 - Numberphile: Stable Rollers: https://youtu.be/Ku8BOBwD4hc
 - Aachen train axle model [1:54]: https://youtu.be/vkzgcJGdUnA
@@ -80,7 +80,7 @@ Conical Wheels
 - Bullet train wheel design [9:34]: https://youtu.be/SRsm7mv0Oh8
 
 Hunting
-~~~~~~~
+^^^^^^^
 
 - Train car hunting @ 1:38 [1:51]: https://youtu.be/n-EfKFxGJc4k
 - Damaged car hunting @ 1:08 [2:13]: https://youtu.be/JHT-WJWdjEk
@@ -88,7 +88,7 @@ Hunting
 - Animation of train truck hunting [0:28]: https://youtu.be/5GwF6x7F1LM
 
 Other
-~~~~~
+^^^^^
 
 - Train fixed view of wheel and trac [11:05]: https://youtu.be/TTXuAYrgtBE
 
