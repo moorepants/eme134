@@ -1,5 +1,5 @@
 :title: Resources
-:sortorder: 2
+:sortorder: 3
 
 Remote Learning
 ===============
@@ -71,15 +71,26 @@ Past Course video lectures
 Trains
 ------
 
-- Train car hunting @ 1:38 [1:51]: https://youtu.be/n-EfKFxGJc4k
-- Damaged car hunting @ 1:08 [2:13]: https://youtu.be/JHT-WJWdjEk
-- Several cars hunting [2:58]: https://youtu.be/3i-ViwHubeE
-- Train fixed view of wheel and trac [11:05]: https://youtu.be/TTXuAYrgtBE
-- Bullet train wheel design [9:34]: https://youtu.be/SRsm7mv0Oh8
-- Animation of train truck hunting [0:28]: https://youtu.be/5GwF6x7F1LM
+Conical Wheels
+^^^^^^^^^^^^^^
+
 - Numberphile: Stable Rollers: https://youtu.be/Ku8BOBwD4hc
 - Aachen train axle model [1:54]: https://youtu.be/vkzgcJGdUnA
 - Animation train turning [4:18]: https://youtu.be/agd8B-31bjE
+- Bullet train wheel design [9:34]: https://youtu.be/SRsm7mv0Oh8
+
+Hunting
+^^^^^^^
+
+- Train car hunting @ 1:38 [1:51]: https://youtu.be/n-EfKFxGJc4k
+- Damaged car hunting @ 1:08 [2:13]: https://youtu.be/JHT-WJWdjEk
+- Several cars hunting [2:58]: https://youtu.be/3i-ViwHubeE
+- Animation of train truck hunting [0:28]: https://youtu.be/5GwF6x7F1LM
+
+Other
+^^^^^
+
+- Train fixed view of wheel and trac [11:05]: https://youtu.be/TTXuAYrgtBE
 
 Tires
 -----
@@ -136,21 +147,3 @@ Wobble/Shimmy
 - Bicycle speed wobble [0:57]: https://youtu.be/VfngbsIUSj8?t=26
 - Dunlop Motorcycle Wobble and Weave [10:12]: https://youtu.be/z3OQTU-kE2s
 - Motorcycle wobble and crash [0:16]: https://youtu.be/54fTFm5Dc-I
-
-Software
-========
-
-You may use Matlab or Octave to complete the labs and the project.
-
-There are three options for Matlab:
-
-- Download the UCD provided student version and install on your computer. You
-  can download the software from
-  https://www.mathworks.com/academia/tah-portal/university-of-california-davis-589250.html.
-- Use Matlab Online (I think UCD students get access to this)
-- Access the computer in the CAE lab remotely (this may be limited this
-  quarter, I'm getting more info on this)
-
-Octave is an open source clone of Matlab and has all of the features needed for
-this course. The software is free (forever) and can be installed on your
-computer. Download from https://www.gnu.org/software/octave/.
