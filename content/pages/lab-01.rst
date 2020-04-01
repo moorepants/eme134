@@ -1,5 +1,6 @@
 :title: Lab 1: Train Wheelset Hunting
 :status: hidden
+:slug: lab-01
 
 .. contents::
 
