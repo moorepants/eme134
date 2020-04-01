@@ -18,9 +18,12 @@ files = os.listdir(assets_dir)
 
 for fname in files:
     if os.path.splitext(fname)[-1] in accepted_file_exts:
-        print('Uploading: {}'.format(fname))
         key = boto.s3.key.Key(bucket, '{}{}/{}'.format(year, quarter, fname))
-        key.set_contents_from_filename(os.path.join(assets_dir, fname))
+        if key.exists():
+            print('Skipping: {} (already present in the bucket)'.format(fname))
+        else:
+            print('Uploading: {}'.format(fname))
+            key.set_contents_from_filename(os.path.join(assets_dir, fname))
     else:
         print('Skipping: {}'.format(fname))
 
