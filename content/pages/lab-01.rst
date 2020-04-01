@@ -1,6 +1,8 @@
 :title: Lab 1: Train Wheelset Hunting
 :status: hidden
 
+.. contents::
+
 Learning Objectives
 ===================
 
@@ -21,7 +23,7 @@ Introduction
 
 This lab assignment deals with using engineering computation to numerically
 integrate the differential equations generated from modeling the dynamics of a
-system. This process of integrating these time dependent equations is called
+system. The process of integrating these time dependent equations is called
 "simulation". Simulation is a powerful tool for studying both linear and
 non-linear systems. In this case, the differential equations are provided to
 you and your job is to translate them into correctly functioning m-files and
@@ -31,21 +33,21 @@ forward in the course you will apply this method to other problems.
 We have created a `guide that explains how to create a working simulation of a
 simple torque driven pendulum system
 <https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html>`_.
-Using this guide, your goal for this lab is to apply the same methods to a
-different example problem described below.
+Using this guide, your goal for this lab is to apply the same methods to the
+vehicle dynamics example problem described below.
 
 The Example System
 ==================
 
 A train car is generally mounted atop two bogies_, one fore and one aft. The
-fixed axle wheelset_ are then mounted to the bogies. The bogies house the
+fixed axle wheelsets_ are then mounted to the bogies. The bogies house the
 suspension system that isolates the train car from the wheelsets. The nature of
 the flexible coupling between the wheelsets and the train car as well as the
-dynamics of the wheelset-track interaction can cause oscillations occur. These
-oscillations can potentially be unstable and cause derailments. The
-oscillations are called "`Hunting Oscillation`_" or "truck hunting" ("truck"
-refers to the boogie and wheelset). Take a look at these videos to see some
-examples and explanations of hunting:
+dynamics of the wheelset-track interaction can cause oscillations to occur.
+These oscillations can even be unstable and cause derailments. The oscillations
+are called "`Hunting Oscillation`_" or "truck hunting" ("truck" refers to the
+boogie and wheelset). Take a look at these videos to see some examples and
+explanations of hunting oscillations:
 
 - Train car hunting @ 1:38 [1:51]: https://youtu.be/n-EfKFxGJc4k
 - Damaged car hunting @ 1:08 [2:13]: https://youtu.be/JHT-WJWdjEk
@@ -57,7 +59,7 @@ examples and explanations of hunting:
   don't believe everything the host is saying)
 
 .. _bogies: https://en.wikipedia.org/wiki/Bogie
-.. _wheelset: https://en.wikipedia.org/wiki/Wheelset_(rail_transport)
+.. _wheelsets: https://en.wikipedia.org/wiki/Wheelset_(rail_transport)
 .. _Hunting Oscillation: https://en.wikipedia.org/wiki/Hunting_oscillation
 
 Below is a schematic of a simple model of this system. This schematic is
@@ -120,15 +122,16 @@ described below.
      - :math:`\textrm{rad}`
    * - :math:`u_1`
      - Wheelset lateral velocity
-     - :math:`\textrm{m}`
+     - :math:`\textrm{m/s}`
    * - :math:`u_2`
      - Wheelset yaw angular velocity
-     - :math:`\textrm{rad}`
+     - :math:`\textrm{rad/s}`
 
 .. topic:: Terminology for differential equations
    :class: alert alert-info
 
-   - differential equation: mathematical equation that contains derivatives
+   - differential equation: mathematical equation that relates functions and
+     their derivatives
    - ordinary differential equation: differential equations that only have
      deriviatives of a single variable; in our case time is the variable
    - coupled: the same time varying variables appear in more than one equation
@@ -231,6 +234,10 @@ wheel can be estimated by these functions:
    F_x(t) = \frac{f_x}{V} u_1 \\
    F_y(t) = \frac{f_y}{V} d u_2
 
+You will use the section `Outputs Other Than The States
+<https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#outputs-other-than-the-states>`_
+to compute these values.
+
 Initial Conditions
 ==================
 
@@ -332,54 +339,52 @@ Solving the Integration of ODEs
 Grading Rubric
 ==============
 
-Points will be added to 40 to get your score from 40-100.
+.. list-table::
+   :class: table table-striped table-bordered
+   :header-rows: 1
 
-Functions (20 points)
-
-- [20] All 4 functions (1 state derivative, 2 inputs, 1 output) are present and
-  take correct inputs and produce the expected outputs.
-- [10] Most functions are present and mostly take correct inputs and produce
-  the expected outputs
-- [0] No functions are present.
-
-Main Script (10 points)
-
-- [10] Constant parameters only defined once in main script(s); Integration produces
-  the correct state, input, and output trajectories; Good choices in number of
-  time steps and resolution are chosen
-- [5] Parameters are defined in multiple places; Integration produces some
-  correct state, input, and output trajectories; Poor choices in number of time
-  steps and resolution are chosen
-- [0] Constants defined redundantly; Integration produces incorrect
-  trajectories; Poor choices in time duration and steps
-
-Explanations (10 points)
-
-- [10] Explanation of no damping is correct and well explained; Explanation of
-  second road input behavior correctly describes results; Plots of appropriate
-  variables are used in the explanations
-- [5] Explanation of no damping is somewhat correct and reasonably explained;
-  Explanation of second road input behavior somewhat correctly describes
-  results; Plots of appropriate variables are used in the explanations, but
-  some are missing
-- [0] Explanation of no damping is incorrect and poorly explained; Explanation
-  of second road input behavior incorrectly describes results
-
-Report and Code Formatting (10 points)
-
-- [10] All axes labeled with units, legible font sizes, informative captions;
-  Functions are documented with docstrings which fully explain the inputs and
-  outputs; Professional, very legible, quality writing; All report format
-  requirements met
-- [5] Some axes labeled with units, mostly legible font sizes,
-  less-than-informative captions; Functions have docstrings but the inputs and
-  outputs are not fully explained; Semi-professional, somewhat legible, writing
-  needs improvement; Most report format requirements met
-- [0] Axes do not have labels, legible font sizes, or informative captions;
-  Functions do not have docstrings; Report is not professionally written and
-  formatted; Report format requirements are not met
-
-Attendance [10 points]
-
-- [10] Attended at least one lab session in two weeks prior to due date.
-- [0] Did not Attended at least one lab session in two weeks prior to due date.
+   * - Topic
+     - [10 pts] Exceeds expectations
+     - [5 pts] Needs improvement
+     - [0 pts] Does not meet expectations
+   * - Functions
+     - [20] All 4 functions (1 state derivative, 2 inputs, 1 output) are
+       present and take correct inputs and produce the expected outputs.
+     - [10] Most functions are present and mostly take correct inputs and
+       produce the expected outputs
+     - [0] No functions are present.
+   * - Main Script (10 points)
+     - [10] Constant parameters only defined once in main script(s);
+       Integration produces the correct state, input, and output trajectories;
+       Good choices in number of time steps and resolution are chosen
+     - [5] Parameters are defined in multiple places; Integration produces some
+       correct state, input, and output trajectories; Poor choices in number of
+       time steps and resolution are chosen
+     - [0] Constants defined redundantly; Integration produces incorrect
+       trajectories; Poor choices in time duration and steps
+   * - Explanations (10 points)
+     - [10] Explanation of no damping is correct and well explained;
+       Explanation of second road input behavior correctly describes results;
+       Plots of appropriate variables are used in the explanations
+     - [5] Explanation of no damping is somewhat correct and reasonably
+       explained; Explanation of second road input behavior somewhat correctly
+       describes results; Plots of appropriate variables are used in the
+       explanations, but some are missing
+     - [0] Explanation of no damping is incorrect and poorly explained;
+       Explanation of second road input behavior incorrectly describes results
+   * - Report and Code Formatting (10 points)
+     - [10] All axes labeled with units, legible font sizes, informative
+       captions; Functions are documented with docstrings which fully explain
+       the inputs and outputs; Professional, very legible, quality writing; All
+       report format requirements met
+     - [5] Some axes labeled with units, mostly legible font sizes,
+       less-than-informative captions; Functions have docstrings but the inputs
+       and outputs are not fully explained; Semi-professional, somewhat
+       legible, writing needs improvement; Most report format requirements met
+     - [0] Axes do not have labels, legible font sizes, or informative
+       captions; Functions do not have docstrings; Report is not professionally
+       written and formatted; Report format requirements are not met
+   * - Contributions
+     - Clear that all team members have made equitable contributions.
+     - Need to improve balance of contributions.
+     - No indication of equitable contributions.

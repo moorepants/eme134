@@ -1,5 +1,5 @@
 :title: Resources
-:sortorder: 2
+:sortorder: 3
 
 Remote Learning
 ===============
@@ -139,19 +139,3 @@ Wobble/Shimmy
 - Bicycle speed wobble [0:57]: https://youtu.be/VfngbsIUSj8?t=26
 - Dunlop Motorcycle Wobble and Weave [10:12]: https://youtu.be/z3OQTU-kE2s
 - Motorcycle wobble and crash [0:16]: https://youtu.be/54fTFm5Dc-I
-
-Software
-========
-
-You may use Matlab or Octave to complete the labs and the project.
-
-There are three options for Matlab:
-
-- Download the UCD provided student version and install on your computer
-- Use Matlab Online (I think UCD students get access to this)
-- Access the computer in the CAE lab remotely (this may be limited this
-  quarter, I'm getting more info on this)
-
-Octave is an open source clone of Matlab and has all of the features needed for
-this course. The software is free (forever) and can be installed on your
-computer. Download from https://www.gnu.org/software/octave/.
