@@ -85,7 +85,7 @@ else
 endif
 
 
-devserver:
+devserver: grabscripts
 ifdef PORT
 	$(BASEDIR)/develop_server.sh restart $(PORT)
 else
@@ -96,7 +96,7 @@ stopserver:
 	$(BASEDIR)/develop_server.sh stop
 	@echo 'Stopped Pelican and SimpleHTTPServer processes running in background.'
 
-publish:
+publish: grabscripts
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 
 ssh_upload: publish
@@ -120,5 +120,13 @@ cf_upload: publish
 github: publish
 	ghp-import -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
 	git push origin $(GITHUB_PAGES_BRANCH)
+
+grabscripts:
+	mkdir -p content/scripts/best-practices
+	curl -o content/scripts/best-practices/integrate_with_derivative_output.m https://raw.githubusercontent.com/moorepants/eme171/master/content/scripts/best-practices/integrate_with_derivative_output.m
+	curl -o content/scripts/best-practices/eval_step_input.m https://raw.githubusercontent.com/moorepants/eme171/master/content/scripts/best-practices/eval_step_input.m
+	curl -o content/scripts/best-practices/eval_rhs_with_input.m https://raw.githubusercontent.com/moorepants/eme171/master/content/scripts/best-practices/eval_rhs_with_input.m
+	curl -o content/scripts/best-practices/eval_output.m https://raw.githubusercontent.com/moorepants/eme171/master/content/scripts/best-practices/eval_output.m
+	curl -o content/scripts/best-practices/eval_output_with_state_derivatives.m https://raw.githubusercontent.com/moorepants/eme171/master/content/scripts/best-practices/eval_output_with_state_derivatives.m
 
 .PHONY: html help clean regenerate serve serve-global devserver stopserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github

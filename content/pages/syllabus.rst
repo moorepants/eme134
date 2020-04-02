@@ -93,8 +93,8 @@ Office Hours
 | Times: TBA
 |
 | Russell's Office Hours
-| Location: TBA
-| Times: TBA
+| Location: Zoom
+| Times: M 12:10 PM
 |
 
 If it is impossible to make office hours, schedule an appointment with Jason by
@@ -165,9 +165,9 @@ Project Report       20%
 .. _canvas.ucdavis.edu: http://canvas.ucdavis.edu
 
 Homework
-   Weekly homework based mostly on textbook problems will be assigned which
-   will be due before class the following week. Homework will be assessed using
-   a rubric tied to the learning objectives. You will receive a "little or no
+   Weekly homework, based mostly on textbook problems, will be assigned and be
+   due before class the following week. Homework will be assessed using a
+   rubric tied to the learning objectives. You will receive a "little or no
    effort", "needs improvement", "meets expectations" for each objective. You
    may turn in your homework a second time and any "needs improvements" can be
    raised to "meets expectations". You cannot resubmit your homework if you
