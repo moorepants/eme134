@@ -4,10 +4,7 @@
 Guides
 ======
 
-- `Lab Report Guidelines and Template
-  <https://moorepants.github.io/eme171/lab-report-guidelines-and-template.html>`_
-  (Note that this is taken from EME 171. For now, replace "EME 171" with "EME
-  134" in the guide).
+- `Lab Report Guidelines and Template <{filename}/pages/report-template.rst>`_
 - `ODE Integration Best Practices
   <https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html>`_
   (This is also taken from EME 171 but is not specific to the course.)
