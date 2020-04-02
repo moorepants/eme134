@@ -171,7 +171,8 @@ Homework
    effort", "needs improvement", "meets expectations" for each objective. You
    may turn in your homework a second time and any "needs improvements" can be
    raised to "meets expectations". You cannot resubmit your homework if you
-   received a "little or no effort" on any item.
+   received a "little or no effort" on any item. The lowest homework grade will
+   be dropped.
 Labs
    Computational assignments will be due approximately every other week.
    Students will be in groups of two and will submit a lab report detailing
