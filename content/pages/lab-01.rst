@@ -19,6 +19,16 @@ After completing this lab you will be able to:
 
 .. _ode45: https://www.mathworks.com/help/matlab/ref/ode45.html
 
+.. topic:: Information
+   :class: alert alert-info
+
+   Extra information (asides) are in blue boxes.
+
+.. topic:: Warnings
+   :class: alert alert-warning
+
+   Warnings are in yellow boxes.
+
 Introduction
 ============
 
@@ -28,8 +38,9 @@ system. The process of integrating these time dependent equations is called
 "simulation". Simulation is a powerful tool for studying both linear and
 non-linear systems. In this case, the differential equations are provided to
 you and your job is to translate them into correctly functioning m-files and
-show through plots that the simulation is working as expected. As we move
-forward in the course you will apply this method to other problems.
+show through plots that the simulation is working as expected and make some
+observations about the system's behavior. As we move forward in the course you
+will apply this method to other problems.
 
 We have created a `guide that explains how to create a working simulation of a
 simple torque driven pendulum system
@@ -66,15 +77,15 @@ explanations of hunting oscillations:
 Below is a schematic of a simple model of this system. This schematic is
 explained in detail in Chapter 10 of the course textbook, but for the purposes
 of this lab you will need to have a basic understanding of the geometry. The
-fixed axle wheelset is connection to the car by for linear springs of
+fixed axle wheelset is connected to the car by four linear springs of
 stiffnesses :math:`k_1` and :math:`k_2`. The car and the center of the wheelset
 are moving at a constant speed :math:`V`. The wheelset can move laterally
-realtive to the car and tracks. This lateral deviation is tracked by the time
+relative to the car and tracks. This lateral deviation is tracked by the time
 varying variable :math:`q_1`. The yaw rotation angle of the wheelset relative
 to the car and tracks is measured by the time varying variable :math:`q_2`. The
 wheel-track connection is modeled by concave wheel surfaces rolling on a convex
 track surface with radii :math:`R` and :math:`R'`, respectively. When there is
-no lateral deviation and no yaw angle, :math:`q_1=q_2=0`, the nomial radius at
+no lateral deviation and no yaw angle, :math:`q_1=q_2=0`, the nominal radius at
 the wheel-track contact location is :math:`r_0` and the angle of the line
 tangent to the connecting surfaces is :math:`\delta_0`.
 
@@ -88,8 +99,8 @@ tangent to the connecting surfaces is :math:`\delta_0`.
 
 .. _yaw rotation: https://en.wikipedia.org/wiki/Yaw_(rotation)
 
-Dynamic Equations
------------------
+Equations of Motion
+-------------------
 
 With careful attention to formulating the kinematics and dynamics, the explicit
 coupled first order linear ordinary differential equations that describe how
@@ -128,6 +139,10 @@ described below.
      - Wheelset yaw angular velocity
      - :math:`\textrm{rad/s}`
 
+You will use the section `Defining the State Derivative Function
+<https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#defining-the-state-derivative-function>`_
+for these equations.
+
 .. topic:: Terminology for differential equations
    :class: alert alert-info
 
@@ -141,8 +156,8 @@ described below.
    - linear: the derivatives are strictly linear functions of the time varying
      variables on the right hand side
 
-Constant Variables
-------------------
+Constant Parameters
+-------------------
 
 The majority of the variables in the four differential equations above do not
 vary with time, i.e. they are constant. Below is a table with an explanation of
@@ -222,13 +237,17 @@ consistent set of SI base units.
      - :math:`\frac{R\delta_0}{R - R'}`
      - Unitless
 
+You will use the section `Integrating the Equations
+<https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#integrating-the-equations>`_
+to for these values.
+
 Outputs
 -------
 
 A train designer may be interested in knowing how much force is applied to the
-wheels at the contact location so that they can size the components
-appropriately. The lateral and longitudinal wheel contact forces on the right
-wheel can be estimated by these functions:
+wheels at the contact location from the track so that they can size the
+components appropriately. The lateral and longitudinal wheel contact forces on
+the right wheel can be estimated by these functions:
 
 .. math::
 
@@ -245,9 +264,10 @@ Initial Conditions
 Initial conditions are the starting values for the integrated state variables
 in the systems. This system has four state variables, so there are four initial
 conditions. For this lab, use the initial values shown below. See `Integrating
-the State Equations`_ for how to set up the initial condition vector.  Make
-sure that your initial conditions are arranged in the same order as your state
-variables.
+the Equations
+<https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#integrating-the-equations>`_
+for how to set up the initial condition vector.  Make sure that your initial
+conditions are arranged in the same order as your state variables.
 
 .. math::
 
@@ -281,7 +301,7 @@ conditions, input equations, time parameters, and any other parameters.
 Additionally, provide the indicated plots and answer the questions below.
 Append a copy of your Matlab/Octave code to the end of the report. The report
 should follow the `report template and guidelines
-<https://moorepants.github.io/eme171/lab-report-guidelines-and-template.html>`_.
+<{filename}/pages/report-template.rst>`_.
 
 Submit a report as a single PDF file to Canvas by the due date that addresses
 the following items:
@@ -295,13 +315,17 @@ the following items:
 3. Create a script in an m-file that utilizes the above two functions to
    simulate the train system. This should setup the constants, integrate the
    dynamics equations, and plot each state, and output versus time. See
-   `Integrating the State Equations`_ for an explanation.
+   `Integrating the Equations`_ for an explanation.
 4. Simulate the system twice, first at V=20 m/s (72 km/h) and then at V=50 m/s
-   (180 km/h). Use plots and written text to describe the differences in the
-   observed motion.
-5. Simulate the system twice, both at V=20 m/s but make the wheel surface
-   radius convex instead of concave (negative radius). Plot the resulting
-   simulation and describe the motion and what you learn from it.
+   (180 km/h). Plot all four state variables and the two output variables in a
+   single subplot that has six rows, making one plot for each simulation. Use
+   plots and written text to describe the differences in the observed motion at
+   the two speeds.
+5. Set the velocity back to V=20 m/s and make the wheel surface
+   radius :math:`R` convex instead of concave by making the value negative.
+   Plot the resulting simulation state and output trajectories in a single
+   subplot. Describe the motion as compared to the simulation at 20 m/s with
+   concave wheel surfaces and what you learn from it.
 
 **Use the templates below for developing your code and fill in the missing
 pieces.**
@@ -309,7 +333,7 @@ pieces.**
 .. _Defining the State Derivative Function: https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#defining-the-state-derivative-function
 .. _Time Varying Inputs: https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#time-varying-inputs
 .. _Outputs Other Than the States: https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#outputs-other-than-the-states
-.. _Integrating the State Equations: https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#integrating-the-equations
+.. _Integrating the Equations: https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#integrating-the-equations
 
 Templates for Coding
 ====================
@@ -337,10 +361,10 @@ Solving the Integration of ODEs
    :lexer: matlab
 
 
-Grading Rubric
-==============
+Assessment Rubric
+=================
 
-.. list-table::
+.. list-table:: Score will be between 50 and 100.
    :class: table table-striped table-bordered
    :header-rows: 1
 
@@ -349,43 +373,43 @@ Grading Rubric
      - [5 pts] Needs improvement
      - [0 pts] Does not meet expectations
    * - Functions
-     - [20] All 4 functions (1 state derivative, 2 inputs, 1 output) are
-       present and take correct inputs and produce the expected outputs.
-     - [10] Most functions are present and mostly take correct inputs and
+     - Both functions (1 state derivative & 1 output) are present and take
+       correct inputs and produce the expected outputs.
+     - One or two functions are present and mostly take correct inputs and
        produce the expected outputs
-     - [0] No functions are present.
-   * - Main Script (10 points)
-     - [10] Constant parameters only defined once in main script(s);
+     - No functions are present or not working at all.
+   * - Main Script
+     - Constant parameters only defined once in main script(s);
        Integration produces the correct state, input, and output trajectories;
-       Good choices in number of time steps and resolution are chosen
-     - [5] Parameters are defined in multiple places; Integration produces some
+       Good choices in number of time steps and resolution are chosen and
+       justified.
+     - Parameters are defined in multiple places; Integration produces some
        correct state, input, and output trajectories; Poor choices in number of
        time steps and resolution are chosen
-     - [0] Constants defined redundantly; Integration produces incorrect
+     - Constants defined redundantly; Integration produces incorrect
        trajectories; Poor choices in time duration and steps
-   * - Explanations (10 points)
-     - [10] Explanation of no damping is correct and well explained;
-       Explanation of second road input behavior correctly describes results;
-       Plots of appropriate variables are used in the explanations
-     - [5] Explanation of no damping is somewhat correct and reasonably
-       explained; Explanation of second road input behavior somewhat correctly
-       describes results; Plots of appropriate variables are used in the
+   * - Explanations
+     - Explanation of two simulation comparisons are correct and well
+       explained; Plots of appropriate variables are used in the explanations
+     - Explanation of two simulation comparisons is somewhat correct and
+       reasonably explained; Plots of appropriate variables are used in the
        explanations, but some are missing
-     - [0] Explanation of no damping is incorrect and poorly explained;
-       Explanation of second road input behavior incorrectly describes results
-   * - Report and Code Formatting (10 points)
-     - [10] All axes labeled with units, legible font sizes, informative
-       captions; Functions are documented with docstrings which fully explain
-       the inputs and outputs; Professional, very legible, quality writing; All
-       report format requirements met
-     - [5] Some axes labeled with units, mostly legible font sizes,
+     - Explanation of two simulations are incorrect and poorly explained; Plots
+       are missing
+   * - Report and Code Formatting
+     - All axes labeled with units, legible font sizes, informative captions;
+       Functions are documented with docstrings which fully explain the inputs
+       and outputs; Professional, very legible, quality writing; All report
+       format requirements met
+     - Some axes labeled with units, mostly legible font sizes,
        less-than-informative captions; Functions have docstrings but the inputs
        and outputs are not fully explained; Semi-professional, somewhat
        legible, writing needs improvement; Most report format requirements met
-     - [0] Axes do not have labels, legible font sizes, or informative
-       captions; Functions do not have docstrings; Report is not professionally
-       written and formatted; Report format requirements are not met
+     - Axes do not have labels, legible font sizes, or informative captions;
+       Functions do not have docstrings; Report is not professionally written
+       and formatted; Report format requirements are not met
    * - Contributions
      - Clear that all team members have made equitable contributions.
-     - Need to improve balance of contributions.
+     - Not clear that contributions were equitable and you need to improve
+       balance of contributions.
      - No indication of equitable contributions.
