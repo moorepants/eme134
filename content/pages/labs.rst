@@ -11,7 +11,9 @@ Guides
 Labs
 ====
 
-.. - `Lab 1: Train Wheel Hunting <{filename}/pages/lab-01.rst>`_
+- Lab 1: Train Wheel Hunting
+
+..  <{filename}/pages/lab-01.rst>`_
 
 Software
 ========
