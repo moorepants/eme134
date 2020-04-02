@@ -19,7 +19,7 @@
   <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
         href="https://moorepants.github.io/eme134/feeds/all.atom.xml">
   
-  <meta name="description" content="Contents Learning Objectives Introduction The Example System Dynamic Equations Constant Variables Outputs Initial Conditions Time Steps Deliverables Templates for Coding Defining the State Derivative Function Defining the Output Function Solving the Integration of ODEs Grading Rubric Learning Objectives After completing this lab you will be able to: translate ordinary differential …">
+  <meta name="description" content="Contents Learning Objectives Introduction The Example System Equations of Motion Constant Parameters Outputs Initial Conditions Time Steps Deliverables Templates for Coding Defining the State Derivative Function Defining the Output Function Solving the Integration of ODEs Assessment Rubric Learning Objectives After completing this lab you will be able to: translate ordinary …">
   <script>
     (function(i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
@@ -66,28 +66,28 @@
     <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#learning-objectives" id="id3">Learning Objectives</a></li>
-<li><a class="reference internal" href="#introduction" id="id4">Introduction</a></li>
-<li><a class="reference internal" href="#the-example-system" id="id5">The Example System</a><ul>
-<li><a class="reference internal" href="#dynamic-equations" id="id6">Dynamic Equations</a></li>
-<li><a class="reference internal" href="#constant-variables" id="id7">Constant Variables</a></li>
-<li><a class="reference internal" href="#outputs" id="id8">Outputs</a></li>
+<li><a class="reference internal" href="#learning-objectives" id="id6">Learning Objectives</a></li>
+<li><a class="reference internal" href="#introduction" id="id7">Introduction</a></li>
+<li><a class="reference internal" href="#the-example-system" id="id8">The Example System</a><ul>
+<li><a class="reference internal" href="#equations-of-motion" id="id9">Equations of Motion</a></li>
+<li><a class="reference internal" href="#constant-parameters" id="id10">Constant Parameters</a></li>
+<li><a class="reference internal" href="#outputs" id="id11">Outputs</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#initial-conditions" id="id9">Initial Conditions</a></li>
-<li><a class="reference internal" href="#time-steps" id="id10">Time Steps</a></li>
-<li><a class="reference internal" href="#deliverables" id="id11">Deliverables</a></li>
-<li><a class="reference internal" href="#templates-for-coding" id="id12">Templates for Coding</a><ul>
-<li><a class="reference internal" href="#id2" id="id13">Defining the State Derivative Function</a></li>
-<li><a class="reference internal" href="#defining-the-output-function" id="id14">Defining the Output Function</a></li>
-<li><a class="reference internal" href="#solving-the-integration-of-odes" id="id15">Solving the Integration of ODEs</a></li>
+<li><a class="reference internal" href="#initial-conditions" id="id12">Initial Conditions</a></li>
+<li><a class="reference internal" href="#time-steps" id="id13">Time Steps</a></li>
+<li><a class="reference internal" href="#deliverables" id="id14">Deliverables</a></li>
+<li><a class="reference internal" href="#templates-for-coding" id="id15">Templates for Coding</a><ul>
+<li><a class="reference internal" href="#id5" id="id16">Defining the State Derivative Function</a></li>
+<li><a class="reference internal" href="#defining-the-output-function" id="id17">Defining the Output Function</a></li>
+<li><a class="reference internal" href="#solving-the-integration-of-odes" id="id18">Solving the Integration of ODEs</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#grading-rubric" id="id16">Grading Rubric</a></li>
+<li><a class="reference internal" href="#assessment-rubric" id="id19">Assessment Rubric</a></li>
 </ul>
 </div>
 <div class="section" id="learning-objectives">
-<h2><a class="toc-backref" href="#id3">Learning Objectives</a></h2>
+<h2><a class="toc-backref" href="#id6">Learning Objectives</a></h2>
 <p>After completing this lab you will be able to:</p>
 <ul class="simple">
 <li>translate ordinary differential equations into a computer function that
@@ -98,24 +98,33 @@ evaluates the equations at any given point in time</li>
 trajectories</li>
 <li>create a report with textual explanations and plots of the simulation</li>
 </ul>
+<div class="alert alert-info topic">
+<p class="topic-title">Information</p>
+<p>Extra information (asides) are in blue boxes.</p>
+</div>
+<div class="alert alert-warning topic">
+<p class="topic-title">Warnings</p>
+<p>Warnings are in yellow boxes.</p>
+</div>
 </div>
 <div class="section" id="introduction">
-<h2><a class="toc-backref" href="#id4">Introduction</a></h2>
+<h2><a class="toc-backref" href="#id7">Introduction</a></h2>
 <p>This lab assignment deals with using engineering computation to numerically
 integrate the differential equations generated from modeling the dynamics of a
 system. The process of integrating these time dependent equations is called
 &quot;simulation&quot;. Simulation is a powerful tool for studying both linear and
 non-linear systems. In this case, the differential equations are provided to
 you and your job is to translate them into correctly functioning m-files and
-show through plots that the simulation is working as expected. As we move
-forward in the course you will apply this method to other problems.</p>
+show through plots that the simulation is working as expected and make some
+observations about the system's behavior. As we move forward in the course you
+will apply this method to other problems.</p>
 <p>We have created a <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html">guide that explains how to create a working simulation of a
 simple torque driven pendulum system</a>.
 Using this guide, your goal for this lab is to apply the same methods to the
 vehicle dynamics example problem described below.</p>
 </div>
 <div class="section" id="the-example-system">
-<h2><a class="toc-backref" href="#id5">The Example System</a></h2>
+<h2><a class="toc-backref" href="#id8">The Example System</a></h2>
 <p>A train car is generally mounted atop two <a class="reference external" href="https://en.wikipedia.org/wiki/Bogie">bogies</a>, one fore and one aft. The
 fixed axle <a class="reference external" href="https://en.wikipedia.org/wiki/Wheelset_(rail_transport)">wheelsets</a> are then mounted to the bogies. The bogies house the
 suspension system that isolates the train car from the wheelsets. The nature of
@@ -138,15 +147,15 @@ don't believe everything the host is saying)</li>
 <p>Below is a schematic of a simple model of this system. This schematic is
 explained in detail in Chapter 10 of the course textbook, but for the purposes
 of this lab you will need to have a basic understanding of the geometry. The
-fixed axle wheelset is connection to the car by for linear springs of
+fixed axle wheelset is connected to the car by four linear springs of
 stiffnesses <span class="math">\(k_1\)</span> and <span class="math">\(k_2\)</span>. The car and the center of the wheelset
 are moving at a constant speed <span class="math">\(V\)</span>. The wheelset can move laterally
-realtive to the car and tracks. This lateral deviation is tracked by the time
+relative to the car and tracks. This lateral deviation is tracked by the time
 varying variable <span class="math">\(q_1\)</span>. The yaw rotation angle of the wheelset relative
 to the car and tracks is measured by the time varying variable <span class="math">\(q_2\)</span>. The
 wheel-track connection is modeled by concave wheel surfaces rolling on a convex
 track surface with radii <span class="math">\(R\)</span> and <span class="math">\(R'\)</span>, respectively. When there is
-no lateral deviation and no yaw angle, <span class="math">\(q_1=q_2=0\)</span>, the nomial radius at
+no lateral deviation and no yaw angle, <span class="math">\(q_1=q_2=0\)</span>, the nominal radius at
 the wheel-track contact location is <span class="math">\(r_0\)</span> and the angle of the line
 tangent to the connecting surfaces is <span class="math">\(\delta_0\)</span>.</p>
 <div class="figure align-center">
@@ -155,8 +164,8 @@ tangent to the connecting surfaces is <span class="math">\(\delta_0\)</span>.</p
 10.2, and 10.3 in the book for more detail. The upper figure is the top view
 and the lower figure is a rear view.</p>
 </div>
-<div class="section" id="dynamic-equations">
-<h3><a class="toc-backref" href="#id6">Dynamic Equations</a></h3>
+<div class="section" id="equations-of-motion">
+<h3><a class="toc-backref" href="#id9">Equations of Motion</a></h3>
 <p>With careful attention to formulating the kinematics and dynamics, the explicit
 coupled first order linear ordinary differential equations that describe how
 the dynamics of the system change with respect to time can be found. You will
@@ -204,6 +213,8 @@ described below.</p>
 </tr>
 </tbody>
 </table>
+<p>You will use the section <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#defining-the-state-derivative-function">Defining the State Derivative Function</a>
+for these equations.</p>
 <div class="alert alert-info topic">
 <p class="topic-title">Terminology for differential equations</p>
 <ul class="simple">
@@ -219,8 +230,8 @@ variables on the right hand side</li>
 </ul>
 </div>
 </div>
-<div class="section" id="constant-variables">
-<h3><a class="toc-backref" href="#id7">Constant Variables</a></h3>
+<div class="section" id="constant-parameters">
+<h3><a class="toc-backref" href="#id10">Constant Parameters</a></h3>
 <p>The majority of the variables in the four differential equations above do not
 vary with time, i.e. they are constant. Below is a table with an explanation of
 each variable, its value, and its units. Note that the units are a self
@@ -322,13 +333,15 @@ consistent set of SI base units.</p>
 </tr>
 </tbody>
 </table>
+<p>You will use the section <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#integrating-the-equations">Integrating the Equations</a>
+to for these values.</p>
 </div>
 <div class="section" id="outputs">
-<h3><a class="toc-backref" href="#id8">Outputs</a></h3>
+<h3><a class="toc-backref" href="#id11">Outputs</a></h3>
 <p>A train designer may be interested in knowing how much force is applied to the
-wheels at the contact location so that they can size the components
-appropriately. The lateral and longitudinal wheel contact forces on the right
-wheel can be estimated by these functions:</p>
+wheels at the contact location from the track so that they can size the
+components appropriately. The lateral and longitudinal wheel contact forces on
+the right wheel can be estimated by these functions:</p>
 <div class="math">
 \begin{align*}
 F_x(t) = \frac{f_x}{V} u_1 \\
@@ -340,13 +353,13 @@ to compute these values.</p>
 </div>
 </div>
 <div class="section" id="initial-conditions">
-<h2><a class="toc-backref" href="#id9">Initial Conditions</a></h2>
+<h2><a class="toc-backref" href="#id12">Initial Conditions</a></h2>
 <p>Initial conditions are the starting values for the integrated state variables
 in the systems. This system has four state variables, so there are four initial
 conditions. For this lab, use the initial values shown below. See <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#integrating-the-equations">Integrating
-the State Equations</a> for how to set up the initial condition vector.  Make
-sure that your initial conditions are arranged in the same order as your state
-variables.</p>
+the Equations</a>
+for how to set up the initial condition vector.  Make sure that your initial
+conditions are arranged in the same order as your state variables.</p>
 <div class="math">
 \begin{align*}
 q_1(0) &amp; = 0.02 \textrm{m} \\
@@ -357,7 +370,7 @@ u_2(0) &amp; = 0
 </div>
 </div>
 <div class="section" id="time-steps">
-<h2><a class="toc-backref" href="#id10">Time Steps</a></h2>
+<h2><a class="toc-backref" href="#id13">Time Steps</a></h2>
 <p>You will also have to decide on how long your simulation will run and at what
 time resolution you should report values of the states, inputs, and outputs.
 Some rules of thumb for making these choices:</p>
@@ -372,13 +385,13 @@ observed oscillation period.</li>
 for your simulations.</p>
 </div>
 <div class="section" id="deliverables">
-<h2><a class="toc-backref" href="#id11">Deliverables</a></h2>
+<h2><a class="toc-backref" href="#id14">Deliverables</a></h2>
 <p>In your lab report, show your work for creating and evaluating the simulation
 model. Include any calculations you had to do, for example those for initial
 conditions, input equations, time parameters, and any other parameters.
 Additionally, provide the indicated plots and answer the questions below.
 Append a copy of your Matlab/Octave code to the end of the report. The report
-should follow the <a class="reference external" href="https://moorepants.github.io/eme171/lab-report-guidelines-and-template.html">report template and guidelines</a>.</p>
+should follow the <a class="reference external" href="https://moorepants.github.io/eme134/report-guide.html">report template and guidelines</a>.</p>
 <p>Submit a report as a single PDF file to Canvas by the due date that addresses
 the following items:</p>
 <ol class="arabic simple">
@@ -391,24 +404,28 @@ the States</a> for an explanation.</li>
 <li>Create a script in an m-file that utilizes the above two functions to
 simulate the train system. This should setup the constants, integrate the
 dynamics equations, and plot each state, and output versus time. See
-<a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#integrating-the-equations">Integrating the State Equations</a> for an explanation.</li>
+<a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#integrating-the-equations">Integrating the Equations</a> for an explanation.</li>
 <li>Simulate the system twice, first at V=20 m/s (72 km/h) and then at V=50 m/s
-(180 km/h). Use plots and written text to describe the differences in the
-observed motion.</li>
-<li>Simulate the system twice, both at V=20 m/s but make the wheel surface
-radius convex instead of concave (negative radius). Plot the resulting
-simulation and describe the motion and what you learn from it.</li>
+(180 km/h). Plot all four state variables and the two output variables in a
+single subplot that has six rows, making one plot for each simulation. Use
+plots and written text to describe the differences in the observed motion at
+the two speeds.</li>
+<li>Set the velocity back to V=20 m/s and make the wheel surface
+radius <span class="math">\(R\)</span> convex instead of concave by making the value negative.
+Plot the resulting simulation state and output trajectories in a single
+subplot. Describe the motion as compared to the simulation at 20 m/s with
+concave wheel surfaces and what you learn from it.</li>
 </ol>
 <p><strong>Use the templates below for developing your code and fill in the missing
 pieces.</strong></p>
 </div>
 <div class="section" id="templates-for-coding">
-<h2><a class="toc-backref" href="#id12">Templates for Coding</a></h2>
+<h2><a class="toc-backref" href="#id15">Templates for Coding</a></h2>
 <p>Provided below are templates to utilize in coding the first lab. Your code
 should be identical to the templates, but it is your job to fill in the missing
 information.</p>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id13">Defining the State Derivative Function</a></h3>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id16">Defining the State Derivative Function</a></h3>
 <div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>xdot <span class="p">=</span><span class="w"> </span><span class="nf">eval_train_wheelset_rhs</span><span class="p">(</span>t, x, c<span class="p">)</span><span class="w"></span>
 <span class="c">% EVAL_TRAIN_WHEELSET_RHS - Returns the time derivative of the states, i.e.</span>
 <span class="c">% evaluates the right hand side of the explicit ordinary differential</span>
@@ -447,12 +464,12 @@ information.</p>
 </pre></div>
 </div>
 <div class="section" id="defining-the-output-function">
-<h3><a class="toc-backref" href="#id14">Defining the Output Function</a></h3>
+<h3><a class="toc-backref" href="#id17">Defining the Output Function</a></h3>
 <div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>y <span class="p">=</span><span class="w"> </span><span class="nf">eval_train_wheelset_outputs</span><span class="p">(</span>t, x, c<span class="p">)</span><span class="w"></span>
 <span class="c">% EVAL_TRAIN_WHEELSET_OUTPUTS - Returns the output vector at the specified</span>
 <span class="c">% time.</span>
 <span class="c">%</span>
-<span class="c">% Syntax: y = eval_quarter_car_outputs(t, x, c)</span>
+<span class="c">% Syntax: y = eval_train_wheelset_outputs(t, x, c)</span>
 <span class="c">%</span>
 <span class="c">% Inputs:</span>
 <span class="c">%   t - Scalar value of time, size 1x1.</span>
@@ -480,12 +497,12 @@ information.</p>
 </pre></div>
 </div>
 <div class="section" id="solving-the-integration-of-odes">
-<h3><a class="toc-backref" href="#id15">Solving the Integration of ODEs</a></h3>
+<h3><a class="toc-backref" href="#id18">Solving the Integration of ODEs</a></h3>
 <div class="highlight"><pre><span></span><span class="c">% define the initial conditions</span>
-<span class="n">x0</span> <span class="p">=</span> <span class="p">[</span>?<span class="p">;</span> ?<span class="p">;</span> ?<span class="p">;</span> ?<span class="p">];</span>
+<span class="n">x0</span> <span class="p">=</span> ?
 
 <span class="c">% define a set of time values</span>
-<span class="n">ts</span> <span class="p">=</span> ?<span class="p">;</span>
+<span class="n">ts</span> <span class="p">=</span> ?
 
 <span class="c">% set the numerical values for the constants</span>
 <span class="n">c</span><span class="p">.</span>? <span class="p">=</span> ?<span class="p">;</span>
@@ -508,9 +525,10 @@ information.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="grading-rubric">
-<h2><a class="toc-backref" href="#id16">Grading Rubric</a></h2>
+<div class="section" id="assessment-rubric">
+<h2><a class="toc-backref" href="#id19">Assessment Rubric</a></h2>
 <table border="1" class="table table-striped table-bordered docutils">
+<caption>Score will be between 50 and 100.</caption>
 <colgroup>
 <col width="25%" />
 <col width="25%" />
@@ -526,49 +544,49 @@ information.</p>
 </thead>
 <tbody valign="top">
 <tr><td>Functions</td>
-<td>[20] All 4 functions (1 state derivative, 2 inputs, 1 output) are
-present and take correct inputs and produce the expected outputs.</td>
-<td>[10] Most functions are present and mostly take correct inputs and
+<td>Both functions (1 state derivative &amp; 1 output) are present and take
+correct inputs and produce the expected outputs.</td>
+<td>One or two functions are present and mostly take correct inputs and
 produce the expected outputs</td>
-<td>[0] No functions are present.</td>
+<td>No functions are present or not working at all.</td>
 </tr>
-<tr><td>Main Script (10 points)</td>
-<td>[10] Constant parameters only defined once in main script(s);
+<tr><td>Main Script</td>
+<td>Constant parameters only defined once in main script(s);
 Integration produces the correct state, input, and output trajectories;
-Good choices in number of time steps and resolution are chosen</td>
-<td>[5] Parameters are defined in multiple places; Integration produces some
+Good choices in number of time steps and resolution are chosen and
+justified.</td>
+<td>Parameters are defined in multiple places; Integration produces some
 correct state, input, and output trajectories; Poor choices in number of
 time steps and resolution are chosen</td>
-<td>[0] Constants defined redundantly; Integration produces incorrect
+<td>Constants defined redundantly; Integration produces incorrect
 trajectories; Poor choices in time duration and steps</td>
 </tr>
-<tr><td>Explanations (10 points)</td>
-<td>[10] Explanation of no damping is correct and well explained;
-Explanation of second road input behavior correctly describes results;
-Plots of appropriate variables are used in the explanations</td>
-<td>[5] Explanation of no damping is somewhat correct and reasonably
-explained; Explanation of second road input behavior somewhat correctly
-describes results; Plots of appropriate variables are used in the
+<tr><td>Explanations</td>
+<td>Explanation of two simulation comparisons are correct and well
+explained; Plots of appropriate variables are used in the explanations</td>
+<td>Explanation of two simulation comparisons is somewhat correct and
+reasonably explained; Plots of appropriate variables are used in the
 explanations, but some are missing</td>
-<td>[0] Explanation of no damping is incorrect and poorly explained;
-Explanation of second road input behavior incorrectly describes results</td>
+<td>Explanation of two simulations are incorrect and poorly explained; Plots
+are missing</td>
 </tr>
-<tr><td>Report and Code Formatting (10 points)</td>
-<td>[10] All axes labeled with units, legible font sizes, informative
-captions; Functions are documented with docstrings which fully explain
-the inputs and outputs; Professional, very legible, quality writing; All
-report format requirements met</td>
-<td>[5] Some axes labeled with units, mostly legible font sizes,
+<tr><td>Report and Code Formatting</td>
+<td>All axes labeled with units, legible font sizes, informative captions;
+Functions are documented with docstrings which fully explain the inputs
+and outputs; Professional, very legible, quality writing; All report
+format requirements met</td>
+<td>Some axes labeled with units, mostly legible font sizes,
 less-than-informative captions; Functions have docstrings but the inputs
 and outputs are not fully explained; Semi-professional, somewhat
 legible, writing needs improvement; Most report format requirements met</td>
-<td>[0] Axes do not have labels, legible font sizes, or informative
-captions; Functions do not have docstrings; Report is not professionally
-written and formatted; Report format requirements are not met</td>
+<td>Axes do not have labels, legible font sizes, or informative captions;
+Functions do not have docstrings; Report is not professionally written
+and formatted; Report format requirements are not met</td>
 </tr>
 <tr><td>Contributions</td>
 <td>Clear that all team members have made equitable contributions.</td>
-<td>Need to improve balance of contributions.</td>
+<td>Not clear that contributions were equitable and you need to improve
+balance of contributions.</td>
 <td>No indication of equitable contributions.</td>
 </tr>
 </tbody>

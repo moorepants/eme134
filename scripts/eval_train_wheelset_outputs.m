@@ -2,7 +2,7 @@ function y = eval_train_wheelset_outputs(t, x, c)
 % EVAL_TRAIN_WHEELSET_OUTPUTS - Returns the output vector at the specified
 % time.
 %
-% Syntax: y = eval_quarter_car_outputs(t, x, c)
+% Syntax: y = eval_train_wheelset_outputs(t, x, c)
 %
 % Inputs:
 %   t - Scalar value of time, size 1x1.

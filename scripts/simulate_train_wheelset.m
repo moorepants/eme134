@@ -1,8 +1,8 @@
 % define the initial conditions
-x0 = [?; ?; ?; ?];
+x0 = ?
 
 % define a set of time values
-ts = ?;
+ts = ?
 
 % set the numerical values for the constants
 c.? = ?;
