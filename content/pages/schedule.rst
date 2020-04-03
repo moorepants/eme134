@@ -19,7 +19,8 @@ The lecture notes will be shared via this page as a PDF download.
                                                      - `Notes 01`_
                                                      - `Slides 01`_
 02 W Apr 01    Elementary Vehicles                   - `Notes 02`_
-03 F Apr 03    Elementary Vehicles
+03 F Apr 03    Elementary Vehicles                   - `Notes 03`_
+                                                     - `Lab Notes 01`_
 -- ----------  ------------------------------------  -------------------------  ---------------
 04 M Apr 06    Rigid Body Motion                     - Chapter 2
 05 W Apr 08    Rigid Body Motion
@@ -86,5 +87,7 @@ NA R Jun 11    Project Presentations: 6PM-8PM                                   
 .. _Notes 26: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l26.pdf
 .. _Notes 27: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l27.pdf
 .. _Notes 28: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l28.pdf
+
+.. _Lab Notes 01: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d01.pdf
 
 .. _Slides 01: https://docs.google.com/presentation/d/e/2PACX-1vStBzGiinB9GAwxWFeE4qjnFJ1ip0KnlLfKtQ73l5AZ1R8Fa80E4lFx_dAF9fE5jQql45tT0f6bFQNg/pub?start=false&loop=false&delayms=3000
