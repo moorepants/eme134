@@ -57,8 +57,8 @@ Note the path to the plugins directory, e.g.::
 
 Clone this repository and change into the new directory::
 
-   $ git clone git@github.com:moorepants/eme171.git
-   $ cd eme171/
+   $ git clone git@github.com:moorepants/eme134.git
+   $ cd eme134/
 
 Create a configuration file called ``config.yml`` and add the full path to
 where you installed the theme::
