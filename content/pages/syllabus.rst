@@ -89,12 +89,12 @@ Office Hours
 ============
 
 | Jason's Office Hours
-| Location: TBA
-| Times: TBA
+| Location: Zoom
+| Times: Thursdays @ 4:30 PM
 |
 | Russell's Office Hours
 | Location: Zoom
-| Times: M 12:10 PM
+| Times: M 12:00 PM
 |
 
 If it is impossible to make office hours, schedule an appointment with Jason by
