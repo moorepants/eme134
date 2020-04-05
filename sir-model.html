@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  SIR Epidemic Model | EME 134: Vehicle Stability
+</title>
+  <link rel="canonical" href="https://moorepants.github.io/eme134/sir-model.html">
+
+
+  <link rel="stylesheet" href="https://moorepants.github.io/eme134/theme/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://moorepants.github.io/eme134/theme/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://moorepants.github.io/eme134/theme/css/pygments/emacs.min.css">
+  <link rel="stylesheet" href="https://moorepants.github.io/eme134/theme/css/theme.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://moorepants.github.io/eme134/feeds/all.atom.xml">
+  
+  <meta name="description" content="The simplest ordinary differential equations that describe the spread of disease in a population are: \begin{align*} \dot{S} = -\beta I \frac{S}{N} \\ \dot{I} = \beta I \frac{S}{N} - \frac{I}{\tau} \\ \dot{R} = \frac{I}{\tau} \end{align*} where: \begin{equation*} N = S + I + R \end{equation …">
+  <script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o);
+      a.async = 1;
+      a.src = g;
+      m = s.getElementsByTagName(o)[0];
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-15966419-8', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+  <div class="col-sm-12">
+    <h1 class="title"><a href="https://moorepants.github.io/eme134/">EME 134: Vehicle Stability</a></h1>
+      <ul class="list-inline">
+            <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/">Syllabus</a></li>
+            <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/schedule.html">Schedule</a></li>
+            <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/labs.html">Labs</a></li>
+            <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/resources.html">Resources</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  SIR Epidemic Model
+</h1>
+      <hr>
+
+<article class="article">
+  <div class="content">
+    <p>The simplest ordinary differential equations that describe the spread of
+disease in a population are:</p>
+<div class="math">
+\begin{align*}
+\dot{S} = -\beta I \frac{S}{N} \\
+\dot{I} = \beta I \frac{S}{N} - \frac{I}{\tau} \\
+\dot{R} = \frac{I}{\tau}
+\end{align*}
+</div>
+<p>where:</p>
+<div class="math">
+\begin{equation*}
+N = S + I + R
+\end{equation*}
+</div>
+<p>This is the so called <a class="reference external" href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SIR_model">SIR model</a>. The time varying variables are:</p>
+<ul class="simple">
+<li><span class="math">\(S\)</span>: number of people susceptible to infection</li>
+<li><span class="math">\(I\)</span>: number of people infected</li>
+<li><span class="math">\(R\)</span>: number of people recovered (i.e. no longer susceptible)</li>
+<li><span class="math">\(N\)</span>: total number of people</li>
+</ul>
+<p>The constant parameters are:</p>
+<ul class="simple">
+<li><span class="math">\(\beta\)</span>: the time rate of infectious transmissions</li>
+<li><span class="math">\(\tau\)</span>: the mean infectious period</li>
+<li><span class="math">\(R_0 = \beta\tau\)</span>: the basic reproduction number</li>
+</ul>
+<p>The right hand side of the ordinary differential equations are evaluated with
+the following function <a class="reference external" href="https://moorepants.github.io/eme134/scripts/eval_SIR_rhs.m"><tt class="docutils literal">eval_SIR_rhs.m</tt></a>:</p>
+<div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>xdot <span class="p">=</span><span class="w"> </span><span class="nf">eval_SIR_rhs</span><span class="p">(</span>t, x, c<span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="c">% Inputs:</span>
+  <span class="c">% t : 1x1 scalar time</span>
+  <span class="c">% x : 3x1 state vector [S; I; R]</span>
+  <span class="c">% c : structure containing 2 constant parameters</span>
+  <span class="c">% Outputs:</span>
+  <span class="c">% xdot : 3x1 state derivative vector [S&#39;; I&#39;, R&#39;]</span>
+
+  <span class="n">S</span> <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c">% susceptible [person]</span>
+  <span class="n">I</span> <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="c">% infected [person]</span>
+  <span class="n">R</span> <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="c">% recovered [person]</span>
+
+  <span class="nb">beta</span> <span class="p">=</span> <span class="n">c</span><span class="p">.</span><span class="nb">beta</span><span class="p">;</span>  <span class="c">% infectious contacts per time [person/day]</span>
+  <span class="n">tau</span> <span class="p">=</span> <span class="n">c</span><span class="p">.</span><span class="n">tau</span><span class="p">;</span>  <span class="c">% mean infectious period [day]</span>
+
+  <span class="n">N</span> <span class="p">=</span> <span class="n">S</span> <span class="o">+</span> <span class="n">I</span> <span class="o">+</span> <span class="n">R</span><span class="p">;</span>
+
+  <span class="n">Sdot</span> <span class="p">=</span> <span class="o">-</span><span class="nb">beta</span><span class="o">*</span><span class="n">I</span><span class="o">*</span><span class="n">S</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
+
+  <span class="n">Idot</span> <span class="p">=</span> <span class="nb">beta</span><span class="o">*</span><span class="n">I</span><span class="o">*</span><span class="n">S</span><span class="o">/</span><span class="n">N</span> <span class="o">-</span> <span class="n">I</span><span class="o">/</span><span class="n">tau</span><span class="p">;</span>
+
+  <span class="n">Rdot</span> <span class="p">=</span> <span class="n">I</span><span class="o">/</span><span class="n">tau</span><span class="p">;</span>
+
+  <span class="n">xdot</span> <span class="p">=</span> <span class="p">[</span><span class="n">Sdot</span><span class="p">;</span> <span class="n">Idot</span><span class="p">;</span> <span class="n">Rdot</span><span class="p">];</span>
+
+<span class="n">end</span>
+</pre></div>
+<p>The ordinary differential equations are integrated (simulated) with the
+following script <a class="reference external" href="https://moorepants.github.io/eme134/scripts/simulate_SIR_model.m"><tt class="docutils literal">simulate_SIR_model.m</tt></a>:</p>
+<div class="highlight"><pre><span></span><span class="c">% constant parameters</span>
+<span class="n">c</span><span class="p">.</span><span class="nb">beta</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">7</span><span class="p">;</span>  <span class="c">% infectious contacts per day [person/days]</span>
+<span class="n">c</span><span class="p">.</span><span class="n">tau</span> <span class="p">=</span> <span class="mi">14</span><span class="p">;</span>  <span class="c">% days infectious [day]</span>
+
+<span class="c">% intial population values</span>
+<span class="n">S0</span> <span class="p">=</span> <span class="mf">39.56E6</span><span class="p">;</span>  <span class="c">% population of California [person]</span>
+<span class="n">I0</span> <span class="p">=</span> <span class="mi">1000</span><span class="p">;</span>  <span class="c">% infected [person]</span>
+<span class="n">R0</span> <span class="p">=</span> <span class="mi">200</span><span class="p">;</span>  <span class="c">% recovered [person]</span>
+
+<span class="n">x0</span> <span class="p">=</span> <span class="p">[</span><span class="n">S0</span><span class="p">;</span> <span class="n">I0</span><span class="p">;</span> <span class="n">R0</span><span class="p">];</span>
+
+<span class="n">num_months</span> <span class="p">=</span> <span class="mi">8</span><span class="p">;</span>
+<span class="n">num_days_per_month</span> <span class="p">=</span> <span class="mi">30</span><span class="p">;</span>
+
+<span class="n">ts</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="n">num_months</span><span class="o">*</span><span class="n">num_days_per_month</span><span class="p">;</span>  <span class="c">% units of days</span>
+
+<span class="c">% integrate the equations</span>
+<span class="n">f</span> <span class="p">=</span> <span class="p">@(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="n">eval_SIR_rhs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+<span class="p">[</span><span class="n">ts</span><span class="p">,</span> <span class="n">xs</span><span class="p">]</span> <span class="p">=</span> <span class="n">ode45</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="n">x0</span><span class="p">);</span>
+
+<span class="c">% plot the results</span>
+<span class="n">hold</span> <span class="s">on</span>
+<span class="n">title</span><span class="p">(</span><span class="n">sprintf</span><span class="p">(</span><span class="s">&#39;R0 = %1.2f&#39;</span><span class="p">,</span> <span class="n">c</span><span class="p">.</span><span class="nb">beta</span><span class="o">*</span><span class="n">c</span><span class="p">.</span><span class="n">tau</span><span class="p">))</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">xs</span><span class="p">(:,</span> <span class="mi">1</span><span class="p">))</span>  <span class="c">% S(t)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">xs</span><span class="p">(:,</span> <span class="mi">2</span><span class="p">))</span>  <span class="c">% I(t)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">xs</span><span class="p">(:,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c">% R(t)</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Time [days]&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Number of people&#39;</span><span class="p">)</span>
+<span class="n">legend</span><span class="p">(</span><span class="s">&#39;S&#39;</span><span class="p">,</span> <span class="s">&#39;I&#39;</span><span class="p">,</span> <span class="s">&#39;R&#39;</span><span class="p">)</span>
+<span class="n">hold</span> <span class="s">off</span>
+</pre></div>
+<script type='text/javascript'>if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+  </div>
+</article>
+
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/categories.html">Categories</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>
+<div class="row">
+  <div class="col-sm-4 mx-auto text-center text-muted" >
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+      <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+    </a>
+    <br />
+    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+  </div>
+</div>    </div>
+  </footer>
+</body>
+
+</html>
