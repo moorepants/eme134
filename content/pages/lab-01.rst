@@ -209,7 +209,7 @@ consistent set of SI base units.
      - :math:`\pi/180`
      - :math:`\textrm{rad}`
    * - :math:`f_x`
-     - Lateral creep coefficient
+     - Longitudinal creep coefficient
      - :math:`1\times10^6`
      - Unitless
    * - :math:`f_y`
@@ -251,8 +251,8 @@ the right wheel can be estimated by these functions:
 
 .. math::
 
-   F_x(t) = \frac{f_x}{V} u_1 \\
-   F_y(t) = \frac{f_y}{V} d u_2
+   F_x(t) = \frac{f_x}{V} d u_2 \\
+   F_y(t) = \frac{f_y}{V} u_1
 
 You will use the section `Outputs Other Than The States
 <https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#outputs-other-than-the-states>`_
@@ -360,7 +360,6 @@ Solving the Integration of ODEs
 .. code-include:: ../scripts/simulate_train_wheelset.m
    :lexer: matlab
 
-
 Assessment Rubric
 =================
 
@@ -408,8 +407,3 @@ Assessment Rubric
      - Axes do not have labels, legible font sizes, or informative captions;
        Functions do not have docstrings; Report is not professionally written
        and formatted; Report format requirements are not met
-   * - Contributions
-     - Clear that all team members have made equitable contributions.
-     - Not clear that contributions were equitable and you need to improve
-       balance of contributions.
-     - No indication of equitable contributions.
