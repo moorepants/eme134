@@ -243,6 +243,20 @@ for all questions about the class, homework, theory, projects, etc that is not
 of a private nature. This allows both the instructors and students to
 collectively answer questions for the whole class's benefit.
 
+Slack
+-----
+
+Make an account with your UCD email address here:
+
+https://ucdavis.slack.com/
+
+Once you have an account you can ask the instructor to add you to the channel.
+
+The primary purpose of this channel is for you all to have a way to discuss and
+help each other with the assignments and to have a way to communicate with your
+class mates on matter regarding the course. The UCD Principles of Community and
+Code of Academic Conduct apply for the communication in the Slack channel.
+
 Email
 -----
 
