@@ -23,8 +23,8 @@ The lecture notes will be shared via this page as a PDF download.
                                                      - `Lab Notes 01`_
                                                      - `Lab Script 01`_
 -- ----------  ------------------------------------  -------------------------  ---------------
-04 M Apr 06    Rigid Body Motion                     - Chapter 2
-05 W Apr 08    Rigid Body Motion
+04 M Apr 06    Elementary Vehicles                   - `Notes 04`_
+05 W Apr 08    Rigid Body Motion                     - Chapter 2
 06 F Apr 10    Stability                             - Chapter 3                HW1
 -- ----------  ------------------------------------  -------------------------  ---------------
 07 M Apr 13    Stability                                                        LAB1
