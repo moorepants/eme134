@@ -25,7 +25,8 @@ The lecture notes will be shared via this page as a PDF download.
 -- ----------  ------------------------------------  -------------------------  ---------------
 04 M Apr 06    Elementary Vehicles                   - `Notes 04`_
 05 W Apr 08    Rigid Body Motion                     - Chapter 2
-06 F Apr 10    Stability                             - Chapter 3                HW1
+                                                     - `Notes 05`_
+06 F Apr 10    Rigid Body Motion                     - Chapter 3                HW1
 -- ----------  ------------------------------------  -------------------------  ---------------
 07 M Apr 13    Stability                                                        LAB1
 08 W Apr 15    Pneumatic Tires                       - Chapter 4
