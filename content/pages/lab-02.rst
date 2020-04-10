@@ -2,6 +2,11 @@
 :status: hidden
 :slug: lab-02
 
+.. topic:: Warning: Draft
+   :class: alert alert-warning
+
+   This is still a draft!
+
 .. contents::
 
 Learning Objectives
@@ -9,6 +14,8 @@ Learning Objectives
 
 After completing this lab you will be able to:
 
+- formulate the explicit first order ordinary differential equations for the
+  longitudinal dynamics of a drag racing car
 - translate ordinary differential equations into a computer function that
   evaluates the equations at any given point in time
 - numerically integrate ordinary differential equations with Octave/Matlab's
@@ -55,13 +62,11 @@ drivetrain. Figure 1 provides a basic free body diagram of the system.
 
 .. _air drag: https://en.wikipedia.org/wiki/Drag_(physics)
 
-.. figure:: https://objects-us-east-1.dream.io/eme134/2020s/lab-01-fig-01.png
-   :width: 600px
+.. figure:: https://objects-us-east-1.dream.io/eme134/2020s/lab-02-fig-01.png
+   :width: 400px
    :align: center
 
-   **Figure 1**: Schematics of the train wheelset model. See figures 10.1,
-   10.2, and 10.3 in the book for more detail. The upper figure is the top view
-   and the lower figure is a rear view.
+   **Figure 1**: Schematics of the longitudinal car dynamics model.
 
 Limit the particle representing the car to only forward motion and its position
 is tracked by the time varying variable :math:`x` as wells as its velocity
@@ -184,6 +189,13 @@ where :math:`A,B,C,D` are the coefficients that characterize the model's best
 fit to the empirical data. You are provided values for a typical tire on dry
 concrete and a typical tire on icy concrete.
 
+.. figure:: https://objects-us-east-1.dream.io/eme134/2020s/lab-02-fig-02.png
+   :width: 600px
+   :align: center
+
+   **Figure 2**: Typical relationship between the slip ratio and the
+   coefficient of friction.
+
 The race track will be 200 m long with a patch of ice between the 50 m and 100
 m mark. You'll need to switch between the two sets of friction equation
 coefficients. Numerical integration routines like ``ode45`` are designed to
@@ -192,6 +204,13 @@ need to be a smooth transition. The `logistic function`_ provides a nice way to
 smoothly transition between two values. Below are the equations to calculate
 the coefficient values for any value of :math:`x`. You'll need to implement
 these using some form of control flow like and if-else or switch statement.
+
+.. figure:: https://objects-us-east-1.dream.io/eme134/2020s/lab-02-fig-03.png
+   :width: 600px
+   :align: center
+
+   **Figure 3**: Use of the logistic function for a smooth transition between
+   the coefficients.
 
 .. math::
 
