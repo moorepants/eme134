@@ -12,6 +12,7 @@ Labs
 ====
 
 - `Lab 1: Train Wheel Hunting <{filename}/pages/lab-01.rst>`_
+- `Lab 2: Dragster Traction Control <{filename}/pages/lab-02.rst>`_
 
 Software
 ========
