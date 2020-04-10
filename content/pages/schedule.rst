@@ -26,10 +26,11 @@ The lecture notes will be shared via this page as a PDF download.
 04 M Apr 06    Elementary Vehicles                   - `Notes 04`_
 05 W Apr 08    Rigid Body Motion                     - Chapter 2
                                                      - `Notes 05`_
-06 F Apr 10    Rigid Body Motion                     - Chapter 3
+06 F Apr 10    Rigid Body Motion                     - `Notes 06`_
+                                                     - `Lab Notes 02`_
 NA U Apr 12                                                                     HW1
 -- ----------  ------------------------------------  -------------------------  ---------------
-07 M Apr 13    Stability                                                        LAB1
+07 M Apr 13    Stability                             - Chapter 3                LAB1
 08 W Apr 15    Pneumatic Tires                       - Chapter 4
 09 F Apr 17    Pneumatic Tires                                                  HW2, HW1*
 -- ----------  ------------------------------------  -------------------------  ---------------
@@ -91,6 +92,7 @@ NA R Jun 11    Project Presentations: 6PM-8PM                                   
 .. _Notes 28: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l28.pdf
 
 .. _Lab Notes 01: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d01.pdf
+.. _Lab Notes 02: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d02.pdf
 
 .. _Lab Script 01: {filename}/pages/sir-model.rst
 
