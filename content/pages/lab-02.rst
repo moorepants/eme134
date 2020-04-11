@@ -46,6 +46,18 @@ performance.
 .. _drag race: https://en.wikipedia.org/wiki/Drag_racing
 .. _tire slip: https://en.wikipedia.org/wiki/Slip_(vehicle_dynamics)
 
+This is a video of a variety of cars in typical drag races:
+
+.. raw:: html
+
+   <iframe width="560" height="315"
+   src="https://www.youtube.com/embed/rw3LE78gwhg" frameborder="0"
+   allow="accelerometer; autoplay; encrypted-media; gyroscope;
+   picture-in-picture" allowfullscreen></iframe>
+
+Watch the car tires carefully and notice the large deformations that occur.
+This is a contributor to "tire slip".
+
 System Description
 ==================
 
