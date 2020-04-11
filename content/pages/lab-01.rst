@@ -209,19 +209,19 @@ consistent set of SI base units.
      - :math:`\pi/180`
      - :math:`\textrm{rad}`
    * - :math:`f_x`
-     - Longitudinal creep coefficient
-     - :math:`1\times10^6`
-     - Unitless
-   * - :math:`f_y`
      - Lateral creep coefficient
      - :math:`1\times10^6`
      - Unitless
+   * - :math:`f_y`
+     - Longitudinal creep coefficient
+     - :math:`1\times10^6`
+     - Unitless
    * - :math:`k_1`
-     - Longitudinal spring stiffness
+     - Lateral spring stiffness
      - 13000
      - :math:`N/m`
    * - :math:`k_2`
-     - Lateral spring stiffness
+     - Longitudinal spring stiffness
      - 13000
      - :math:`N/m`
    * - :math:`m_W`
@@ -251,8 +251,8 @@ the right wheel can be estimated by these functions:
 
 .. math::
 
-   F_x(t) = \frac{f_x}{V} d u_2 \\
-   F_y(t) = \frac{f_y}{V} u_1
+   F_x(t) = \frac{f_x}{V} u_1 \\
+   F_y(t) = \frac{f_y}{V} d u_2
 
 You will use the section `Outputs Other Than The States
 <https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#outputs-other-than-the-states>`_
