@@ -58,7 +58,7 @@ the flexible coupling between the wheelsets and the train car as well as the
 dynamics of the wheelset-track interaction can cause oscillations to occur.
 These oscillations can even be unstable and cause derailments. The oscillations
 are called "`Hunting Oscillation`_" or "truck hunting" ("truck" refers to the
-boogie and wheelset). Take a look at these videos to see some examples and
+bogie and wheelset). Take a look at these videos to see some examples and
 explanations of hunting oscillations:
 
 - Train car hunting @ 1:38 [1:51]: https://youtu.be/n-EfKFxGJc4k
