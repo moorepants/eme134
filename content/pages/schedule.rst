@@ -30,13 +30,15 @@ The lecture notes will be shared via this page as a PDF download.
                                                      - `Lab Notes 02`_
 NA U Apr 12                                                                     HW1
 -- ----------  ------------------------------------  -------------------------  ---------------
-07 M Apr 13    Stability                             - Chapter 3                LAB1
-08 W Apr 15    Pneumatic Tires                       - Chapter 4
-09 F Apr 17    Pneumatic Tires                                                  HW2, HW1*
+07 M Apr 13    Stability                             - Chapter 3
+                                                     - `Notes 07`_
+NA T Apr 14                                                                     LAB1
+08 W Apr 15    Stability
+09 F Apr 17    Pneumatic Tires                       - Chapter 4                HW2, HW1*
 -- ----------  ------------------------------------  -------------------------  ---------------
 10 M Apr 20    Pneumatic Tires
-11 W Apr 22    Trailers                              - Chapter 5
-12 F Apr 24    Trailers                                                         HW3, HW2*
+11 W Apr 22    Pnuematic Tires
+12 F Apr 24    Trailers                              - Chapter 5                HW3, HW2*
 -- ----------  ------------------------------------  -------------------------  ---------------
 13 M Apr 27    Trailers                                                         LAB2
 14 W Apr 29    Trailers
