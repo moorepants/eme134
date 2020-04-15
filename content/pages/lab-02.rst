@@ -179,7 +179,9 @@ The friction force :math:`F_f` and the driving torque :math:`\tau_D` should be
 treated as inputs to the above equations of motion. These input equations
 should be defined in a input function. See `Time Varying Inputs
 <https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#time-varying-inputs>`_
-for more information.
+for more information. The inputs function should take in the time, current
+state, and constants structure and produce a vector with :math:`\tau_D`,
+:math:`F_f`, :math:`s_D`, and :math:`\mu`.
 
 Friction
 ~~~~~~~~
@@ -266,6 +268,10 @@ be governed by the current angular rate of the wheels :math:`\omega`. This
 models "flooring" the gas pedal and shifting the transmission perfectly to
 always maintain maximum power to the wheels.
 
+.. math::
+
+   \tau_D = \frac{P_{max}}{\omega}
+
 For the traction control case, you will implement a simple proportional
 feedback traction control system that governs the torque by assuming you can
 measure the slip ratio and can calculate the error between it and a desired
@@ -309,7 +315,9 @@ as an output variable.
 
 You will use the section `Outputs Other Than The States
 <https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#outputs-other-than-the-states>`_
-to compute these values.
+to compute these values. The outputs function should take in the time, current
+state, input function handle, and constants structure and produce a vector with
+:math:`\tau_D`, :math:`F_f`, :math:`s_D`, :math:`\mu`, :math:`P_{in}`.
 
 Constant Parameters
 -------------------
@@ -462,6 +470,24 @@ the following items:
    at the 200 m mark and discuss the differences in energy consumption, why it
    is, and what the implications are. You can present the joules of energy in
    equivalent liters of gasoline to help get a idea of the quantity.
+
+Tips
+====
+
+Make sure to construct the simulation in stages. Here is a good path:
+
+1. Create the state derivatives function.
+2. Create the inputs function with no traction control and no ice.
+3. Test the simulation till you are confident it is producing realistic
+   results.
+4. Add ice to the input function. Test the simulation until it seems to be
+   working.
+5. Create another input function with only control, no ice. Test the
+   simulation until it seems to be working.
+6. Add both ice and control to the input function in 5. Test the simulation
+   until it seems to be working.
+7. Create an outputs function and make your final plots.
+
 
 Assessment Rubric
 =================
