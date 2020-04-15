@@ -33,8 +33,9 @@ NA U Apr 12                                                                     
 07 M Apr 13    Stability                             - Chapter 3
                                                      - `Notes 07`_
 NA T Apr 14                                                                     LAB1
-08 W Apr 15    Stability
-09 F Apr 17    Pneumatic Tires                       - Chapter 4                HW2, HW1*
+08 W Apr 15    Stability                             - `Notes 08`_
+09 F Apr 17    - Stability
+               - Pneumatic Tires                     - Chapter 4                HW2, HW1*
 -- ----------  ------------------------------------  -------------------------  ---------------
 10 M Apr 20    Pneumatic Tires
 11 W Apr 22    Pnuematic Tires
