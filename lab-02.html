@@ -19,7 +19,7 @@
   <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
         href="https://moorepants.github.io/eme134/feeds/all.atom.xml">
   
-  <meta name="description" content="Contents Learning Objectives Introduction System Description Equations of Motion Inputs Friction Driving torque Outputs Constant Parameters Initial Conditions Time Steps Deliverables Assessment Rubric Learning Objectives After completing this lab you will be able to: formulate the explicit first order ordinary differential equations for the longitudinal dynamics of a drag racing …">
+  <meta name="description" content="Contents Learning Objectives Introduction System Description Equations of Motion Inputs Friction Driving torque Outputs Constant Parameters Initial Conditions Time Steps Deliverables Tips Assessment Rubric Learning Objectives After completing this lab you will be able to: formulate the explicit first order ordinary differential equations for the longitudinal dynamics of a drag …">
   <script>
     (function(i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
@@ -82,7 +82,8 @@
 <li><a class="reference internal" href="#initial-conditions" id="id11">Initial Conditions</a></li>
 <li><a class="reference internal" href="#time-steps" id="id12">Time Steps</a></li>
 <li><a class="reference internal" href="#deliverables" id="id13">Deliverables</a></li>
-<li><a class="reference internal" href="#assessment-rubric" id="id14">Assessment Rubric</a></li>
+<li><a class="reference internal" href="#tips" id="id14">Tips</a></li>
+<li><a class="reference internal" href="#assessment-rubric" id="id15">Assessment Rubric</a></li>
 </ul>
 </div>
 <div class="section" id="learning-objectives">
@@ -245,7 +246,9 @@ for these equations.</p>
 <p>The friction force <span class="math">\(F_f\)</span> and the driving torque <span class="math">\(\tau_D\)</span> should be
 treated as inputs to the above equations of motion. These input equations
 should be defined in a input function. See <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#time-varying-inputs">Time Varying Inputs</a>
-for more information.</p>
+for more information. The inputs function should take in the time, current
+state, and constants structure and produce a vector with <span class="math">\(\tau_D\)</span>,
+<span class="math">\(F_f\)</span>, <span class="math">\(s_D\)</span>, and <span class="math">\(\mu\)</span>.</p>
 <div class="section" id="friction">
 <h4><a class="toc-backref" href="#id7">Friction</a></h4>
 <p>The driving slip ratio <span class="math">\(s_D\)</span> characterizes the actual forward velocity
@@ -319,6 +322,11 @@ ratio to operate at the engine's peak power output. <span class="math">\(\tau_D\
 be governed by the current angular rate of the wheels <span class="math">\(\omega\)</span>. This
 models &quot;flooring&quot; the gas pedal and shifting the transmission perfectly to
 always maintain maximum power to the wheels.</p>
+<div class="math">
+\begin{equation*}
+\tau_D = \frac{P_{max}}{\omega}
+\end{equation*}
+</div>
 <p>For the traction control case, you will implement a simple proportional
 feedback traction control system that governs the torque by assuming you can
 measure the slip ratio and can calculate the error between it and a desired
@@ -360,7 +368,9 @@ and the angular rate of the wheels:</p>
 accumulated energy consumed. The trajectory of the power should also be added
 as an output variable.</p>
 <p>You will use the section <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#outputs-other-than-the-states">Outputs Other Than The States</a>
-to compute these values.</p>
+to compute these values. The outputs function should take in the time, current
+state, input function handle, and constants structure and produce a vector with
+<span class="math">\(\tau_D\)</span>, <span class="math">\(F_f\)</span>, <span class="math">\(s_D\)</span>, <span class="math">\(\mu\)</span>, <span class="math">\(P_{in}\)</span>.</p>
 </div>
 <div class="section" id="constant-parameters">
 <h3><a class="toc-backref" href="#id10">Constant Parameters</a></h3>
@@ -533,8 +543,25 @@ is, and what the implications are. You can present the joules of energy in
 equivalent liters of gasoline to help get a idea of the quantity.</li>
 </ol>
 </div>
+<div class="section" id="tips">
+<h2><a class="toc-backref" href="#id14">Tips</a></h2>
+<p>Make sure to construct the simulation in stages. Here is a good path:</p>
+<ol class="arabic simple">
+<li>Create the state derivatives function.</li>
+<li>Create the inputs function with no traction control and no ice.</li>
+<li>Test the simulation till you are confident it is producing realistic
+results.</li>
+<li>Add ice to the input function. Test the simulation until it seems to be
+working.</li>
+<li>Create another input function with only control, no ice. Test the
+simulation until it seems to be working.</li>
+<li>Add both ice and control to the input function in 5. Test the simulation
+until it seems to be working.</li>
+<li>Create an outputs function and make your final plots.</li>
+</ol>
+</div>
 <div class="section" id="assessment-rubric">
-<h2><a class="toc-backref" href="#id14">Assessment Rubric</a></h2>
+<h2><a class="toc-backref" href="#id15">Assessment Rubric</a></h2>
 <table border="1" class="table table-striped table-bordered docutils">
 <caption>Score will be between 50 and 100.</caption>
 <colgroup>
