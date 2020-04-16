@@ -340,11 +340,12 @@ is growing and decreased when shrinking.</p>
 </div>
 <p>You'll need to determine the slip ratio that corresponds to the maximum
 coefficient of friction for the dry and icy conditions and use that for
-<span class="math">\(s_{D peak}\)</span>. The gain <span class="math">\(k\)</span> should be a positive value. You'll need
-to try different values to home in on the best performance for your car.
-Inspect the <span class="math">\(\mu\)</span> and <span class="math">\(s_D\)</span> curves versus time to see if this is
-behaving as expected. Also, the value of <span class="math">\(\tau_D\)</span> produced by the
-controller should never cause the input power to be higher than
+<span class="math">\(s_{D peak}\)</span>. Use the average of the dry and ice slip values as the
+<span class="math">\(s_{D peak}\)</span> for simplicity. The gain <span class="math">\(k\)</span> should be a positive
+value. You'll need to try different values to home in on the best performance
+for your car.  Inspect the <span class="math">\(\mu\)</span> and <span class="math">\(s_D\)</span> curves versus time to
+see if this is behaving as expected. Also, the value of <span class="math">\(\tau_D\)</span> produced
+by the controller should never cause the input power to be higher than
 <span class="math">\(P_{max}\)</span>. So always take the minimum of <span class="math">\(\tau_D\)</span> in the without
 control case vs. the with control case to stay under the maximum power limit.
 In other words, the controller can't draw more power than <span class="math">\(P_{max}\)</span>.</p>
