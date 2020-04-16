@@ -285,11 +285,12 @@ is growing and decreased when shrinking.
 
 You'll need to determine the slip ratio that corresponds to the maximum
 coefficient of friction for the dry and icy conditions and use that for
-:math:`s_{D peak}`. The gain :math:`k` should be a positive value. You'll need
-to try different values to home in on the best performance for your car.
-Inspect the :math:`\mu` and :math:`s_D` curves versus time to see if this is
-behaving as expected. Also, the value of :math:`\tau_D` produced by the
-controller should never cause the input power to be higher than
+:math:`s_{D peak}`. Use the average of the dry and ice slip values as the
+:math:`s_{D peak}` for simplicity. The gain :math:`k` should be a positive
+value. You'll need to try different values to home in on the best performance
+for your car.  Inspect the :math:`\mu` and :math:`s_D` curves versus time to
+see if this is behaving as expected. Also, the value of :math:`\tau_D` produced
+by the controller should never cause the input power to be higher than
 :math:`P_{max}`. So always take the minimum of :math:`\tau_D` in the without
 control case vs. the with control case to stay under the maximum power limit.
 In other words, the controller can't draw more power than :math:`P_{max}`.
