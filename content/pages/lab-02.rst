@@ -86,7 +86,7 @@ equation:
 
 .. math::
 
-   F_D = \frac{1}{2} \rho C_D A v^2
+   F_D = \frac{1}{2} \rho C_D A_f v^2
 
 The wheel can be modeled as a rotating disc with a radius equal to the
 effective *rolling radius* of the cars' tires :math:`r`. The rotational
@@ -336,7 +336,7 @@ units are a self consistent set of SI base units.
      - Description
      - Value
      - Units
-   * - :math:`A`
+   * - :math:`A_f`
      - Car frontal area
      - :math:`0.5`
      - :math:`\textrm{m}^2`
