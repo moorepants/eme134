@@ -40,6 +40,8 @@ And produces the following figure:
 The Euler Method deviates from the ``ode45()`` solution due to the poorer error
 properties of the method.
 
+The following was not covered in lab, but you may find it interesting.
+
 A simple `Runga-Kutta Method`_ of order 4 can also be implemented and compared to
 the Runga-Kutta method used by ``ode45()``. The file |runga_kutta_integrate|_
 is shown below:
