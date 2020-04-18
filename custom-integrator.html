@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Custom Integrator | EME 134: Vehicle Stability
+</title>
+  <link rel="canonical" href="https://moorepants.github.io/eme134/custom-integrator.html">
+
+
+  <link rel="stylesheet" href="https://moorepants.github.io/eme134/theme/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://moorepants.github.io/eme134/theme/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://moorepants.github.io/eme134/theme/css/pygments/emacs.min.css">
+  <link rel="stylesheet" href="https://moorepants.github.io/eme134/theme/css/theme.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://moorepants.github.io/eme134/feeds/all.atom.xml">
+  
+  <meta name="description" content="We will use the same differential equations for the SIR model as previously introduced. The right hand side of the ordinary differential equations are evaluated with the following function eval_SIR_rhs.m: function xdot = eval_SIR_rhs(t, x, c) % Inputs: % t : 1x1 scalar time % x : 3x1 state vector [S; I; R] % c …">
+  <script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o);
+      a.async = 1;
+      a.src = g;
+      m = s.getElementsByTagName(o)[0];
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-15966419-8', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+  <div class="col-sm-12">
+    <h1 class="title"><a href="https://moorepants.github.io/eme134/">EME 134: Vehicle Stability</a></h1>
+      <ul class="list-inline">
+            <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/">Syllabus</a></li>
+            <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/schedule.html">Schedule</a></li>
+            <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/labs.html">Labs</a></li>
+            <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/resources.html">Resources</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Custom Integrator
+</h1>
+      <hr>
+
+<article class="article">
+  <div class="content">
+    <p>We will use the same differential equations for the <a class="reference external" href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SIR_model">SIR model</a> as previously
+introduced. The right hand side of the ordinary differential equations are
+evaluated with the following function <a class="reference external" href="https://moorepants.github.io/eme134/scripts/eval_SIR_rhs.m"><tt class="docutils literal">eval_SIR_rhs.m</tt></a>:</p>
+<div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>xdot <span class="p">=</span><span class="w"> </span><span class="nf">eval_SIR_rhs</span><span class="p">(</span>t, x, c<span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="c">% Inputs:</span>
+  <span class="c">% t : 1x1 scalar time</span>
+  <span class="c">% x : 3x1 state vector [S; I; R]</span>
+  <span class="c">% c : structure containing 2 constant parameters</span>
+  <span class="c">% Outputs:</span>
+  <span class="c">% xdot : 3x1 state derivative vector [S&#39;; I&#39;, R&#39;]</span>
+
+  <span class="n">S</span> <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c">% susceptible [person]</span>
+  <span class="n">I</span> <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="c">% infected [person]</span>
+  <span class="n">R</span> <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="c">% recovered [person]</span>
+
+  <span class="nb">beta</span> <span class="p">=</span> <span class="n">c</span><span class="p">.</span><span class="nb">beta</span><span class="p">;</span>  <span class="c">% infectious contacts per time [person/day]</span>
+  <span class="n">tau</span> <span class="p">=</span> <span class="n">c</span><span class="p">.</span><span class="n">tau</span><span class="p">;</span>  <span class="c">% mean infectious period [day]</span>
+
+  <span class="n">N</span> <span class="p">=</span> <span class="n">S</span> <span class="o">+</span> <span class="n">I</span> <span class="o">+</span> <span class="n">R</span><span class="p">;</span>
+
+  <span class="n">Sdot</span> <span class="p">=</span> <span class="o">-</span><span class="nb">beta</span><span class="o">*</span><span class="n">I</span><span class="o">*</span><span class="n">S</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
+
+  <span class="n">Idot</span> <span class="p">=</span> <span class="nb">beta</span><span class="o">*</span><span class="n">I</span><span class="o">*</span><span class="n">S</span><span class="o">/</span><span class="n">N</span> <span class="o">-</span> <span class="n">I</span><span class="o">/</span><span class="n">tau</span><span class="p">;</span>
+
+  <span class="n">Rdot</span> <span class="p">=</span> <span class="n">I</span><span class="o">/</span><span class="n">tau</span><span class="p">;</span>
+
+  <span class="n">xdot</span> <span class="p">=</span> <span class="p">[</span><span class="n">Sdot</span><span class="p">;</span> <span class="n">Idot</span><span class="p">;</span> <span class="n">Rdot</span><span class="p">];</span>
+
+<span class="n">end</span>
+</pre></div>
+<p>The following function <a class="reference external" href="https://moorepants.github.io/eme134/scripts/euler_integrate.m"><tt class="docutils literal">euler_integrate.m</tt></a> implements <cite>Euler's Method</cite> of integration and is
+designed to be a drop in replacement for <tt class="docutils literal">ode45()</tt>:</p>
+<div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>[ts, xs] <span class="p">=</span><span class="w"> </span><span class="nf">euler_integrate</span><span class="p">(</span>f, ts, x0<span class="p">)</span><span class="w"></span>
+<span class="c">% f: function handle for the state derivative function</span>
+<span class="c">% ts: 1xn vector of time values</span>
+<span class="c">% x0: mx1 vector of initial states</span>
+<span class="c">% xs: nxm matrix where each column is the state at the ith time</span>
+
+<span class="n">xs</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="n">ts</span><span class="p">),</span> <span class="nb">length</span><span class="p">(</span><span class="n">x0</span><span class="p">));</span>  <span class="c">% nxm matrix of zeros</span>
+
+<span class="n">xs</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">:)</span> <span class="p">=</span> <span class="n">x0</span><span class="p">;</span>  <span class="c">% set first row to initial condition</span>
+
+<span class="n">for</span> <span class="s">i=2:length(ts)</span>
+    <span class="n">deltat</span> <span class="p">=</span> <span class="n">ts</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">ts</span><span class="p">(</span><span class="nb">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="c">% note the transpose &#39; operators to ensure the dimensions match,</span>
+    <span class="c">% as xs(i - 1, :) is 1xm instead of mx1</span>
+    <span class="n">xs</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span> <span class="p">:)</span> <span class="p">=</span> <span class="n">xs</span><span class="p">(</span><span class="nb">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:)</span><span class="o">&#39;</span> <span class="o">+</span> <span class="n">deltat</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">ts</span><span class="p">(</span><span class="nb">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">xs</span><span class="p">(</span><span class="nb">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:)</span><span class="o">&#39;</span><span class="p">);</span>
+<span class="n">end</span>
+
+<span class="s">end</span>
+</pre></div>
+<p>The ordinary differential equations are integrated (simulated) with the
+following script <a class="reference external" href="https://moorepants.github.io/eme134/scripts/simulate_SIR_model_euler.m"><tt class="docutils literal">simulate_SIR_model_euler.m</tt></a>:</p>
+<div class="highlight"><pre><span></span><span class="c">% constant parameters</span>
+<span class="n">c</span><span class="p">.</span><span class="nb">beta</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">7</span><span class="p">;</span>  <span class="c">% infectious contacts per day [person/days]</span>
+<span class="n">c</span><span class="p">.</span><span class="n">tau</span> <span class="p">=</span> <span class="mi">14</span><span class="p">;</span>  <span class="c">% days infectious [day]</span>
+
+<span class="c">% intial population values</span>
+<span class="n">S0</span> <span class="p">=</span> <span class="mf">39.56E6</span><span class="p">;</span>  <span class="c">% population of California [person]</span>
+<span class="n">I0</span> <span class="p">=</span> <span class="mi">1000</span><span class="p">;</span>  <span class="c">% infected [person]</span>
+<span class="n">R0</span> <span class="p">=</span> <span class="mi">200</span><span class="p">;</span>  <span class="c">% recovered [person]</span>
+
+<span class="n">x0</span> <span class="p">=</span> <span class="p">[</span><span class="n">S0</span><span class="p">;</span> <span class="n">I0</span><span class="p">;</span> <span class="n">R0</span><span class="p">];</span>
+
+<span class="n">num_months</span> <span class="p">=</span> <span class="mi">8</span><span class="p">;</span>
+<span class="n">num_days_per_month</span> <span class="p">=</span> <span class="mi">30</span><span class="p">;</span>
+
+<span class="n">ts</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="n">num_months</span><span class="o">*</span><span class="n">num_days_per_month</span><span class="p">;</span>  <span class="c">% units of days</span>
+
+<span class="c">% integrate the equations with both the Euler method and ode45 (Runga-Kutta</span>
+<span class="c">% method)</span>
+<span class="n">f</span> <span class="p">=</span> <span class="p">@(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="n">eval_SIR_rhs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+<span class="p">[</span><span class="n">ts</span><span class="p">,</span> <span class="n">xs</span><span class="p">]</span> <span class="p">=</span> <span class="n">euler_integrate</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="n">x0</span><span class="p">);</span>
+
+<span class="p">[</span><span class="n">ts2</span><span class="p">,</span> <span class="n">xs2</span><span class="p">]</span> <span class="p">=</span> <span class="n">ode45</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="n">x0</span><span class="p">);</span>
+
+<span class="c">% plot the results, comparing the two integration results</span>
+<span class="n">hold</span> <span class="s">on</span>
+<span class="n">title</span><span class="p">(</span><span class="n">sprintf</span><span class="p">(</span><span class="s">&#39;R0 = %1.2f&#39;</span><span class="p">,</span> <span class="n">c</span><span class="p">.</span><span class="nb">beta</span><span class="o">*</span><span class="n">c</span><span class="p">.</span><span class="n">tau</span><span class="p">))</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">xs</span><span class="p">(:,</span> <span class="mi">1</span><span class="p">),</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">ts2</span><span class="p">,</span> <span class="n">xs2</span><span class="p">(:,</span> <span class="mi">1</span><span class="p">),</span> <span class="s">&#39;b--&#39;</span><span class="p">)</span>  <span class="c">% S(t)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">xs</span><span class="p">(:,</span> <span class="mi">2</span><span class="p">),</span> <span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="n">ts2</span><span class="p">,</span> <span class="n">xs2</span><span class="p">(:,</span> <span class="mi">2</span><span class="p">),</span> <span class="s">&#39;r--&#39;</span><span class="p">)</span>  <span class="c">% I(t)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">xs</span><span class="p">(:,</span> <span class="mi">3</span><span class="p">),</span> <span class="s">&#39;g&#39;</span><span class="p">,</span> <span class="n">ts2</span><span class="p">,</span> <span class="n">xs2</span><span class="p">(:,</span> <span class="mi">3</span><span class="p">),</span> <span class="s">&#39;g--&#39;</span><span class="p">)</span>  <span class="c">% R(t)</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Time [days]&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Number of people&#39;</span><span class="p">)</span>
+<span class="n">legend</span><span class="p">(</span><span class="s">&#39;S (Euler)&#39;</span><span class="p">,</span> <span class="s">&#39;S (ode45)&#39;</span><span class="p">,</span> <span class="c">...</span>
+       <span class="s">&#39;I (Euler)&#39;</span><span class="p">,</span> <span class="s">&#39;I (ode45)&#39;</span><span class="p">,</span> <span class="c">...</span>
+       <span class="s">&#39;R (Euler)&#39;</span><span class="p">,</span> <span class="s">&#39;R (ode45)&#39;</span><span class="p">)</span>
+<span class="n">hold</span> <span class="s">off</span>
+</pre></div>
+<p>And produces the following figure:</p>
+<img alt="" src="https://objects-us-east-1.dream.io/eme134/2020s/euler-ode45-comparison.png" style="width: 800px;" />
+<p>The Euler Method deviates from the <tt class="docutils literal">ode45()</tt> solution due to the poorer error
+properties of the method.</p>
+<p>A simple <a class="reference external" href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">Runga-Kutta Method</a> of order 4 can also be implemented and compared to
+the Runga-Kutta method used by <tt class="docutils literal">ode45()</tt>. The file <a class="reference external" href="https://moorepants.github.io/eme134/scripts/runga_kutta_integrate.m"><tt class="docutils literal">runga_kutta_integrate.m</tt></a>
+is shown below:</p>
+<div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>[t, x] <span class="p">=</span><span class="w"> </span><span class="nf">runga_kutta_integrate</span><span class="p">(</span>f, t, x0<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c">% RUNGA_KUTTA_INTEGRATE - Integrates a set of first order ordinary</span>
+    <span class="c">% differential equations using the 4th order Runga-Kutta method.</span>
+    <span class="c">%</span>
+    <span class="c">% Syntax: [t, x] = runga_kutta_integrate(f, t, x0)</span>
+    <span class="c">%</span>
+    <span class="c">% Inputs:</span>
+    <span class="c">%   f - An anonymous function that evaluates the right hand side of the</span>
+    <span class="c">%       first order ordinary differential equations, i.e. dx/dt. The</span>
+    <span class="c">%       function must follow the syntax dxdt = f(t, x) and return a size</span>
+    <span class="c">%       mx1 vector where t is size 1x1 and x is size mx1.</span>
+    <span class="c">%   t - Vector of monotonically increasing time values. [size 1xn]</span>
+    <span class="c">%   x0 - Vector a initial conditions for the states. [size mx1]</span>
+    <span class="c">% Outputs:</span>
+    <span class="c">%   t - Vector of monotonically increasing time values (same as the</span>
+    <span class="c">%       input t). [size 1xn]</span>
+    <span class="c">%   x - Matrix of state values as a function of time. [size nxm]</span>
+
+    <span class="c">% Create an &quot;empty&quot; matrix to hold the results n x m.</span>
+    <span class="n">x</span> <span class="p">=</span> <span class="nb">nan</span> <span class="o">*</span> <span class="nb">ones</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="nb">length</span><span class="p">(</span><span class="n">x0</span><span class="p">));</span>
+
+    <span class="c">% Set the initial conditions to the first element.</span>
+    <span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">:)</span> <span class="p">=</span> <span class="n">x0</span><span class="p">;</span>
+
+    <span class="c">% Use a for loop to sequentially calculate each new x.</span>
+    <span class="n">for</span> <span class="s">i</span> <span class="s">=</span> <span class="s">2:length(t)</span>
+        <span class="n">deltat</span> <span class="p">=</span> <span class="n">t</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">t</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+
+        <span class="n">k1</span> <span class="p">=</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="nb">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">x</span><span class="p">(</span><span class="nb">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:)</span><span class="o">&#39;</span><span class="p">);</span>
+        <span class="n">k2</span> <span class="p">=</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="nb">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">deltat</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">(</span><span class="nb">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:)</span><span class="o">&#39;</span> <span class="o">+</span> <span class="n">deltat</span><span class="o">.*</span><span class="n">k1</span><span class="o">./</span><span class="mi">2</span><span class="p">);</span>
+        <span class="n">k3</span> <span class="p">=</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="nb">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">deltat</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">(</span><span class="nb">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:)</span><span class="o">&#39;</span> <span class="o">+</span> <span class="n">deltat</span><span class="o">.*</span><span class="n">k2</span><span class="o">./</span><span class="mi">2</span><span class="p">);</span>
+        <span class="n">k4</span> <span class="p">=</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span> <span class="n">x</span><span class="p">(</span><span class="nb">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:)</span><span class="o">&#39;</span> <span class="o">+</span> <span class="n">deltat</span><span class="o">.*</span><span class="n">k3</span><span class="p">);</span>
+
+        <span class="n">x</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span> <span class="p">:)</span> <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="nb">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:)</span><span class="o">&#39;</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="n">deltat</span><span class="o">*</span><span class="p">(</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k3</span> <span class="o">+</span> <span class="n">k4</span><span class="p">);</span>
+
+    <span class="n">end</span>
+
+<span class="s">end</span>
+</pre></div>
+<p>The ordinary differential equations are integrated (simulated) with the
+following script <a class="reference external" href="https://moorepants.github.io/eme134/scripts/simulate_SIR_model_ode45_euler.m"><tt class="docutils literal">simulate_SIR_model_ode45_euler.m</tt></a>:</p>
+<div class="highlight"><pre><span></span><span class="c">% constant parameters</span>
+<span class="n">c</span><span class="p">.</span><span class="nb">beta</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">7</span><span class="p">;</span>  <span class="c">% infectious contacts per day [person/days]</span>
+<span class="n">c</span><span class="p">.</span><span class="n">tau</span> <span class="p">=</span> <span class="mi">14</span><span class="p">;</span>  <span class="c">% days infectious [day]</span>
+
+<span class="c">% initial population values</span>
+<span class="n">S0</span> <span class="p">=</span> <span class="mf">39.56E6</span><span class="p">;</span>  <span class="c">% population of California [person]</span>
+<span class="n">I0</span> <span class="p">=</span> <span class="mi">1000</span><span class="p">;</span>  <span class="c">% infected [person]</span>
+<span class="n">R0</span> <span class="p">=</span> <span class="mi">200</span><span class="p">;</span>  <span class="c">% recovered [person]</span>
+
+<span class="n">x0</span> <span class="p">=</span> <span class="p">[</span><span class="n">S0</span><span class="p">;</span> <span class="n">I0</span><span class="p">;</span> <span class="n">R0</span><span class="p">];</span>
+
+<span class="n">num_months</span> <span class="p">=</span> <span class="mi">8</span><span class="p">;</span>
+<span class="n">num_days_per_month</span> <span class="p">=</span> <span class="mi">30</span><span class="p">;</span>
+
+<span class="n">ts</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="n">num_months</span><span class="o">*</span><span class="n">num_days_per_month</span><span class="p">;</span>  <span class="c">% units of days</span>
+
+<span class="c">% integrate the equations</span>
+<span class="n">f</span> <span class="p">=</span> <span class="p">@(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="n">eval_SIR_rhs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+<span class="p">[</span><span class="n">ts</span><span class="p">,</span> <span class="n">xs</span><span class="p">]</span> <span class="p">=</span> <span class="n">ode45</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="n">x0</span><span class="p">);</span>
+
+<span class="p">[</span><span class="n">ts2</span><span class="p">,</span> <span class="n">xs2</span><span class="p">]</span> <span class="p">=</span> <span class="n">euler_integrate</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="n">x0</span><span class="p">);</span>
+
+<span class="p">[</span><span class="n">ts3</span><span class="p">,</span> <span class="n">xs3</span><span class="p">]</span> <span class="p">=</span> <span class="n">runga_kutta_integrate</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="n">x0</span><span class="p">);</span>
+
+<span class="c">% plot the results</span>
+<span class="n">hold</span> <span class="s">on</span>
+<span class="n">title</span><span class="p">(</span><span class="n">sprintf</span><span class="p">(</span><span class="s">&#39;R0 = %1.2f&#39;</span><span class="p">,</span> <span class="n">c</span><span class="p">.</span><span class="nb">beta</span><span class="o">*</span><span class="n">c</span><span class="p">.</span><span class="n">tau</span><span class="p">))</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">xs</span><span class="p">(:,</span> <span class="mi">1</span><span class="p">),</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">ts2</span><span class="p">,</span> <span class="n">xs2</span><span class="p">(:,</span> <span class="mi">1</span><span class="p">),</span> <span class="s">&#39;b--&#39;</span><span class="p">,</span> <span class="n">ts3</span><span class="p">,</span> <span class="n">xs3</span><span class="p">(:,</span> <span class="mi">1</span><span class="p">),</span> <span class="s">&#39;b.&#39;</span><span class="p">)</span>  <span class="c">% S(t)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">xs</span><span class="p">(:,</span> <span class="mi">2</span><span class="p">),</span> <span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="n">ts2</span><span class="p">,</span> <span class="n">xs2</span><span class="p">(:,</span> <span class="mi">2</span><span class="p">),</span> <span class="s">&#39;r--&#39;</span><span class="p">,</span> <span class="n">ts3</span><span class="p">,</span> <span class="n">xs3</span><span class="p">(:,</span> <span class="mi">2</span><span class="p">),</span> <span class="s">&#39;r.&#39;</span><span class="p">)</span>  <span class="c">% I(t)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">xs</span><span class="p">(:,</span> <span class="mi">3</span><span class="p">),</span> <span class="s">&#39;g&#39;</span><span class="p">,</span> <span class="n">ts2</span><span class="p">,</span> <span class="n">xs2</span><span class="p">(:,</span> <span class="mi">3</span><span class="p">),</span> <span class="s">&#39;g--&#39;</span><span class="p">,</span> <span class="n">ts3</span><span class="p">,</span> <span class="n">xs3</span><span class="p">(:,</span> <span class="mi">3</span><span class="p">),</span> <span class="s">&#39;g.&#39;</span><span class="p">)</span>  <span class="c">% R(t)</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Time [days]&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Number of people&#39;</span><span class="p">)</span>
+<span class="n">legend</span><span class="p">(</span><span class="s">&#39;Susceptible (ode45)&#39;</span><span class="p">,</span> <span class="s">&#39;Susceptible (Euler)&#39;</span><span class="p">,</span> <span class="s">&#39;Susceptible (RK)&#39;</span><span class="p">,</span> <span class="c">...</span>
+       <span class="s">&#39;Infected (ode45)&#39;</span><span class="p">,</span> <span class="s">&#39;Infected (Euler)&#39;</span><span class="p">,</span> <span class="s">&#39;Infected (RK)&#39;</span><span class="p">,</span> <span class="c">...</span>
+       <span class="s">&#39;Recovered (ode45)&#39;</span><span class="p">,</span> <span class="s">&#39;Recovered (Euler)&#39;</span><span class="p">,</span> <span class="s">&#39;Recovered (RK)&#39;</span><span class="p">)</span>
+<span class="n">hold</span> <span class="s">off</span>
+</pre></div>
+<p>And produces the following figure:</p>
+<img alt="" src="https://objects-us-east-1.dream.io/eme134/2020s/euler-ode45-runga-kutta-comparison.png" style="width: 800px;" />
+<p>The custom Runga-Kutta method is essentially identical to the <tt class="docutils literal">ode45()</tt>
+result for this system.</p>
+
+  </div>
+</article>
+
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/categories.html">Categories</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>
+<div class="row">
+  <div class="col-sm-4 mx-auto text-center text-muted" >
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+      <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+    </a>
+    <br />
+    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+  </div>
+</div>    </div>
+  </footer>
+</body>
+
+</html>

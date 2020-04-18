@@ -1,6 +1,7 @@
 ./archives.html
 ./authors.html
 ./categories.html
+./custom-integrator.html
 ./feeds/all.atom.xml
 ./final-study-guide.html
 ./index.html
@@ -20,8 +21,10 @@
 ./scripts/eval_train_wheelset_outputs.m
 ./scripts/eval_train_wheelset_rhs.m
 ./scripts/piecewise.m
+./scripts/runga_kutta_integrate.m
 ./scripts/simulate_SIR_model.m
 ./scripts/simulate_SIR_model_euler.m
+./scripts/simulate_SIR_model_ode45_euler.m
 ./scripts/simulate_train_wheelset.m
 ./sir-model.html
 ./tags.html
