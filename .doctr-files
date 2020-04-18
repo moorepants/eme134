@@ -15,10 +15,13 @@
 ./scripts/best-practices/eval_rhs_with_input.m
 ./scripts/best-practices/eval_step_input.m
 ./scripts/best-practices/integrate_with_derivative_output.m
+./scripts/euler_integrate.m
 ./scripts/eval_SIR_rhs.m
 ./scripts/eval_train_wheelset_outputs.m
 ./scripts/eval_train_wheelset_rhs.m
+./scripts/piecewise.m
 ./scripts/simulate_SIR_model.m
+./scripts/simulate_SIR_model_euler.m
 ./scripts/simulate_train_wheelset.m
 ./sir-model.html
 ./tags.html
