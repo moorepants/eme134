@@ -29,5 +29,7 @@ plot(ts, xs(:, 2), 'r', ts2, xs2(:, 2), 'r--')  % I(t)
 plot(ts, xs(:, 3), 'g', ts2, xs2(:, 3), 'g--')  % R(t)
 xlabel('Time [days]')
 ylabel('Number of people')
-legend('S', 'I', 'R')
+legend('S (Euler)', 'S (ode45)', ...
+       'I (Euler)', 'I (ode45)', ...
+       'R (Euler)', 'R (ode45)')
 hold off

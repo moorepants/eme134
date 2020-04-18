@@ -34,18 +34,20 @@ NA U Apr 12                                                                     
                                                      - `Notes 07`_
 NA T Apr 14                                                                     LAB1
 08 W Apr 15    Stability                             - `Notes 08`_
-09 F Apr 17    - Stability
-               - Pneumatic Tires                     - Chapter 4                HW2, HW1*
+09 F Apr 17    Stability                             - `Notes 09`_
+                                                     - `Lab Notes 03`_
+                                                     - `Lab Script 03`_
+NA S Apr 18                                                                     HW2, HW1*
 -- ----------  ------------------------------------  -------------------------  ---------------
-10 M Apr 20    Pneumatic Tires
+10 M Apr 20    Pneumatic Tires                       - Chapter 4
 11 W Apr 22    Pnuematic Tires
-12 F Apr 24    Trailers                              - Chapter 5                HW3, HW2*
+12 F Apr 24    Pnuematic Tires                                                  HW3, HW2*
 -- ----------  ------------------------------------  -------------------------  ---------------
-13 M Apr 27    Trailers                                                         LAB2
+13 M Apr 27    Trailers                              - Chapter 5                LAB2
 14 W Apr 29    Trailers
-15 F May 01    Automobiles                           - Chapter 6                Project Proposal
+15 F May 01    Trailers                                                         Project Proposal
 -- ----------  ------------------------------------  -------------------------  ---------------
-16 M May 04    Automobiles
+16 M May 04    Automobiles                           - Chapter 6
 17 W May 06    Automobiles
 18 F May 08    Automobiles                                                      HW4, HW3*
 -- ----------  ------------------------------------  -------------------------  ---------------
@@ -96,7 +98,9 @@ NA R Jun 11    Project Presentations: 6PM-8PM                                   
 
 .. _Lab Notes 01: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d01.pdf
 .. _Lab Notes 02: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d02.pdf
+.. _Lab Notes 03: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d03.pdf
 
 .. _Lab Script 01: {filename}/pages/sir-model.rst
+.. _Lab Script 03: {filename}/pages/custom-integrator.rst
 
 .. _Slides 01: https://docs.google.com/presentation/d/e/2PACX-1vStBzGiinB9GAwxWFeE4qjnFJ1ip0KnlLfKtQ73l5AZ1R8Fa80E4lFx_dAF9fE5jQql45tT0f6bFQNg/pub?start=false&loop=false&delayms=3000
