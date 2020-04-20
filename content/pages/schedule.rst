@@ -42,7 +42,8 @@ NA S Apr 18                                                                     
 10 M Apr 20    Pneumatic Tires                       - Chapter 4
                                                      - `Notes 10`_
 11 W Apr 22    Pnuematic Tires
-12 F Apr 24    Pnuematic Tires                                                  HW3, HW2*
+12 F Apr 24    Pnuematic Tires                                                  HW2*
+NA U Apr 26                                                                     HW3
 -- ----------  ------------------------------------  -------------------------  ---------------
 13 M Apr 27    Trailers                              - Chapter 5                LAB2
 14 W Apr 29    Trailers
