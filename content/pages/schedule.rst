@@ -42,7 +42,8 @@ NA S Apr 18                                                                     
 10 M Apr 20    Pneumatic Tires                       - Chapter 4
                                                      - `Notes 10`_
 11 W Apr 22    Pnuematic Tires                       - `Notes 11`_
-12 F Apr 24    Pnuematic Tires
+12 F Apr 24    Pnuematic Tires                       - `Notes 12`_
+                                                     - `Lab Notes 04`_
 NA U Apr 26                                                                     HW3, HW2*
 -- ----------  ------------------------------------  -------------------------  ---------------
 13 M Apr 27    Trailers                              - Chapter 5                LAB2
@@ -101,6 +102,7 @@ NA R Jun 11    Project Presentations: 6PM-8PM                                   
 .. _Lab Notes 01: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d01.pdf
 .. _Lab Notes 02: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d02.pdf
 .. _Lab Notes 03: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d03.pdf
+.. _Lab Notes 04: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d04.pdf
 
 .. _Lab Script 01: {filename}/pages/sir-model.rst
 .. _Lab Script 03: {filename}/pages/custom-integrator.rst
