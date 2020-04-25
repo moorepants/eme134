@@ -354,7 +354,7 @@ units are a self consistent set of SI base units.
      - :math:`\textrm{W}`
    * - :math:`b`
      - Wheel viscous coefficient
-     - 30.0
+     - 6.0  **Note: This wass originally 30.0, but it was a error.**
      - :math:`\textrm{N}\cdot\textrm{m}\cdot\textrm{s}`
    * - :math:`g`
      - Acceleration due to gravity
