@@ -59,6 +59,10 @@ else:
     THEME = config_data['THEME_PATH']
     PLUGIN_PATHS = config_data['PLUGIN_PATHS']
 
+print("THEME and PLUGIN_PATHS in pelicanconf.py")
+print(THEME)
+print(PLUGIN_PATHS)
+
 ## THEME
 
 # Alchemy theme settings
