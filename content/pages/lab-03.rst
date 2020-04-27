@@ -41,19 +41,29 @@ After completing this lab you will be able to:
 Introduction
 ============
 
-In this lab, you will investigate the planar dynamics of a car being steered.
+In this lab, you will investigate the planar dynamics of a car being steered
+through a lane change maneuver. The ability for the car to maneuver as expected
+given a steering input depends on the car's ability to generate and direct the
+lateral forces at the front and rear wheels. At a basic level the car designer
+can manipulate the car's geometry, weight distribution, tire type to control
+the base dynamics of the vehicle. The designer can then design and tune other
+aspects in the suspension system to obtain even better performance. You will
+investigate the dynamics sans suspension to get an understanding of the car's
+motion and performance in a lane change.
 
 System Description
 ==================
 
-Here we will model and simulate a car traveling on a planar surface. The car
+Here you will model and simulate a car traveling on a planar surface. The car
 will be able to steer the front wheels and rear wheels relative to the chassis
 and the normal force is assumed to be equal on the left and right wheels, i.e.
-no load significant transfer from cornering. The tires will be assumed to be
-pure rolling and the vehicles forward velocity constant. The lateral forces at
-the wheels will be modeled using the linear relation to slip angle. You will
-investigate the effects on vehicle behavior under steering when the vehicle is
-considered under-, over-, and neutral-steer.
+no load significant transfer from cornering. There will be different normal
+forces on the front and rear wheels due to the location of the mass center. The
+tires will be assumed to be pure rolling and the vehicle's forward velocity
+constant. The lateral forces at the wheels will be modeled using the linear
+relation to slip angle and thus the model is only valid for small yaw and slip
+angles. You will investigate the effects on vehicle behavior when it is setup
+as an understeering and oversteering car.
 
 ..
    .. figure:: https://objects-us-east-1.dream.io/eme134/2020s/lab-02-fig-01.png
@@ -66,7 +76,8 @@ Equations of Motion
 -------------------
 
 The equations of motion for the bicycle model of the car are presented below in
-the canonical linear form:
+the canonical linear form. The factor of 2 accounts for the combined affect of
+the pairs of tires at the front and rear.
 
 .. math::
 
@@ -107,7 +118,8 @@ the canonical linear form:
    \end{bmatrix}
 
 These equations define expressions for the derivatives of the four time varying
-state variables :math:`y,v,\psi,\omega` which are described below.
+state variables :math:`y,v,\psi,\omega` and the two time varying input
+variables :math:`\delta_f,\delta_r` which are described below.
 
 .. list-table::
    :class: table table-striped table-bordered
@@ -128,6 +140,12 @@ state variables :math:`y,v,\psi,\omega` which are described below.
    * - :math:`\omega=\dot{\psi}`
      - Yaw angular rate of the car
      - :math:`\textrm{rad/s}`
+   * - :math:`\delta_f`
+     - Steer angle of the front wheels
+     - :math:`\textrm{rad}`
+   * - :math:`\delta_r`
+     - Steer angle of the rear wheels
+     - :math:`\textrm{rad}`
 
 You will need to write these equations of motion as four explicit ordinary
 differential equations in first order form for your state derivative function.
@@ -140,15 +158,16 @@ Inputs
 
 The front :math:`\delta_f` and rear :math:`\delta_r` steering angles can be set
 desired functions of time in your input function. You will setup input
-functions that will steer the automobile through a lane change.
+functions that will steer the automobile through a lane change using two
+scenarios:
 
 Only front steering
-   Create a function that steers the front wheels to :math:`\beta` degrees for
-   :math:`2\leq t \leq 4` and then :math:`-\beta` for :math:`6\leq t \leq 8`
-   seconds.
+   Create a function that steers the front wheels to :math:`\delta` degrees for
+   :math:`2\leq t \leq 4` and then :math:`-\delta` for :math:`6\leq t \leq 8`
+   seconds where :math:`\delta` is the magnitude of the steering pulse.
 Front and rear steering
-   Create a function that steers the front wheels to :math:`\beta` degrees for
-   :math:`2\leq t \leq 4` and then :math:`-\beta` for :math:`6\leq t \leq 8`
+   Create a function that steers the front wheels to :math:`\delta` degrees for
+   :math:`2\leq t \leq 4` and then :math:`-\delta` for :math:`6\leq t \leq 8`
    seconds and simultaneously steers the rear wheels in the opposite direct the
    same amounts.
 
@@ -161,8 +180,18 @@ Outputs
 
 The output function should return all of the state variables, the two steering
 angle inputs, the lateral forces at the front and rear tires, the travel
-distance in the :math:`x` direction, and the lateral acceleration. You will use
-the section `Outputs Other Than The States
+distance in the :math:`x` direction, and the lateral acceleration. The lateral
+forces at the tires can be calculated with:
+
+.. math::
+
+   F_{yf} = & C_f \alpha_f \\
+   \alpha_f = & \frac{v + a\omega}{U} - \psi - \delta_f \\
+   F_{yr} = & C_r \alpha_r \\
+   \alpha_r = & \frac{v - b\omega}{U} - \psi - \delta_f
+
+Your state derivative function can calculate the lateral acceleration. You will
+use the section `Outputs Other Than The States
 <https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#outputs-other-than-the-states>`_
 to compute these values.
 
@@ -184,8 +213,12 @@ a self consistent set of SI base units.
      - Units
    * - :math:`U`
      - Forward speed
-     - :math:`0 < U < 50`
+     - :math:`10,15,20`
      - :math:`m/s`
+   * - :math:`\delta`
+     - Magnitude of the steer angle
+     - 1
+     - :math:`\textrm{deg}`
    * - :math:`I`
      - Car yaw moment of inertia
      - :math:`\frac{m}{12}(w^2+l^2)`
@@ -230,10 +263,6 @@ a self consistent set of SI base units.
      - Total normal force at the rear wheels
      - :math:`(1-r)mg/2`
      - :math:`\textrm{N}`
-   * - :math:`\beta`
-     - Steer angle magnitude
-     - Varies
-     - :math:`\textrm{rad}`
 
 You will use the section `Integrating the Equations
 <https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#integrating-the-equations>`_
@@ -256,10 +285,10 @@ Simulate the system for 10 seconds with time steps of 1/100th of a second.
 Understeer, Oversteer, and Neutralsteer
 =======================================
 
-An automobile can be classified as oversteer, understeer, or neutrally steer
-based on relationship between lateral force generation at the front and rear
-for the vehicle. The so called understeer coefficient :math:`K` determines
-whether a given car is one of the three:
+An automobile can be classified as oversteer, understeer, or neutralsteer based
+on relationship between lateral force generation at the front and rear for the
+vehicle. The so called understeer coefficient :math:`K` determines whether a
+given car is one of the three:
 
 .. math::
 
@@ -267,17 +296,21 @@ whether a given car is one of the three:
 
 If :math:`K > 0` the car is an understeer; if :math:`K < 0` the car is
 oversteer; and if :math:`K=0` the car is neutral steer. Note that these
-characterizations only depend on :math:`m,a,b,C_f,C_r`.
+characterizations only depend on :math:`m,a,b,C_f,C_r`. You will need to
+indicate the values of :math:`K` that you calculate for each scenario and
+specify if the car is over, under, or neutral.
 
 Deliverables
 ============
 
-Compare the lane change steering behavior of the car for understeer, oversteer,
-and neutralsteer configurations at speeds :math:`U=5,10,15` m/s.
+Firstly, compare the lane change steering behavior with :math:`\delta=1` deg of
+the car for an understeer and oversteer configuration at speeds :math:`U=10`
+m/s and :math:`U=20` m/s using only front steering. Select a value of :math:`r`
+to obtain a suitable :math:`K` for each vehicle.
 
-Compare the lane change steering behavior of an understeer car traveling at
-:math:`U=10` m/s for the only front steering and simultaneous front and rear
-steering.
+Secondly, compare the lane change steering behavior with :math:`\delta=1` deg
+of an understeer car traveling at :math:`U=15` m/s for the only front steering
+and simultaneous front and rear steering.
 
 In your lab report, show your work for creating and evaluating the simulation
 model. Include any calculations you had to do, for example those for state
