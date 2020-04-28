@@ -2,11 +2,6 @@
 :status: hidden
 :slug: lab-03
 
-.. topic:: Warnings
-   :class: alert alert-warning
-
-   Lab description is still a draft! It will be finalized by Monday April 27th.
-
 .. contents::
 
 Learning Objectives
@@ -15,13 +10,13 @@ Learning Objectives
 After completing this lab you will be able to:
 
 - formulate the explicit first order ordinary differential equations for the
-  longitudinal dynamics of a drag racing car
+  lateral dynamics of an automobile
 - translate ordinary differential equations into a computer function that
   evaluates the equations at any given point in time
 - develop a function that evaluates state dependent input functions
+- develop a function that evaluates state and input dependent output variables
 - numerically integrate ordinary differential equations with Octave/Matlab's
   ode45_
-- implement and tune a longitudinal traction control system
 - create complete and legible plots of the resulting input, state, and output
   trajectories
 - create a report with textual explanations and plots of the simulation
@@ -48,36 +43,43 @@ lateral forces at the front and rear wheels. At a basic level the car designer
 can manipulate the car's geometry, weight distribution, tire type to control
 the base dynamics of the vehicle. The designer can then design and tune other
 aspects in the suspension system to obtain even better performance. You will
-investigate the dynamics sans suspension to get an understanding of the car's
-motion and performance in a lane change.
+investigate the dynamics without suspension considerations to get an
+understanding of the car's basic motion and performance in a lane change.
+
+The following video gives an introduction to rear wheel steering that can
+provide some background to one of the simulations you will do:
+
+.. raw:: html
+
+   <iframe width="560" height="315"
+   src="https://www.youtube.com/embed/0jXnHeH9GNg" frameborder="0"
+   allow="accelerometer; autoplay; encrypted-media; gyroscope;
+   picture-in-picture" allowfullscreen></iframe>
 
 System Description
 ==================
 
-Here you will model and simulate a car traveling on a planar surface. The car
-will be able to steer the front wheels and rear wheels relative to the chassis
-and the normal force is assumed to be equal on the left and right wheels, i.e.
-no load significant transfer from cornering. There will be different normal
-forces on the front and rear wheels due to the location of the mass center. The
-tires will be assumed to be pure rolling and the vehicle's forward velocity
+You will model and simulate a car traveling on a planar surface. The car will
+be able to steer both the front wheels and rear wheels relative to the chassis.
+The normal force is assumed to be equal on the left and right wheels, i.e.  no
+load significant transfer from cornering. There will be different normal forces
+on the front and rear wheels due to the location of the mass center. The tires
+will be assumed to be pure rolling and the vehicle's forward velocity is
 constant. The lateral forces at the wheels will be modeled using the linear
 relation to slip angle and thus the model is only valid for small yaw and slip
 angles. You will investigate the effects on vehicle behavior when it is setup
-as an understeering and oversteering car.
-
-..
-   .. figure:: https://objects-us-east-1.dream.io/eme134/2020s/lab-02-fig-01.png
-      :width: 400px
-      :align: center
-
-      **Figure 1**: Schematics of the longitudinal car dynamics model.
+as an understeering and oversteering car. This model is called the "bicycle
+model of the car". The derivation of the model and analysis are presented in
+Chapter 6 of the book.
 
 Equations of Motion
 -------------------
 
 The equations of motion for the bicycle model of the car are presented below in
 the canonical linear form. The factor of 2 accounts for the combined affect of
-the pairs of tires at the front and rear.
+the pairs of tires at the front and rear, i.e. :math:`C_f` and :math:`C_r` are
+the cornering coefficients of the individual front and rear tires,
+respectively.
 
 .. math::
 
@@ -109,8 +111,8 @@ the pairs of tires at the front and rear.
    \end{bmatrix}
    =
    \begin{bmatrix}
-     C_f & C_r \\
-     C_f a & -C_r b
+     2C_f & 2C_r \\
+     2C_f a & -2C_r b
    \end{bmatrix}
    \begin{bmatrix}
      \delta_f \\
@@ -157,8 +159,8 @@ Inputs
 ------
 
 The front :math:`\delta_f` and rear :math:`\delta_r` steering angles can be set
-desired functions of time in your input function. You will setup input
-functions that will steer the automobile through a lane change using two
+to desired functions of time in your input function. You will setup two input
+functions that will steer the automobile through a lane change using for these
 scenarios:
 
 Only front steering
@@ -179,15 +181,15 @@ Outputs
 -------
 
 The output function should return all of the state variables, the two steering
-angle inputs, the lateral forces at the front and rear tires, the travel
-distance in the :math:`x` direction, and the lateral acceleration. The lateral
-forces at the tires can be calculated with:
+angle inputs, the combined lateral force at the front and rear tires, the
+travel distance in the :math:`x` direction, and the lateral acceleration. The
+lateral forces at the combined tires can be calculated with:
 
 .. math::
 
-   F_{yf} = & C_f \alpha_f \\
+   F_{yf} = & 2C_f \alpha_f \\
    \alpha_f = & \frac{v + a\omega}{U} - \psi - \delta_f \\
-   F_{yr} = & C_r \alpha_r \\
+   F_{yr} = & 2C_r \alpha_r \\
    \alpha_r = & \frac{v - b\omega}{U} - \psi - \delta_f
 
 Your state derivative function can calculate the lateral acceleration. You will
@@ -213,14 +215,14 @@ a self consistent set of SI base units.
      - Units
    * - :math:`U`
      - Forward speed
-     - :math:`10,15,20`
+     - :math:`10,20,30`
      - :math:`m/s`
    * - :math:`\delta`
      - Magnitude of the steer angle
      - 1
      - :math:`\textrm{deg}`
    * - :math:`I`
-     - Car yaw moment of inertia
+     - Car yaw moment of inertia (assumes inertia of a rectangle)
      - :math:`\frac{m}{12}(w^2+l^2)`
      - :math:`\textrm{kg}\cdot\textrm{m}^2`
    * - :math:`d\mu_y/d\alpha`
@@ -244,7 +246,7 @@ a self consistent set of SI base units.
      - 2.7
      - :math:`\textrm{m}`
    * - :math:`r`
-     - Ratio of :math:`a/b`
+     - Ratio of :math:`a/l`
      - :math:`0<r<1`
      - :math:`\textrm{unitless}`
    * - :math:`a`
@@ -257,11 +259,11 @@ a self consistent set of SI base units.
      - :math:`\textrm{m}`
    * - :math:`F_{zf}`
      - Total normal force at the front wheels
-     - :math:`rmg/2`
+     - :math:`F_z/2`
      - :math:`\textrm{N}`
    * - :math:`F_{zr}`
      - Total normal force at the rear wheels
-     - :math:`(1-r)mg/2`
+     - :math:`F_z/2`
      - :math:`\textrm{N}`
 
 You will use the section `Integrating the Equations
@@ -303,15 +305,6 @@ specify if the car is over, under, or neutral.
 Deliverables
 ============
 
-Firstly, compare the lane change steering behavior with :math:`\delta=1` deg of
-the car for an understeer and oversteer configuration at speeds :math:`U=10`
-m/s and :math:`U=20` m/s using only front steering. Select a value of :math:`r`
-to obtain a suitable :math:`K` for each vehicle.
-
-Secondly, compare the lane change steering behavior with :math:`\delta=1` deg
-of an understeer car traveling at :math:`U=15` m/s for the only front steering
-and simultaneous front and rear steering.
-
 In your lab report, show your work for creating and evaluating the simulation
 model. Include any calculations you had to do, for example those for state
 equations, initial conditions, input equations, time parameters, and any other
@@ -327,28 +320,35 @@ the following items:
    the ODEs, i.e. evaluates the state derivatives. See `Defining the State
    Derivative Function`_ for an explanation.
 2. Create two functions defined each in an m-file that calculates the two
-   requested inputs. See `Time Varying Inputs`_ for an explanation.
+   requested inputs: front steer and dual steer. See `Time Varying Inputs`_ for
+   an explanation.
 3. Create a function defined in an m-file that calculates the requested
-   outputs. See `Outputs Other Than the States`_ for an explanation.
+   outputs. See `Outputs Other Than the States`_  and `Outputs Involving State
+   Derivatives`_ for an explanation.
 4. Create a script in an m-file that utilizes the above functions to
-   simulate system for the two scenarios: with and without traction control.
-   This should setup the constants, integrate the dynamics equations, and plot
-   each state, and output versus time. See `Integrating the Equations`_ for an
-   explanation.
-5. Make a plot of the coefficients of friction versus slip ratio which includes
-   the curves for the dry and icy conditions. Indicate what slip ratios were
-   chosen for the peak traction.
-6. Make plots of the outputs versus time of the scenario without traction
-   control and explain why you think the simulation is behaving realistically
-   or unrealistically.
-7. Make plots to compare outputs versus time between the two scenarios: with
-   and without traction control. Plotting the each trajectory on its own or in
-   subplots with one color line for each scenario.
-8. Report the time to the 200 m mark for each scenario and discuss the results
-   and explain why the vehicle that wins won. Report the input energy consumed
-   at the 200 m mark and discuss the differences in energy consumption, why it
-   is, and what the implications are. You can present the joules of energy in
-   equivalent liters of gasoline to help get a idea of the quantity.
+   simulate system for three comparison scenarios described below.  This should
+   setup the constants, integrate the dynamics equations, and plot each state,
+   and output versus time. See `Integrating the Equations`_ for an explanation.
+5. Compare the lane change steering behavior with :math:`\delta=1` deg of the
+   car for an understeer and oversteer configuration at speeds :math:`U=10` m/s
+   using only front steering. Select a value of :math:`r`
+   to obtain a suitable :math:`K` for each vehicle. Describe the differences in
+   the state and output trajectories. Comment on why the terms "understeer" and
+   "oversteer" are used to describe the configurations.
+6. Repeat #5 with :math:`U=30` m/s.
+7. Compare the lane change steering behavior with :math:`\delta=1` deg of an
+   understeer car traveling at :math:`U=20` m/s for the front steering vs the
+   dual front-rear steering. Describe the differences in the state and output
+   trajectories. Comment on whether a dual steering has an any advantages or
+   disadvantages based on the simulation results.
+
+.. _Outputs Involving State Derivatives: https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#outputs-involving-state-derivatives
+
+Tips
+====
+
+- When plotting the path of the mass center :math:`y(x)` use the
+  ``axis('image')`` command to set the aspect ratio.
 
 Assessment Rubric
 =================
@@ -378,12 +378,12 @@ Assessment Rubric
      - Constants defined redundantly; Integration produces incorrect
        trajectories; Poor choices in time duration and steps
    * - Explanations
-     - Explanation of two simulation comparisons are correct and well
+     - Explanation of three simulation comparisons are correct and well
        explained; Plots of appropriate variables are used in the explanations
-     - Explanation of two simulation comparisons is somewhat correct and
+     - Explanation of three simulation comparisons is somewhat correct and
        reasonably explained; Plots of appropriate variables are used in the
        explanations, but some are missing
-     - Explanation of two simulations are incorrect and poorly explained; Plots
+     - Explanation of three simulations are incorrect and poorly explained; Plots
        are missing
    * - Report and Code Formatting
      - All axes labeled with units, legible font sizes, informative captions;
