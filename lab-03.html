@@ -19,7 +19,7 @@
   <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
         href="https://moorepants.github.io/eme134/feeds/all.atom.xml">
   
-  <meta name="description" content="Warnings Lab description is still a draft! It will be finalized by Monday April 27th. Contents Learning Objectives Introduction System Description Equations of Motion Inputs Outputs Constant Parameters Initial Conditions Time Steps Understeer, Oversteer, and Neutralsteer Deliverables Assessment Rubric Learning Objectives After completing this lab you will be able to …">
+  <meta name="description" content="Contents Learning Objectives Introduction System Description Equations of Motion Inputs Outputs Constant Parameters Initial Conditions Time Steps Understeer, Oversteer, and Neutralsteer Deliverables Tips Assessment Rubric Learning Objectives After completing this lab you will be able to: formulate the explicit first order ordinary differential equations for the lateral dynamics of an …">
   <script>
     (function(i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
@@ -63,11 +63,7 @@
 
 <article class="article">
   <div class="content">
-    <div class="alert alert-warning topic">
-<p class="topic-title">Warnings</p>
-<p>Lab description is still a draft! It will be finalized by Monday April 27th.</p>
-</div>
-<div class="contents topic" id="contents">
+    <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#learning-objectives" id="id2">Learning Objectives</a></li>
@@ -83,7 +79,8 @@
 <li><a class="reference internal" href="#time-steps" id="id10">Time Steps</a></li>
 <li><a class="reference internal" href="#understeer-oversteer-and-neutralsteer" id="id11">Understeer, Oversteer, and Neutralsteer</a></li>
 <li><a class="reference internal" href="#deliverables" id="id12">Deliverables</a></li>
-<li><a class="reference internal" href="#assessment-rubric" id="id13">Assessment Rubric</a></li>
+<li><a class="reference internal" href="#tips" id="id13">Tips</a></li>
+<li><a class="reference internal" href="#assessment-rubric" id="id14">Assessment Rubric</a></li>
 </ul>
 </div>
 <div class="section" id="learning-objectives">
@@ -91,13 +88,13 @@
 <p>After completing this lab you will be able to:</p>
 <ul class="simple">
 <li>formulate the explicit first order ordinary differential equations for the
-longitudinal dynamics of a drag racing car</li>
+lateral dynamics of an automobile</li>
 <li>translate ordinary differential equations into a computer function that
 evaluates the equations at any given point in time</li>
 <li>develop a function that evaluates state dependent input functions</li>
+<li>develop a function that evaluates state and input dependent output variables</li>
 <li>numerically integrate ordinary differential equations with Octave/Matlab's
 <a class="reference external" href="https://www.mathworks.com/help/matlab/ref/ode45.html">ode45</a></li>
-<li>implement and tune a longitudinal traction control system</li>
 <li>create complete and legible plots of the resulting input, state, and output
 trajectories</li>
 <li>create a report with textual explanations and plots of the simulation</li>
@@ -120,31 +117,35 @@ lateral forces at the front and rear wheels. At a basic level the car designer
 can manipulate the car's geometry, weight distribution, tire type to control
 the base dynamics of the vehicle. The designer can then design and tune other
 aspects in the suspension system to obtain even better performance. You will
-investigate the dynamics sans suspension to get an understanding of the car's
-motion and performance in a lane change.</p>
-</div>
+investigate the dynamics without suspension considerations to get an
+understanding of the car's basic motion and performance in a lane change.</p>
+<p>The following video gives an introduction to rear wheel steering that can
+provide some background to one of the simulations you will do:</p>
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/0jXnHeH9GNg" frameborder="0"
+allow="accelerometer; autoplay; encrypted-media; gyroscope;
+picture-in-picture" allowfullscreen></iframe></div>
 <div class="section" id="system-description">
 <h2><a class="toc-backref" href="#id4">System Description</a></h2>
-<p>Here you will model and simulate a car traveling on a planar surface. The car
-will be able to steer the front wheels and rear wheels relative to the chassis
-and the normal force is assumed to be equal on the left and right wheels, i.e.
-no load significant transfer from cornering. There will be different normal
-forces on the front and rear wheels due to the location of the mass center. The
-tires will be assumed to be pure rolling and the vehicle's forward velocity
+<p>You will model and simulate a car traveling on a planar surface. The car will
+be able to steer both the front wheels and rear wheels relative to the chassis.
+The normal force is assumed to be equal on the left and right wheels, i.e.  no
+load significant transfer from cornering. There will be different normal forces
+on the front and rear wheels due to the location of the mass center. The tires
+will be assumed to be pure rolling and the vehicle's forward velocity is
 constant. The lateral forces at the wheels will be modeled using the linear
 relation to slip angle and thus the model is only valid for small yaw and slip
 angles. You will investigate the effects on vehicle behavior when it is setup
-as an understeering and oversteering car.</p>
-<!-- .. figure:: https://objects-us-east-1.dream.io/eme134/2020s/lab-02-fig-01.png
-   :width: 400px
-   :align: center
-
-   **Figure 1**: Schematics of the longitudinal car dynamics model. -->
+as an understeering and oversteering car. This model is called the &quot;bicycle
+model of the car&quot;. The derivation of the model and analysis are presented in
+Chapter 6 of the book.</p>
 <div class="section" id="equations-of-motion">
 <h3><a class="toc-backref" href="#id5">Equations of Motion</a></h3>
 <p>The equations of motion for the bicycle model of the car are presented below in
 the canonical linear form. The factor of 2 accounts for the combined affect of
-the pairs of tires at the front and rear.</p>
+the pairs of tires at the front and rear, i.e. <span class="math">\(C_f\)</span> and <span class="math">\(C_r\)</span> are
+the cornering coefficients of the individual front and rear tires,
+respectively.</p>
 <div class="math">
 \begin{equation*}
 \begin{bmatrix}
@@ -175,8 +176,8 @@ the pairs of tires at the front and rear.</p>
 \end{bmatrix}
 =
 \begin{bmatrix}
-  C_f &amp; C_r \\
-  C_f a &amp; -C_r b
+  2C_f &amp; 2C_r \\
+  2C_f a &amp; -2C_r b
 \end{bmatrix}
 \begin{bmatrix}
   \delta_f \\
@@ -234,8 +235,8 @@ for these equations.</p>
 <div class="section" id="inputs">
 <h3><a class="toc-backref" href="#id6">Inputs</a></h3>
 <p>The front <span class="math">\(\delta_f\)</span> and rear <span class="math">\(\delta_r\)</span> steering angles can be set
-desired functions of time in your input function. You will setup input
-functions that will steer the automobile through a lane change using two
+to desired functions of time in your input function. You will setup two input
+functions that will steer the automobile through a lane change using for these
 scenarios:</p>
 <dl class="docutils">
 <dt>Only front steering</dt>
@@ -254,14 +255,14 @@ for more information.</p>
 <div class="section" id="outputs">
 <h3><a class="toc-backref" href="#id7">Outputs</a></h3>
 <p>The output function should return all of the state variables, the two steering
-angle inputs, the lateral forces at the front and rear tires, the travel
-distance in the <span class="math">\(x\)</span> direction, and the lateral acceleration. The lateral
-forces at the tires can be calculated with:</p>
+angle inputs, the combined lateral force at the front and rear tires, the
+travel distance in the <span class="math">\(x\)</span> direction, and the lateral acceleration. The
+lateral forces at the combined tires can be calculated with:</p>
 <div class="math">
 \begin{align*}
-F_{yf} = &amp; C_f \alpha_f \\
+F_{yf} = &amp; 2C_f \alpha_f \\
 \alpha_f = &amp; \frac{v + a\omega}{U} - \psi - \delta_f \\
-F_{yr} = &amp; C_r \alpha_r \\
+F_{yr} = &amp; 2C_r \alpha_r \\
 \alpha_r = &amp; \frac{v - b\omega}{U} - \psi - \delta_f
 \end{align*}
 </div>
@@ -292,7 +293,7 @@ a self consistent set of SI base units.</p>
 <tbody valign="top">
 <tr><td><span class="math">\(U\)</span></td>
 <td>Forward speed</td>
-<td><span class="math">\(10,15,20\)</span></td>
+<td><span class="math">\(10,20,30\)</span></td>
 <td><span class="math">\(m/s\)</span></td>
 </tr>
 <tr><td><span class="math">\(\delta\)</span></td>
@@ -301,7 +302,7 @@ a self consistent set of SI base units.</p>
 <td><span class="math">\(\textrm{deg}\)</span></td>
 </tr>
 <tr><td><span class="math">\(I\)</span></td>
-<td>Car yaw moment of inertia</td>
+<td>Car yaw moment of inertia (assumes inertia of a rectangle)</td>
 <td><span class="math">\(\frac{m}{12}(w^2+l^2)\)</span></td>
 <td><span class="math">\(\textrm{kg}\cdot\textrm{m}^2\)</span></td>
 </tr>
@@ -331,7 +332,7 @@ a self consistent set of SI base units.</p>
 <td><span class="math">\(\textrm{m}\)</span></td>
 </tr>
 <tr><td><span class="math">\(r\)</span></td>
-<td>Ratio of <span class="math">\(a/b\)</span></td>
+<td>Ratio of <span class="math">\(a/l\)</span></td>
 <td><span class="math">\(0&lt;r&lt;1\)</span></td>
 <td><span class="math">\(\textrm{unitless}\)</span></td>
 </tr>
@@ -347,12 +348,12 @@ a self consistent set of SI base units.</p>
 </tr>
 <tr><td><span class="math">\(F_{zf}\)</span></td>
 <td>Total normal force at the front wheels</td>
-<td><span class="math">\(rmg/2\)</span></td>
+<td><span class="math">\(F_z/2\)</span></td>
 <td><span class="math">\(\textrm{N}\)</span></td>
 </tr>
 <tr><td><span class="math">\(F_{zr}\)</span></td>
 <td>Total normal force at the rear wheels</td>
-<td><span class="math">\((1-r)mg/2\)</span></td>
+<td><span class="math">\(F_z/2\)</span></td>
 <td><span class="math">\(\textrm{N}\)</span></td>
 </tr>
 </tbody>
@@ -391,13 +392,6 @@ specify if the car is over, under, or neutral.</p>
 </div>
 <div class="section" id="deliverables">
 <h2><a class="toc-backref" href="#id12">Deliverables</a></h2>
-<p>Firstly, compare the lane change steering behavior with <span class="math">\(\delta=1\)</span> deg of
-the car for an understeer and oversteer configuration at speeds <span class="math">\(U=10\)</span>
-m/s and <span class="math">\(U=20\)</span> m/s using only front steering. Select a value of <span class="math">\(r\)</span>
-to obtain a suitable <span class="math">\(K\)</span> for each vehicle.</p>
-<p>Secondly, compare the lane change steering behavior with <span class="math">\(\delta=1\)</span> deg
-of an understeer car traveling at <span class="math">\(U=15\)</span> m/s for the only front steering
-and simultaneous front and rear steering.</p>
 <p>In your lab report, show your work for creating and evaluating the simulation
 model. Include any calculations you had to do, for example those for state
 equations, initial conditions, input equations, time parameters, and any other
@@ -411,32 +405,38 @@ the following items:</p>
 the ODEs, i.e. evaluates the state derivatives. See <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#defining-the-state-derivative-function">Defining the State
 Derivative Function</a> for an explanation.</li>
 <li>Create two functions defined each in an m-file that calculates the two
-requested inputs. See <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#time-varying-inputs">Time Varying Inputs</a> for an explanation.</li>
+requested inputs: front steer and dual steer. See <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#time-varying-inputs">Time Varying Inputs</a> for
+an explanation.</li>
 <li>Create a function defined in an m-file that calculates the requested
-outputs. See <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#outputs-other-than-the-states">Outputs Other Than the States</a> for an explanation.</li>
+outputs. See <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#outputs-other-than-the-states">Outputs Other Than the States</a>  and <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#outputs-involving-state-derivatives">Outputs Involving State
+Derivatives</a> for an explanation.</li>
 <li>Create a script in an m-file that utilizes the above functions to
-simulate system for the two scenarios: with and without traction control.
-This should setup the constants, integrate the dynamics equations, and plot
-each state, and output versus time. See <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#integrating-the-equations">Integrating the Equations</a> for an
-explanation.</li>
-<li>Make a plot of the coefficients of friction versus slip ratio which includes
-the curves for the dry and icy conditions. Indicate what slip ratios were
-chosen for the peak traction.</li>
-<li>Make plots of the outputs versus time of the scenario without traction
-control and explain why you think the simulation is behaving realistically
-or unrealistically.</li>
-<li>Make plots to compare outputs versus time between the two scenarios: with
-and without traction control. Plotting the each trajectory on its own or in
-subplots with one color line for each scenario.</li>
-<li>Report the time to the 200 m mark for each scenario and discuss the results
-and explain why the vehicle that wins won. Report the input energy consumed
-at the 200 m mark and discuss the differences in energy consumption, why it
-is, and what the implications are. You can present the joules of energy in
-equivalent liters of gasoline to help get a idea of the quantity.</li>
+simulate system for three comparison scenarios described below.  This should
+setup the constants, integrate the dynamics equations, and plot each state,
+and output versus time. See <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#integrating-the-equations">Integrating the Equations</a> for an explanation.</li>
+<li>Compare the lane change steering behavior with <span class="math">\(\delta=1\)</span> deg of the
+car for an understeer and oversteer configuration at speeds <span class="math">\(U=10\)</span> m/s
+using only front steering. Select a value of <span class="math">\(r\)</span>
+to obtain a suitable <span class="math">\(K\)</span> for each vehicle. Describe the differences in
+the state and output trajectories. Comment on why the terms &quot;understeer&quot; and
+&quot;oversteer&quot; are used to describe the configurations.</li>
+<li>Repeat #5 with <span class="math">\(U=30\)</span> m/s.</li>
+<li>Compare the lane change steering behavior with <span class="math">\(\delta=1\)</span> deg of an
+understeer car traveling at <span class="math">\(U=20\)</span> m/s for the front steering vs the
+dual front-rear steering. Describe the differences in the state and output
+trajectories. Comment on whether a dual steering has an any advantages or
+disadvantages based on the simulation results.</li>
 </ol>
 </div>
+<div class="section" id="tips">
+<h2><a class="toc-backref" href="#id13">Tips</a></h2>
+<ul class="simple">
+<li>When plotting the path of the mass center <span class="math">\(y(x)\)</span> use the
+<tt class="docutils literal"><span class="pre">axis('image')</span></tt> command to set the aspect ratio.</li>
+</ul>
+</div>
 <div class="section" id="assessment-rubric">
-<h2><a class="toc-backref" href="#id13">Assessment Rubric</a></h2>
+<h2><a class="toc-backref" href="#id14">Assessment Rubric</a></h2>
 <table border="1" class="table table-striped table-bordered docutils">
 <caption>Score will be between 50 and 100.</caption>
 <colgroup>
@@ -472,12 +472,12 @@ time steps and resolution are chosen</td>
 trajectories; Poor choices in time duration and steps</td>
 </tr>
 <tr><td>Explanations</td>
-<td>Explanation of two simulation comparisons are correct and well
+<td>Explanation of three simulation comparisons are correct and well
 explained; Plots of appropriate variables are used in the explanations</td>
-<td>Explanation of two simulation comparisons is somewhat correct and
+<td>Explanation of three simulation comparisons is somewhat correct and
 reasonably explained; Plots of appropriate variables are used in the
 explanations, but some are missing</td>
-<td>Explanation of two simulations are incorrect and poorly explained; Plots
+<td>Explanation of three simulations are incorrect and poorly explained; Plots
 are missing</td>
 </tr>
 <tr><td>Report and Code Formatting</td>
