@@ -152,14 +152,18 @@ grades should be considered estimates. Check the website on a regular basis to
 gauge your performance. Keep in mind that **15% is deducted per business day
 late** on all assignments.
 
+.. topic:: Syllabus Change
+   :class: alert alert-warning
+
+   Note that the syllabus has changed as of April 29th, 2020. The project was
+   removed and the percentages for the homework and lab grades have been
+   readjusted.
+
 .. class:: table table-striped table-bordered
 
 ==================== =====
-Homework             30%
-Labs                 40%
-Project Presentation 5%
-Project Proposal     5%
-Project Report       20%
+Homework             40%
+Labs                 60%
 ==================== =====
 
 .. _canvas.ucdavis.edu: http://canvas.ucdavis.edu
@@ -177,10 +181,6 @@ Labs
    Computational assignments will be due approximately every other week.
    Students will be in groups of two and will submit a lab report detailing
    their methods, analyses, and results.
-Project
-   Each lab group will develop a unique project on a topic of their choosing.
-   Two written reports detailing research, methods, analyses, and results will
-   be used to assess the learning objectives of the project.
 
 Canvas
 ======
