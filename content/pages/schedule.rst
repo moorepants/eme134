@@ -49,7 +49,7 @@ NA U Apr 26                                                                     
 13 M Apr 27    Trailers                              - Chapter 5                LAB2
                                                      - `Notes 13`_
 14 W Apr 29    Trailers
-15 F May 01    Trailers                                                         Project Proposal
+15 F May 01    Trailers
 -- ----------  ------------------------------------  -------------------------  ---------------
 16 M May 04    Automobiles                           - Chapter 6
 17 W May 06    Automobiles
@@ -72,7 +72,7 @@ NA T May 26                                                                     
 28 W Jun 03    Aircraft
 NA F Jun 05                                                                     HW8,HW7*
 -- ----------  ------------------------------------  -------------------------  ---------------
-NA R Jun 11    Project Presentations: 6PM-8PM                                   HW8*, Project Report
+NA R Jun 11    Project Presentations: 6PM-8PM                                   HW8*, LAB5
 == ==========  ====================================  =========================  ===============
 
 .. _Notes 01: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l01.pdf
