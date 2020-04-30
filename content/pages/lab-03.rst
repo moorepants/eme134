@@ -61,16 +61,20 @@ System Description
 
 You will model and simulate a car traveling on a planar surface. The car will
 be able to steer both the front wheels and rear wheels relative to the chassis.
-The normal force is assumed to be equal on the left and right wheels, i.e.  no
-load significant transfer from cornering. There will be different normal forces
-on the front and rear wheels due to the location of the mass center. The tires
-will be assumed to be pure rolling and the vehicle's forward velocity is
-constant. The lateral forces at the wheels will be modeled using the linear
-relation to slip angle and thus the model is only valid for small yaw and slip
-angles. You will investigate the effects on vehicle behavior when it is setup
-as an understeering and oversteering car. This model is called the "bicycle
-model of the car". The derivation of the model and analysis are presented in
-Chapter 6 of the book.
+The normal force is assumed to be equal on all of the wheels, i.e.  no load
+significant transfer from cornering. The tires will be assumed to be pure
+rolling and the vehicle's forward velocity is constant. The lateral forces at
+the wheels will be modeled using the linear relation to slip angle and thus the
+model is only valid for small yaw and slip angles. You will investigate the
+effects on vehicle behavior when it is setup as an understeering and
+oversteering car. This model is called the "bicycle model of the car". The
+derivation of the model and analysis are presented in Chapter 6 of the book.
+
+.. figure:: https://objects-us-east-1.dream.io/eme134/2020s/lab-03-fig-01.png
+   :width: 600px
+   :align: center
+
+   **Figure 1**: Schematics of the lateral car dynamics model.
 
 Equations of Motion
 -------------------
