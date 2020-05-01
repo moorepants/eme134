@@ -190,7 +190,7 @@ lateral forces at the combined tires can be calculated with:
    F_{yf} = & 2C_f \alpha_f \\
    \alpha_f = & \frac{v + a\omega}{U} - \psi - \delta_f \\
    F_{yr} = & 2C_r \alpha_r \\
-   \alpha_r = & \frac{v - b\omega}{U} - \psi - \delta_f
+   \alpha_r = & \frac{v - b\omega}{U} - \psi - \delta_r
 
 Your state derivative function can calculate the lateral acceleration. You will
 use the section `Outputs Other Than The States
