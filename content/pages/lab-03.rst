@@ -269,6 +269,14 @@ a self consistent set of SI base units.
      - Total normal force at the rear wheels
      - :math:`F_z/2`
      - :math:`\textrm{N}`
+   * - :math:`C_f`
+     - Cornering coefficient for a single front wheel.
+     - Calculate based on details in Chapter 4.
+     - :math:`\textrm{N/rad}`
+   * - :math:`C_r`
+     - Cornering coefficient for a single rear wheel.
+     - Calculate based on details in Chapter 4.
+     - :math:`\textrm{N/rad}`
 
 You will use the section `Integrating the Equations
 <https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#integrating-the-equations>`_
