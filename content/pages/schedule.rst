@@ -48,8 +48,9 @@ NA U Apr 26                                                                     
 -- ----------  ------------------------------------  -------------------------  ---------------
 13 M Apr 27    Trailers                              - Chapter 5                LAB2
                                                      - `Notes 13`_
-14 W Apr 29    Trailers
-15 F May 01    Trailers
+14 W Apr 29    Trailers                              - `Notes 14`_
+15 F May 01    Trailers                              - `Notes 15`_
+                                                     - `Lab Notes 05`_
 -- ----------  ------------------------------------  -------------------------  ---------------
 16 M May 04    Automobiles                           - Chapter 6
 17 W May 06    Automobiles
@@ -104,6 +105,7 @@ NA R Jun 11    Project Presentations: 6PM-8PM                                   
 .. _Lab Notes 02: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d02.pdf
 .. _Lab Notes 03: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d03.pdf
 .. _Lab Notes 04: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d04.pdf
+.. _Lab Notes 05: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d05.pdf
 
 .. _Lab Script 01: {filename}/pages/sir-model.rst
 .. _Lab Script 03: {filename}/pages/custom-integrator.rst
