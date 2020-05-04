@@ -52,8 +52,8 @@ NA U Apr 26                                                                     
 15 F May 01    Trailers                              - `Notes 15`_
                                                      - `Lab Notes 05`_
 -- ----------  ------------------------------------  -------------------------  ---------------
-16 M May 04    Automobiles                           - Chapter 6
-17 W May 06    Automobiles
+16 M May 04    Trailers                              - `Notes 16`_
+17 W May 06    Automobiles                           - Chapter 6
 18 F May 08    Automobiles                                                      HW4, HW3*
 -- ----------  ------------------------------------  -------------------------  ---------------
 19 M May 11    Automobiles                                                      LAB3
