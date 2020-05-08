@@ -8,6 +8,7 @@
 ./lab-01.html
 ./lab-02.html
 ./lab-03.html
+./lab-04.html
 ./labs.html
 ./report-guide.html
 ./resources.html
@@ -17,6 +18,7 @@
 ./scripts/best-practices/eval_rhs_with_input.m
 ./scripts/best-practices/eval_step_input.m
 ./scripts/best-practices/integrate_with_derivative_output.m
+./scripts/compute_benchmark_bicycle_matrices.m
 ./scripts/euler_integrate.m
 ./scripts/eval_SIR_rhs.m
 ./scripts/eval_train_wheelset_outputs.m
