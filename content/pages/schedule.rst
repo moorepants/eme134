@@ -55,7 +55,8 @@ NA U Apr 26                                                                     
 16 M May 04    Trailers                              - `Notes 16`_
 17 W May 06    Automobiles                           - Chapter 6
                                                      - `Notes 17`_
-18 F May 08    Automobiles                                                      HW4, HW3*
+18 F May 08    Automobiles                           - `Notes 18`_              HW4, HW3*
+                                                     - `Lab Notes 06`_
 -- ----------  ------------------------------------  -------------------------  ---------------
 19 M May 11    Automobiles                                                      LAB3
 20 W May 13    Automobiles
@@ -107,6 +108,7 @@ NA R Jun 11    Project Presentations: 6PM-8PM                                   
 .. _Lab Notes 03: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d03.pdf
 .. _Lab Notes 04: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d04.pdf
 .. _Lab Notes 05: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d05.pdf
+.. _Lab Notes 06: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d06.pdf
 
 .. _Lab Script 01: {filename}/pages/sir-model.rst
 .. _Lab Script 03: {filename}/pages/custom-integrator.rst
