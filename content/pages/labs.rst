@@ -14,6 +14,7 @@ Labs
 - `Lab 1: Train Wheel Hunting <{filename}/pages/lab-01.rst>`_
 - `Lab 2: Dragster Traction Control <{filename}/pages/lab-02.rst>`_
 - `Lab 3: Automobile Steering <{filename}/pages/lab-03.rst>`_
+- `Lab 4: Bicycle Stability and Control <{filename}/pages/lab-04.rst>`_
 
 Software
 ========
