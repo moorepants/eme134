@@ -19,7 +19,7 @@
   <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
         href="https://moorepants.github.io/eme134/feeds/all.atom.xml">
   
-  <meta name="description" content="Draft This lab is still a draft, there may be some minor changes before Monday May 11. Contents Learning Objectives Introduction System Description Equations of Motion Inputs Outputs Constant Parameters Initial Conditions Time Steps Eigenvalues and Stability Using a Root Locus To Choose a Feedback Gain Checking your work Deliverables …">
+  <meta name="description" content="Contents Learning Objectives Introduction System Description Equations of Motion Inputs Outputs Constant Parameters Initial Conditions Time Steps Eigenvalues and Stability Using a Root Locus To Choose a Feedback Gain Checking your work Deliverables Assessment Rubric Learning Objectives After completing this lab you will be able to: formulate the explicit first …">
   <script>
     (function(i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
@@ -63,12 +63,7 @@
 
 <article class="article">
   <div class="content">
-    <div class="alert alert-warning topic">
-<p class="topic-title">Draft</p>
-<p>This lab is still a draft, there may be some minor changes before Monday May
-11.</p>
-</div>
-<div class="contents topic" id="contents">
+    <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#learning-objectives" id="id3">Learning Objectives</a></li>
@@ -104,6 +99,9 @@ evaluates the equations at any given point in time</li>
 <li>create complete and legible plots of the resulting input, state, and output
 trajectories</li>
 <li>create a report with textual explanations and plots of the simulation</li>
+<li>evaluate a bicycle model for stability at different speeds</li>
+<li>design a feedback controller that stabilizes a bicycle at different speeds</li>
+<li>design a bicycle that is self-stable at low speeds</li>
 </ul>
 <div class="alert alert-info topic">
 <p class="topic-title">Information</p>
@@ -134,17 +132,17 @@ picture-in-picture" allowfullscreen></iframe></div>
 <div class="section" id="system-description">
 <h2><a class="toc-backref" href="#id5">System Description</a></h2>
 <p>The Whipple-Carvallo bicycle model is essentially the simplest model that
-behaves like a bicycle and can exhibit self-stability, i.e. uncontrolled
-stability.  The model was developed by both Whipple and Carvallo around the
-turn of the 20th century. In 2007, Meijaard, Papdopoulos, Ruina, and Schwab
-validated the model and presented a benchmark formulation <a class="citation-reference" href="#meijaard2007" id="id1">[Meijaard2007]</a>.
-You'll be using this formulation for the lab. This model assumes no-slip
-non-deforming tires, a flat level surface, frictionless revolute joints, and a
-human rider that is rigidly fixed to the rear bicycle frame. See the cited
-paper for more details about the history of the model, its derivation, and
-in-depth analysis. Figure 1 shows the basic geometry and the four rigid bodys:
-[B] rear frame and human body, [H] handlebar and fork, [R] rear wheel, and [F]
-front wheel.</p>
+behaves like a bicycle and can exhibit self-stability. &quot;Self-stability&quot; is
+defined as open loop stability or  stability without any control inputs. The
+model was developed by both Whipple and Carvallo around the turn of the 20th
+century. In 2007, Meijaard, Papdopoulos, Ruina, and Schwab validated the model
+and presented a benchmark formulation <a class="citation-reference" href="#meijaard2007" id="id1">[Meijaard2007]</a>. You'll be using this
+formulation for the lab. This model assumes no-slip non-deforming tires, a flat
+level surface, frictionless revolute joints, and a human rider that is rigidly
+fixed to the rear bicycle frame. See the cited paper for more details about the
+history of the model, its derivation, and in-depth analysis. Figure 1 shows the
+basic geometry and the four rigid bodies: [B] rear frame and human body, [H]
+handlebar and fork, [R] rear wheel, and [F] front wheel.</p>
 <div class="figure align-center">
 <img alt="" src="https://moorepants.github.io/resonance/14/bicycle-model.jpg" />
 <p class="caption"><strong>Figure 1</strong>: Schematic of the benchmark bicycle model.</p>
@@ -718,7 +716,7 @@ picture-in-picture" allowfullscreen></iframe></li>
 <div class="section" id="assessment-rubric">
 <h2><a class="toc-backref" href="#id16">Assessment Rubric</a></h2>
 <table border="1" class="table table-striped table-bordered docutils">
-<caption>Score will be between 50 and 100.</caption>
+<caption>Score will be between 30 and 100.</caption>
 <colgroup>
 <col width="25%" />
 <col width="25%" />
@@ -744,21 +742,48 @@ produce the expected outputs</td>
 <td>Constant parameters only defined once in main script(s);
 Integration produces the correct state, input, and output trajectories;
 Good choices in number of time steps and resolution are chosen and
-justified.</td>
+justified; Intermediate calculations present and functioning.</td>
 <td>Parameters are defined in multiple places; Integration produces some
 correct state, input, and output trajectories; Poor choices in number of
-time steps and resolution are chosen</td>
+time steps and resolution are chosen; Intermediate calculations mostly
+present and functioning.</td>
 <td>Constants defined redundantly; Integration produces incorrect
-trajectories; Poor choices in time duration and steps</td>
+trajectories; Poor choices in time duration and steps; Intermediate
+calculations not present or functioning.</td>
 </tr>
-<tr><td>Explanations</td>
-<td>Explanation of three simulation comparisons are correct and well
-explained; Plots of appropriate variables are used in the explanations</td>
-<td>Explanation of three simulation comparisons is somewhat correct and
-reasonably explained; Plots of appropriate variables are used in the
-explanations, but some are missing</td>
-<td>Explanation of three simulations are incorrect and poorly explained; Plots
-are missing</td>
+<tr><td>Eigenvalue plot</td>
+<td>Eigenvalue vs. speed plot is correct; At least three unique speeds
+identified and the behavior at each speed is explained via simulation
+plots and a correct explanation.</td>
+<td>Eigenvalue vs. speed plot is mostly correct; As least one unique speed
+is identified and the behavior at that speed is explained via
+simjulation plots and reasonably explanation.</td>
+<td>No eigenvalue vs. speed plot present and no simulations created for
+unique speeds. No explanations.</td>
+</tr>
+<tr><td>Control</td>
+<td>Roll rate feedback controller functions and a root locus plot is shown
+and used to select an appropriate gain. Simulations show stability at
+each speed and comments on the gain values at each speed are provided.</td>
+<td>Roll rate feedback controller functions but no root locus plot is shown
+and used to select an appropriate gain. Simulations mostly show
+stability at each speed or some speeds are missing; Comments on the gain
+values at most speeds are provided.</td>
+<td>Roll rate feedback controller does not function; Not apparent that a
+root locus was used to select an appropriate gain; No comments on the
+gains at each speed.</td>
+</tr>
+<tr><td>Bicycle design</td>
+<td>A realistic bicycle design is selected that is self-stable at lower
+speeds and the parameter selection is explained and justified. Stability
+is proven by the eigevalues or simulations. Valid explanation of the
+design's advantages and disadvantages is present.</td>
+<td>A non-realistic bicycle design is selected that is self-stable at lower
+speeds and the parameter selection may not be explained and justified.
+Stability is proven by the eigevalues or simulations. Explationan of the
+design's advantages and disadvantages is present.</td>
+<td>No bicycle is shown that is self-stable at lower speeds. No explanation
+of the designs are present.</td>
 </tr>
 <tr><td>Report and Code Formatting</td>
 <td>All axes labeled with units, legible font sizes, informative captions;
