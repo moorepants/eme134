@@ -2,12 +2,6 @@
 :status: hidden
 :slug: lab-04
 
-.. topic:: Draft
-   :class: alert alert-warning
-
-   This lab is still a draft, there may be some minor changes before Monday May
-   11.
-
 .. contents::
 
 Learning Objectives
@@ -26,6 +20,9 @@ After completing this lab you will be able to:
 - create complete and legible plots of the resulting input, state, and output
   trajectories
 - create a report with textual explanations and plots of the simulation
+- evaluate a bicycle model for stability at different speeds
+- design a feedback controller that stabilizes a bicycle at different speeds
+- design a bicycle that is self-stable at low speeds
 
 .. _ode45: https://www.mathworks.com/help/matlab/ref/ode45.html
 
@@ -65,17 +62,17 @@ System Description
 ==================
 
 The Whipple-Carvallo bicycle model is essentially the simplest model that
-behaves like a bicycle and can exhibit self-stability, i.e. uncontrolled
-stability.  The model was developed by both Whipple and Carvallo around the
-turn of the 20th century. In 2007, Meijaard, Papdopoulos, Ruina, and Schwab
-validated the model and presented a benchmark formulation [Meijaard2007]_.
-You'll be using this formulation for the lab. This model assumes no-slip
-non-deforming tires, a flat level surface, frictionless revolute joints, and a
-human rider that is rigidly fixed to the rear bicycle frame. See the cited
-paper for more details about the history of the model, its derivation, and
-in-depth analysis. Figure 1 shows the basic geometry and the four rigid bodys:
-[B] rear frame and human body, [H] handlebar and fork, [R] rear wheel, and [F]
-front wheel.
+behaves like a bicycle and can exhibit self-stability. "Self-stability" is
+defined as open loop stability or  stability without any control inputs. The
+model was developed by both Whipple and Carvallo around the turn of the 20th
+century. In 2007, Meijaard, Papdopoulos, Ruina, and Schwab validated the model
+and presented a benchmark formulation [Meijaard2007]_. You'll be using this
+formulation for the lab. This model assumes no-slip non-deforming tires, a flat
+level surface, frictionless revolute joints, and a human rider that is rigidly
+fixed to the rear bicycle frame. See the cited paper for more details about the
+history of the model, its derivation, and in-depth analysis. Figure 1 shows the
+basic geometry and the four rigid bodies: [B] rear frame and human body, [H]
+handlebar and fork, [R] rear wheel, and [F] front wheel.
 
 .. figure:: https://moorepants.github.io/resonance/14/bicycle-model.jpg
    :align: center
@@ -548,7 +545,7 @@ the following items:
 Assessment Rubric
 =================
 
-.. list-table:: Score will be between 50 and 100.
+.. list-table:: Score will be between 30 and 100.
    :class: table table-striped table-bordered
    :header-rows: 1
 
@@ -566,20 +563,45 @@ Assessment Rubric
      - Constant parameters only defined once in main script(s);
        Integration produces the correct state, input, and output trajectories;
        Good choices in number of time steps and resolution are chosen and
-       justified.
+       justified; Intermediate calculations present and functioning.
      - Parameters are defined in multiple places; Integration produces some
        correct state, input, and output trajectories; Poor choices in number of
-       time steps and resolution are chosen
+       time steps and resolution are chosen; Intermediate calculations mostly
+       present and functioning.
      - Constants defined redundantly; Integration produces incorrect
-       trajectories; Poor choices in time duration and steps
-   * - Explanations
-     - Explanation of three simulation comparisons are correct and well
-       explained; Plots of appropriate variables are used in the explanations
-     - Explanation of three simulation comparisons is somewhat correct and
-       reasonably explained; Plots of appropriate variables are used in the
-       explanations, but some are missing
-     - Explanation of three simulations are incorrect and poorly explained; Plots
-       are missing
+       trajectories; Poor choices in time duration and steps; Intermediate
+       calculations not present or functioning.
+   * - Eigenvalue plot
+     - Eigenvalue vs. speed plot is correct; At least three unique speeds
+       identified and the behavior at each speed is explained via simulation
+       plots and a correct explanation.
+     - Eigenvalue vs. speed plot is mostly correct; As least one unique speed
+       is identified and the behavior at that speed is explained via
+       simjulation plots and reasonably explanation.
+     - No eigenvalue vs. speed plot present and no simulations created for
+       unique speeds. No explanations.
+   * - Control
+     - Roll rate feedback controller functions and a root locus plot is shown
+       and used to select an appropriate gain. Simulations show stability at
+       each speed and comments on the gain values at each speed are provided.
+     - Roll rate feedback controller functions but no root locus plot is shown
+       and used to select an appropriate gain. Simulations mostly show
+       stability at each speed or some speeds are missing; Comments on the gain
+       values at most speeds are provided.
+     - Roll rate feedback controller does not function; Not apparent that a
+       root locus was used to select an appropriate gain; No comments on the
+       gains at each speed.
+   * - Bicycle design
+     - A realistic bicycle design is selected that is self-stable at lower
+       speeds and the parameter selection is explained and justified. Stability
+       is proven by the eigevalues or simulations. Valid explanation of the
+       design's advantages and disadvantages is present.
+     - A non-realistic bicycle design is selected that is self-stable at lower
+       speeds and the parameter selection may not be explained and justified.
+       Stability is proven by the eigevalues or simulations. Explationan of the
+       design's advantages and disadvantages is present.
+     - No bicycle is shown that is self-stable at lower speeds. No explanation
+       of the designs are present.
    * - Report and Code Formatting
      - All axes labeled with units, legible font sizes, informative captions;
        Functions are documented with docstrings which fully explain the inputs
