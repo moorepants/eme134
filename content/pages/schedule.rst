@@ -58,7 +58,7 @@ NA U Apr 26                                                                     
 18 F May 08    Automobiles                           - `Notes 18`_              HW4, HW3*
                                                      - `Lab Notes 06`_
 -- ----------  ------------------------------------  -------------------------  ---------------
-19 M May 11    Automobiles
+19 M May 11    Automobiles                           - `Notes 19`_
 20 W May 13    Automobiles                                                      LAB3
 21 F May 15    Automobiles                                                      HW5, HW4*
 -- ----------  ------------------------------------  -------------------------  ---------------
