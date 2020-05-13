@@ -59,7 +59,7 @@ NA U Apr 26                                                                     
                                                      - `Lab Notes 06`_
 -- ----------  ------------------------------------  -------------------------  ---------------
 19 M May 11    Automobiles                           - `Notes 19`_
-20 W May 13    Automobiles                                                      LAB3
+20 W May 13    Automobiles                           - `Notes 20`_              LAB3
 21 F May 15    Automobiles                                                      HW5, HW4*
 -- ----------  ------------------------------------  -------------------------  ---------------
 22 M May 18    Tilting Vehicles                      - Chapter 7
