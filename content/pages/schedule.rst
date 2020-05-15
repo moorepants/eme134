@@ -75,7 +75,7 @@ NA T May 26                                                                     
 28 W Jun 03    Aircraft
 NA F Jun 05                                                                     HW8,HW7*
 -- ----------  ------------------------------------  -------------------------  ---------------
-NA R Jun 11    Project Presentations: 6PM-8PM                                   HW8*, LAB5
+NA R Jun 11                                                                     HW8*, LAB5
 == ==========  ====================================  =========================  ===============
 
 .. _Notes 01: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l01.pdf
