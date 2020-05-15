@@ -60,7 +60,8 @@ NA U Apr 26                                                                     
 -- ----------  ------------------------------------  -------------------------  ---------------
 19 M May 11    Automobiles                           - `Notes 19`_
 20 W May 13    Automobiles                           - `Notes 20`_              LAB3
-21 F May 15    Automobiles                                                      HW5, HW4*
+21 F May 15    Automobiles                           - `Notes 21`_              HW5, HW4*
+                                                     - `Lab Notes 07`_
 -- ----------  ------------------------------------  -------------------------  ---------------
 22 M May 18    Tilting Vehicles                      - Chapter 7
 23 W May 20    Tilting Vehicles
@@ -109,6 +110,7 @@ NA R Jun 11                                                                     
 .. _Lab Notes 04: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d04.pdf
 .. _Lab Notes 05: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d05.pdf
 .. _Lab Notes 06: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d06.pdf
+.. _Lab Notes 07: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d07.pdf
 
 .. _Lab Script 01: {filename}/pages/sir-model.rst
 .. _Lab Script 03: {filename}/pages/custom-integrator.rst
