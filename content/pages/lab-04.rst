@@ -509,13 +509,14 @@ the following items:
    simulation plots in terms of growth/decay rates, oscillation frequencies,
    and phase differences in the states. Limit your Y axis to +/- 90 degs for
    unstable simulations.
-6. Develop three roll angular rate feedback controllers using a root locus to
-   select an appropriate gain to stabilize the bicycle at 0.2 m/s, 2 m/s, and 8
-   m/s. Choose gains that give realistic decay rates and oscillation
-   frequencies (a human's arm control bandwidth has an upper bound of about 10
-   rad/s). Simulate the system at these speeds with the controller defined in
-   an input function to show that the system is stable. Discuss the gain values
-   and any relationship to speed you may see.
+6. Develop two roll feedback controllers using a root locus to select an
+   appropriate gain to stabilize the bicycle at 2 m/s and 8 m/s. At 2 m/s
+   feedback roll rate. At 8 m/s feedback roll angle. Both controllers should
+   control steer torque. Choose gains that give realistic decay rates and
+   oscillation frequencies (a human's arm control bandwidth has an upper bound
+   of about 10 rad/s).  Simulate the system at these speeds with the controller
+   defined in an input function to show that the system is stable.  Discuss the
+   sign of the gain values.
 7. Design a bicycle by changing any number of the parameters values so that it
    is self-stable (no control) at a very low range of speeds. Try not to choose
    parameter values that would be impossible to actually build, e.g. a
