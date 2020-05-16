@@ -99,6 +99,10 @@ NA R Jun 11                                                                     
 .. _Notes 18: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l18.pdf
 .. _Notes 19: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l19.pdf
 .. _Notes 20: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l20.pdf
+.. _Notes 21: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l21.pdf
+.. _Notes 22: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l22.pdf
+.. _Notes 23: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l23.pdf
+.. _Notes 24: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l24.pdf
 .. _Notes 25: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l25.pdf
 .. _Notes 26: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l26.pdf
 .. _Notes 27: https://objects-us-east-1.dream.io/eme134/2020s/eme134-l27.pdf
