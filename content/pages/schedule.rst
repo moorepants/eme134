@@ -66,10 +66,10 @@ NA U Apr 26                                                                     
 22 M May 18    Tilting Vehicles                      - Chapter 7
                                                      - `Notes 22`_
 23 W May 20    Tilting Vehicles
-24 F May 22    Tilting Vehicles                                                 HW6, HW5*
+24 F May 22    Tilting Vehicles
 -- ----------  ------------------------------------  -------------------------  ---------------
 NA M May 25    Memorial Day Holiday
-NA T May 26                                                                     LAB4
+NA T May 26                                                                     LAB4, HW6, HW5*
 25 W May 27    Aircraft                              - Chapter 9
 26 F May 29    Aircraft                                                         HW7,HW6*
 -- ----------  ------------------------------------  -------------------------  ---------------
