@@ -65,7 +65,7 @@ NA U Apr 26                                                                     
 -- ----------  ------------------------------------  -------------------------  ---------------
 22 M May 18    Tilting Vehicles                      - Chapter 7
                                                      - `Notes 22`_
-23 W May 20    Tilting Vehicles
+23 W May 20    Tilting Vehicles                      - `Notes 23`_
 24 F May 22    Tilting Vehicles
 -- ----------  ------------------------------------  -------------------------  ---------------
 NA M May 25    Memorial Day Holiday
