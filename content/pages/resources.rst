@@ -141,9 +141,30 @@ Countersteering
 - Motorcycle crash due to steering away from obstacle [3:10]: https://youtu.be/VVE79XT8-Mg
 - Bricycle: "The Zero Gravity Bicycle" [3:00]: https://youtu.be/rNQdSfgJDNM
 
+Rear and Opposite Steering Bicycles
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- UC Davis Rear Steered Bicycle [3:01]: https://youtu.be/8uqxsLaJFMk
+- The Backwards Brain Bicycle - Smarter Every Day 133 [7:57]: https://youtu.be/MFzDaBzBlL0
+- Front + Rear Wheel Steer Bicycle: https://youtu.be/ZyU1bNXAsik
+- The Swing Bike [1:47]: https://youtu.be/CQyXDd-kPMw
+
 Wobble/Shimmy
 ^^^^^^^^^^^^^
 
 - Bicycle speed wobble [0:57]: https://youtu.be/VfngbsIUSj8?t=26
 - Dunlop Motorcycle Wobble and Weave [10:12]: https://youtu.be/z3OQTU-kE2s
 - Motorcycle wobble and crash [0:16]: https://youtu.be/54fTFm5Dc-I
+
+Robot Bicycles and Motorcycles
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Dutch Automatically Stabilized Motorcycle (ASMO):  https://youtu.be/6gjjXx696lA
+- Radio Controlled Bicycle [3:00]: https://youtu.be/mT3vfSQePcs
+- Murata Boy: The Robot That Can Ride Bicycles [0:53]: https://youtu.be/Srwk-i5aXRQ
+- TU Delft - Smart motor in handlebars prevents bicycles from falling over
+  [1:00]: https://youtu.be/rBOQp2uY_lk
+- Self Balancing Bicycle Robot [3:44]: https://youtu.be/4UHLRmYNDMQ
+- [Undergraduate Project] Balancing Motorcycle: https://youtu.be/SUVtObDFFWY
+- Motor Bike Robot [2:58]: https://youtu.be/0312BNqIBFI
+- Bicycle Robot [2:06]: https://youtu.be/BAS0d6nMFnc
