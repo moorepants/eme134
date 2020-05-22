@@ -66,7 +66,8 @@ NA U Apr 26                                                                     
 22 M May 18    Tilting Vehicles                      - Chapter 7
                                                      - `Notes 22`_
 23 W May 20    Tilting Vehicles                      - `Notes 23`_
-24 F May 22    Tilting Vehicles
+24 F May 22    Tilting Vehicles                      - `Notes 24`_
+                                                     - `Lab Notes 08`_
 -- ----------  ------------------------------------  -------------------------  ---------------
 NA M May 25    Memorial Day Holiday
 NA T May 26                                                                     LAB4, HW6, HW5*
@@ -116,6 +117,7 @@ NA R Jun 11                                                                     
 .. _Lab Notes 05: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d05.pdf
 .. _Lab Notes 06: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d06.pdf
 .. _Lab Notes 07: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d07.pdf
+.. _Lab Notes 08: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d08.pdf
 
 .. _Lab Script 01: {filename}/pages/sir-model.rst
 .. _Lab Script 03: {filename}/pages/custom-integrator.rst
