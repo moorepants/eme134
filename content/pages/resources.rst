@@ -168,3 +168,15 @@ Robot Bicycles and Motorcycles
 - [Undergraduate Project] Balancing Motorcycle: https://youtu.be/SUVtObDFFWY
 - Motor Bike Robot [2:58]: https://youtu.be/0312BNqIBFI
 - Bicycle Robot [2:06]: https://youtu.be/BAS0d6nMFnc
+
+Aircraft
+--------
+
+- Flight control surface explanation [7:20]: https://youtu.be/XxrdhJanotw
+- Demonstration of the Phugoid mode [2:51]: https://youtu.be/39_Kp_9G4zU
+- Phugoid oscillation [1:15]: https://youtu.be/39_Kp_9G4zU
+- F-8 DFBW Pilot Induced Oscillation [0:38]: https://youtu.be/o5tlTGovVuI
+- Pilot induced oscillation in glider [2:23]: https://youtu.be/fVbkJlxkfr09
+- Pilot induxed oscillation in shuttle landing [1:49]: https://youtu.be/EcQzlXsw1ko
+- Fixed wing autonomous obstacle avoidance [2:29]: https://youtu.be/_qah8oIzCwk
+- Quadcopter obstacle avoidance [1:46]: https://youtu.be/BzykucxFddI
