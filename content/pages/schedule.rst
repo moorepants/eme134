@@ -72,6 +72,7 @@ NA U Apr 26                                                                     
 NA M May 25    Memorial Day Holiday
 NA T May 26                                                                     LAB4, HW6, HW5*
 25 W May 27    Aircraft                              - Chapter 9
+                                                     - `Notes 25`_
 26 F May 29    Aircraft                                                         HW7,HW6*
 -- ----------  ------------------------------------  -------------------------  ---------------
 27 M Jun 01    Aircraft
