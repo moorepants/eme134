@@ -73,7 +73,8 @@ NA M May 25    Memorial Day Holiday
 NA T May 26                                                                     LAB4
 25 W May 27    Aircraft                              - Chapter 9                HW6, HW5*
                                                      - `Notes 25`_
-26 F May 29    Aircraft
+26 F May 29    Aircraft                              - `Notes 26`_
+                                                     - `Lab Notes 09`_
 -- ----------  ------------------------------------  -------------------------  ---------------
 27 M Jun 01    Aircraft
 28 W Jun 03    Aircraft
@@ -119,6 +120,7 @@ NA R Jun 11                                                                     
 .. _Lab Notes 06: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d06.pdf
 .. _Lab Notes 07: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d07.pdf
 .. _Lab Notes 08: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d08.pdf
+.. _Lab Notes 09: https://objects-us-east-1.dream.io/eme134/2020s/eme134-d09.pdf
 
 .. _Lab Script 01: {filename}/pages/sir-model.rst
 .. _Lab Script 03: {filename}/pages/custom-integrator.rst
