@@ -161,9 +161,18 @@ F_D = \sgn{v} \frac{1}{2} \rho v^2 C_D A
 <p>This drag force will not affect motion in the <span class="math">\(x\)</span> direction since
 <span class="math">\(U\)</span> is specified to be constant but you will need to determine its
 contribution to resisting vertical motion. Make sure that the force is always
-in the opposite direction of <span class="math">\(\bar{v} = U \hat{x} + W \hat{z}\)</span> using the
+in the opposite direction of the component of <span class="math">\(\bar{v} = U \hat{x} + W
+\hat{z}\)</span> that is perpendicular to the vehicle (same as <span class="math">\(F_D\)</span>) using the
 <a class="reference external" href="https://en.wikipedia.org/wiki/Sign_function">signum function</a>, <tt class="docutils literal">sign()</tt> in Matlab/Octave. Neglect any lift that may be
 produced due to the vehicles angle of attack or body characteristics.</p>
+<div class="alert alert-info topic">
+<p class="topic-title">What is <span class="math">\(v\)</span> in the drag equation?</p>
+<p><span class="math">\(v\)</span> in the equation for <span class="math">\(F_D\)</span> is the scalar component of
+velocity of the center of pressure (CoP) that is parallel to <span class="math">\(F_D\)</span>. If
+you write the velocity vector of the CoP in the body fixed reference frame
+you can get this component like we have for other body fixed velocity
+calculations.</p>
+</div>
 <div class="figure align-center">
 <img alt="" src="https://objects-us-east-1.dream.io/eme134/2020s/lab-05-fig-01.png" style="width: 600px;" />
 <p class="caption"><strong>Figure 1</strong>: Schematics of the longitudinal quadcopter dynamics. The
