@@ -9,10 +9,12 @@
 ./lab-02.html
 ./lab-03.html
 ./lab-04.html
+./lab-05.html
 ./labs.html
 ./report-guide.html
 ./resources.html
 ./schedule.html
+./scripts/animate_drone.m
 ./scripts/best-practices/eval_output.m
 ./scripts/best-practices/eval_output_with_state_derivatives.m
 ./scripts/best-practices/eval_rhs_with_input.m

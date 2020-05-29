@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  Lab 5: Drone Flight Control | EME 134: Vehicle Stability
+</title>
+  <link rel="canonical" href="https://moorepants.github.io/eme134/lab-05.html">
+
+
+  <link rel="stylesheet" href="https://moorepants.github.io/eme134/theme/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://moorepants.github.io/eme134/theme/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://moorepants.github.io/eme134/theme/css/pygments/emacs.min.css">
+  <link rel="stylesheet" href="https://moorepants.github.io/eme134/theme/css/theme.css">
+
+  <link rel="alternate" type="application/atom+xml" title="Full Atom Feed"
+        href="https://moorepants.github.io/eme134/feeds/all.atom.xml">
+  
+  <meta name="description" content="Contents Learning Objectives Introduction System Description Equations of Motion Inputs Constant Parameters Outputs Initial Conditions Time Steps Animation Deliverables Assessment Rubric Learning Objectives After completing this lab you will be able to: derive the equations of motion for longitudinal drone flight dynamics formulate the explicit first order ordinary differential equations …">
+  <script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o);
+      a.async = 1;
+      a.src = g;
+      m = s.getElementsByTagName(o)[0];
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-15966419-8', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+  <div class="col-sm-12">
+    <h1 class="title"><a href="https://moorepants.github.io/eme134/">EME 134: Vehicle Stability</a></h1>
+      <ul class="list-inline">
+            <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/">Syllabus</a></li>
+            <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/schedule.html">Schedule</a></li>
+            <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/labs.html">Labs</a></li>
+            <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/resources.html">Resources</a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  Lab 5: Drone Flight Control
+</h1>
+      <hr>
+
+<article class="article">
+  <div class="content">
+    <div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#learning-objectives" id="id2">Learning Objectives</a></li>
+<li><a class="reference internal" href="#introduction" id="id3">Introduction</a></li>
+<li><a class="reference internal" href="#system-description" id="id4">System Description</a><ul>
+<li><a class="reference internal" href="#equations-of-motion" id="id5">Equations of Motion</a></li>
+<li><a class="reference internal" href="#inputs" id="id6">Inputs</a></li>
+<li><a class="reference internal" href="#constant-parameters" id="id7">Constant Parameters</a></li>
+<li><a class="reference internal" href="#outputs" id="id8">Outputs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#initial-conditions" id="id9">Initial Conditions</a></li>
+<li><a class="reference internal" href="#time-steps" id="id10">Time Steps</a></li>
+<li><a class="reference internal" href="#animation" id="id11">Animation</a></li>
+<li><a class="reference internal" href="#deliverables" id="id12">Deliverables</a></li>
+<li><a class="reference internal" href="#assessment-rubric" id="id13">Assessment Rubric</a></li>
+</ul>
+</div>
+<div class="section" id="learning-objectives">
+<h2><a class="toc-backref" href="#id2">Learning Objectives</a></h2>
+<p>After completing this lab you will be able to:</p>
+<ul class="simple">
+<li>derive the equations of motion for longitudinal drone flight dynamics</li>
+<li>formulate the explicit first order ordinary differential equations for the
+system</li>
+<li>translate ordinary differential equations into a computer function that
+evaluates the equations at any given point in time</li>
+<li>develop a function that evaluates state dependent input functions</li>
+<li>develop a function that evaluates state and input dependent output variables</li>
+<li>numerically integrate ordinary differential equations with Octave/Matlab's
+<a class="reference external" href="https://www.mathworks.com/help/matlab/ref/ode45.html">ode45</a></li>
+<li>create complete and legible plots of the resulting input, state, and output
+trajectories</li>
+<li>create a report with textual explanations and plots of the simulation</li>
+<li>design a PID controller that stabilizes the drone in pitch and tracks a path</li>
+</ul>
+<div class="alert alert-info topic">
+<p class="topic-title">Information</p>
+<p>Extra information (asides) are in blue boxes.</p>
+</div>
+<div class="alert alert-warning topic">
+<p class="topic-title">Warnings</p>
+<p>Warnings are in yellow boxes.</p>
+</div>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id3">Introduction</a></h2>
+<p>In this lab, you will investigate the longitudinal (altitude and pitch) flight
+dynamics of a quadcopter traveling at a constant forward speed. This vehicle
+relies completely on the independently controlled thrust generated by pairs of
+rotors at the front and rear of the vehicle to change altitude and its pitch
+orientation. The vehicle is very much unstable and requires controllers to
+maintain a desired pitch angle and to control altitude. The following video
+shows an autonomous quadcopter that can avoid obstacles using a combination of
+vision detection to determine relative locations of the obstacles and a
+feedback controller to avoid the obstacles given the computed desired path of
+motion. You will develop the feedback controller portion of a system like the
+one shown.</p>
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/BzykucxFddI" frameborder="0"
+allow="accelerometer; autoplay; encrypted-media; gyroscope;
+picture-in-picture" allowfullscreen></iframe><p>Here is another similar system using a fixed wing autonomous aircraft at higher
+speeds:</p>
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/_qah8oIzCwk" frameborder="0"
+allow="accelerometer; autoplay; encrypted-media; gyroscope;
+picture-in-picture" allowfullscreen></iframe></div>
+<div class="section" id="system-description">
+<h2><a class="toc-backref" href="#id4">System Description</a></h2>
+<p>You will model the longitudinal dynamics of a drone flying at a constant
+forward speed <span class="math">\(U\)</span>. The vehicle can be modeled as a single rigid body with
+pitch centroidal moment of inertia <span class="math">\(I\)</span> and mass <span class="math">\(m\)</span>. Use an
+inertial coordinate system with coordinate <span class="math">\(x\)</span> to measure the horizontal
+travel and coordinate <span class="math">\(z\)</span> for the vertical travel. Use the standard of
+positive <span class="math">\(z\)</span> pointing downwards. The front rotors are separated from the
+rear rotors by distance <span class="math">\(a + b\)</span> and the mass center lies at distance
+<span class="math">\(a\)</span> from the front rotor and distance <span class="math">\(b\)</span> from the rear rotor.</p>
+<p>The mass center will have a velocity <span class="math">\(U\)</span> in the <span class="math">\(x\)</span> direction which
+is constant and a variable velocity <span class="math">\(W\)</span> in the vertical direction. The
+rigid body will have a pitch angle <span class="math">\(\theta\)</span> and a pitch angular velocity
+<span class="math">\(q\)</span>.</p>
+<p>The vehicle will have four forces acting on it. The two pairs of rotors produce
+the thrust force <span class="math">\(F_f\)</span> at the front of the vehicle and the rotors at the
+rear produce thrust force <span class="math">\(F_r\)</span>. The weight of the vehicle <span class="math">\(mg\)</span> is
+the third force and the fourth force is the <a class="reference external" href="https://en.wikipedia.org/wiki/Drag_(physics)">drag force</a> acting perpendicular
+to the quadcopter's body <span class="math">\(F_D\)</span> at the center of pressure (equal to
+aerodynamic center in this case) which is equidistant from the to rotors. The
+drag force should be modeled by the equation:</p>
+<div class="math">
+\begin{equation*}
+\DeclareMathOperator{\sgn}{sgn}
+F_D = \sgn{v} \frac{1}{2} \rho v^2 C_D A
+\end{equation*}
+</div>
+<p>This drag force will not affect motion in the <span class="math">\(x\)</span> direction since
+<span class="math">\(U\)</span> is specified to be constant but you will need to determine its
+contribution to resisting vertical motion. Make sure that the force is always
+in the opposite direction of <span class="math">\(\bar{v} = U \hat{x} + W \hat{z}\)</span> using the
+<a class="reference external" href="https://en.wikipedia.org/wiki/Sign_function">signum function</a>, <tt class="docutils literal">sign()</tt> in Matlab/Octave. Neglect any lift that may be
+produced due to the vehicles angle of attack or body characteristics.</p>
+<div class="figure align-center">
+<img alt="" src="https://objects-us-east-1.dream.io/eme134/2020s/lab-05-fig-01.png" style="width: 600px;" />
+<p class="caption"><strong>Figure 1</strong>: Schematics of the longitudinal quadcopter dynamics. The
+vectors are all drawn with a common sign convention, positive in the
+direction of the arrow.</p>
+</div>
+<div class="section" id="equations-of-motion">
+<h3><a class="toc-backref" href="#id5">Equations of Motion</a></h3>
+<p>You will need to derive the equations of motion for this system. Using the
+coordinates described above write the non-linear Newton-Euler equations. You
+will be expected to show this work in your report. <em>Note: Use inertial
+coordinates not body fixed for the derivation.</em></p>
+<p>It will be useful to rewrite the two force magnitudes in terms of the total
+force <span class="math">\(F_T = F_f + F_r\)</span> so that you can control <span class="math">\(F_T\)</span> to control
+altitude and regulate <span class="math">\(F_f\)</span> for pitch control. Eliminate <span class="math">\(F_r\)</span> from
+the two equations.</p>
+<p>The state and input vectors would then be:</p>
+<div class="math">
+\begin{align*}
+\bar{x} = &amp; [z \quad \theta \quad w \quad q]^T \\
+\bar{u} = &amp; [F_T \quad F_f]^T
+\end{align*}
+</div>
+<p>The time varying variables are:</p>
+<table border="1" class="table table-striped table-bordered docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Symbol</th>
+<th class="head">Description</th>
+<th class="head">Units</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><span class="math">\(z\)</span></td>
+<td>Vertical coordinate of the quadcopter's mass center</td>
+<td><span class="math">\(\textrm{m}\)</span></td>
+</tr>
+<tr><td><span class="math">\(\theta\)</span></td>
+<td>Pitch angle.</td>
+<td><span class="math">\(\textrm{rad}\)</span></td>
+</tr>
+<tr><td><span class="math">\(w=\dot{z}\)</span></td>
+<td>Vertical velocity</td>
+<td><span class="math">\(\textrm{m/s}\)</span></td>
+</tr>
+<tr><td><span class="math">\(q=\dot{\theta}\)</span></td>
+<td>Pitch angular rate</td>
+<td><span class="math">\(\textrm{rad/s}\)</span></td>
+</tr>
+<tr><td><span class="math">\(F_T\)</span></td>
+<td>Total thrust produced by the rotors</td>
+<td><span class="math">\(\textrm{N}\)</span></td>
+</tr>
+<tr><td><span class="math">\(F_f\)</span></td>
+<td>Thrust produced by the front rotors</td>
+<td><span class="math">\(\textrm{N}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>You will need to formulate the equations of motion as four explicit linear
+ordinary differential equations in first order form for your state derivative
+function.</p>
+<div class="math">
+\begin{equation*}
+\dot{\bar{x}} = \bar{f}(\bar{x}, \bar{u}, t)
+\end{equation*}
+</div>
+<p>You will use the section <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#defining-the-state-derivative-function">Defining the State Derivative Function</a>
+for these equations.</p>
+</div>
+<div class="section" id="inputs">
+<h3><a class="toc-backref" href="#id6">Inputs</a></h3>
+<p>The quadcopter will simply spin to its death as it falls to the ground without
+any control. You will develop two <a class="reference external" href="https://en.wikipedia.org/wiki/PID_controller">Proportional-Integral-Derivative</a> (PID)
+controllers. One will be used to stabilize the vehicle in the pitch degree of
+freedom and maintain level flight. The second will be used to maintain a
+desired altitude. Your input function should return the two forces <span class="math">\(F_T\)</span>
+and <span class="math">\(F_f\)</span>. The controllers take this form in the time domain:</p>
+<div class="math">
+\begin{align*}
+F_T(t) &amp; = k_{Tp} \left[z_d(t) - z(t)\right] +
+           k_{Ti} \int_0^t \left[z_d(\tau) - z(\tau)\right]d\tau +
+           k_{Td} \left[w_d(t) - w(t)\right] \\
+F_f(t) &amp; = k_{fp} \left[\theta_d(t) - \theta(t)\right] +
+           k_{fi} \int_0^t \left[\theta_d(\tau) - \theta(\tau)\right]d\tau +
+           k_{fd} \left[q_d(t) - q(t)\right]
+\end{align*}
+</div>
+<div class="alert alert-info topic">
+<p class="topic-title">Derivative term</p>
+<p>You may wonder why <span class="math">\(q\)</span> and <span class="math">\(w\)</span> are in the above equations.  Note
+that:</p>
+<div class="math">
+\begin{equation*}
+k_{Td} \left[w_d(t) - w(t)\right] =
+k_{Td} \left[\frac{dz_d(t)}{d(t)} - \frac{dz(t)}{d(t)}\right]
+\end{equation*}
+</div>
+</div>
+<p>The PID controllers have three terms:</p>
+<dl class="docutils">
+<dt>Proportional term</dt>
+<dd>Applies control that is proportional to the error: desired minus the actual.
+This term gives a spring-like effect to your controller, e.g. the larger the
+pitch angle is away from the desired the more force the controller applies
+to force the pitch angle to the desired angle <span class="math">\(\theta_d\)</span>.</dd>
+<dt>Integral term</dt>
+<dd>Applies control that is proportional the integral of the error. This term is
+included to reduce or eliminate steady state error in the step response of
+the controlled system.</dd>
+<dt>Derivative term</dt>
+<dd>Applies control that is proportional to the derivative of the error. This
+term provides a damping effect to the controlled variable which can control
+overshoot and even eliminate oscillation for a critically damped response.
+The desired rates should all be zero only desired coordinates need be set.</dd>
+</dl>
+<p>There are techniques to select PID gains for a known linear plant model that
+have a desired step response. You have or will learn about these in EME 172.
+You can also design a controller with manually tuning for a non-linear system
+that has reasonable number of inputs and outputs, which we have with this drone
+model. Watch the video below to get an idea of how one can systemically tune a
+PID controller for desired performance by first trying P gains to get a stable
+response, then D gains to reduce oscillations, and I gains to reduce steady
+state error.</p>
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/uXnDwojRb1g" frameborder="0"
+allow="accelerometer; autoplay; encrypted-media; gyroscope;
+picture-in-picture" allowfullscreen></iframe><p>Once you have your systems simulating with no control (the drone should fall to
+the ground spinning chaotically), follow these steps:</p>
+<ol class="arabic simple">
+<li>Set <span class="math">\(F_T\)</span> to a constant value. If you choose a value close to the
+weight of the vehicle the drone should have enough total force to try to
+approximately hover.</li>
+<li>Set the desired pitch angle to a constant value <span class="math">\(\theta_d = \pi/180\)</span>
+so that you will get a step response for <span class="math">\(\theta\)</span>.</li>
+<li>Apply the technique in the video to the control equation for <span class="math">\(F_f\)</span>.
+This should allow you to stabilize the quadcopter in pitch with a good
+response and it will either slowly fall or rise depending on the value you
+set <span class="math">\(F_T\)</span> to. Remember the sign convention of <span class="math">\(F_f\)</span> and that
+this is negative feedback to ensure you choose the right sign of the gains.
+The simulation only needs about 5 seconds of simulation time for the tuning
+process.</li>
+<li>Set the <span class="math">\(F_f\)</span> gains to the ones you found in 3 and set the desired
+altitude to a constant value <span class="math">\(z_d = -1\)</span> so that you you will get a
+step response for <span class="math">\(z\)</span>. Set <span class="math">\(\theta_d = 0\)</span> for level flight.</li>
+<li>Apply the technique in the video to the control equation for <span class="math">\(F_T\)</span>
+until you get a good step response for altitude <span class="math">\(z\)</span>.</li>
+</ol>
+<div class="alert alert-info topic">
+<p class="topic-title">Integral of the error</p>
+<p>The proportional and derivative error terms are straight forward but how do
+you obtain the integral of the error?</p>
+<p>Recall that <tt class="docutils literal">ode45</tt> integrates equations with respect to time. You need to
+integrate the error with respect to time from <span class="math">\(t=0\)</span> to the current
+time <span class="math">\(t\)</span> to obtain the cumulative error in the controller. To do so
+you can introduce two new state variables for the cumluative error
+<span class="math">\(\theta_c\)</span> and <span class="math">\(z_c\)</span>. Add these two state equations to your
+state derivative right hand side function like so:</p>
+<div class="math">
+\begin{align*}
+\dot{z_c}(t) &amp; = \frac{d z_c(t)}{dt} = z_d(t) - z(t) \\
+\dot{\theta_c}(t) &amp; = \frac{d \theta_c(t)}{dt} = \theta_d(t) - \theta(t)
+\end{align*}
+</div>
+<p>Note that the computed states are then the term you desire:</p>
+<div class="math">
+\begin{align*}
+z_c(t) &amp; = \int_0^{t} \left[ z_d(\tau) - z(\tau) \right] d\tau \\
+\theta_c(t) &amp; = \int_0^{t_i} \left[ \theta_d(\tau) - \theta(\tau) \right] d\tau
+\end{align*}
+</div>
+<p>If you can't get this part working you can still control the vehicle with
+two PD controllers, you'll just have stead state error.</p>
+</div>
+<p>Once you have selected all six gains and have good simultaneous step responses
+for <span class="math">\(\theta\)</span> and <span class="math">\(z\)</span> you can now track an altitude &quot;path&quot; for a 20
+second simulation. Setup your input function to have a desired altitude of:</p>
+<div class="math">
+\begin{equation*}
+z_d =
+\begin{cases}
+   0 &amp; 0 &lt; t \leq 5 \\
+   -0.25 &amp; 5 &lt; t \leq 10 \\
+   -1.8 &amp; 10 &lt; t \leq 15 \\
+   -1.0 &amp; 15 &lt; t \leq 20
+\end{cases}
+\end{equation*}
+</div>
+<p>Simulate the controlled system for this input and plot all the requested output
+variables.</p>
+<p>See <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#time-varying-inputs">Time Varying Inputs</a>
+for more information.</p>
+</div>
+<div class="section" id="constant-parameters">
+<h3><a class="toc-backref" href="#id7">Constant Parameters</a></h3>
+<p>The majority of the variables in the differential equations and input equations
+above do not vary with time, i.e. they are constant. Below is a table with an
+explanation of each variable, its value, and its units. Note that the units are
+a self consistent set of SI base units.</p>
+<table border="1" class="table table-striped table-bordered docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Symbol</th>
+<th class="head">Matlab variable</th>
+<th class="head">Description</th>
+<th class="head">Value</th>
+<th class="head">Units</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><span class="math">\(I\)</span></td>
+<td><tt class="docutils literal">I</tt></td>
+<td>Centroidal pitch moment of inertia</td>
+<td>Calculate the moment of inertia about a slender rod of mass <span class="math">\(m\)</span>
+and length <span class="math">\(a + b\)</span> about the mass center location. <em>Hint: Use the
+parallel axis thereom.</em></td>
+<td><span class="math">\(\textrm{kg}\cdot\textrm{m}^2\)</span></td>
+</tr>
+<tr><td><span class="math">\(a\)</span></td>
+<td><tt class="docutils literal">a</tt></td>
+<td>Distance from front rotor to mass center</td>
+<td>0.1</td>
+<td><span class="math">\(\textrm{m}\)</span></td>
+</tr>
+<tr><td><span class="math">\(b\)</span></td>
+<td><tt class="docutils literal">b</tt></td>
+<td>Distance from rear rotor to mass center</td>
+<td>0.2</td>
+<td><span class="math">\(\textrm{m}\)</span></td>
+</tr>
+<tr><td><span class="math">\(g\)</span></td>
+<td><tt class="docutils literal">g</tt></td>
+<td>Acceleration due to gravity</td>
+<td>9.81</td>
+<td><span class="math">\(\textrm{m/s}^2\)</span></td>
+</tr>
+<tr><td><span class="math">\(m\)</span></td>
+<td><tt class="docutils literal">m</tt></td>
+<td>Mass of the quadcopter</td>
+<td>1.0</td>
+<td><span class="math">\(\textrm{kg}\)</span></td>
+</tr>
+<tr><td><span class="math">\(U\)</span></td>
+<td><tt class="docutils literal">U</tt></td>
+<td>Forward speed of the quadcopter</td>
+<td>15</td>
+<td><span class="math">\(\textrm{m/s}\)</span></td>
+</tr>
+<tr><td><span class="math">\(\rho\)</span></td>
+<td><tt class="docutils literal">rho</tt></td>
+<td>Density of air</td>
+<td>1.225</td>
+<td><span class="math">\(\textrm{kg}/m^s\)</span></td>
+</tr>
+<tr><td><span class="math">\(A\)</span></td>
+<td><tt class="docutils literal">A</tt></td>
+<td>Top view area of the quadcopter</td>
+<td>Assume a square shape</td>
+<td><span class="math">\(\textrm{m}^2\)</span></td>
+</tr>
+<tr><td><span class="math">\(C_D\)</span></td>
+<td><tt class="docutils literal">CD</tt></td>
+<td>Drag coefficient</td>
+<td>0.1</td>
+<td>Unitless</td>
+</tr>
+<tr><td><span class="math">\(k_{fp}\)</span></td>
+<td><tt class="docutils literal">kfp</tt></td>
+<td>Front rotor force proportional control gain</td>
+<td>Determined by you</td>
+<td><span class="math">\(\textrm{N/rad}\)</span></td>
+</tr>
+<tr><td><span class="math">\(k_{fi}\)</span></td>
+<td><tt class="docutils literal">kfi</tt></td>
+<td>Front rotor force integral control gain</td>
+<td>Determined by you</td>
+<td><span class="math">\(\textrm{N/rad/s}\)</span></td>
+</tr>
+<tr><td><span class="math">\(k_{fd}\)</span></td>
+<td><tt class="docutils literal">kfd</tt></td>
+<td>Front rotor force derivative control gain</td>
+<td>Determined by you</td>
+<td><span class="math">\(\textrm{Ns/rad}\)</span></td>
+</tr>
+<tr><td><span class="math">\(k_{Tp}\)</span></td>
+<td><tt class="docutils literal">kTp</tt></td>
+<td>Total rotor force proportional control gain</td>
+<td>Determined by you</td>
+<td><span class="math">\(\textrm{N/rad}\)</span></td>
+</tr>
+<tr><td><span class="math">\(k_{Ti}\)</span></td>
+<td><tt class="docutils literal">kTi</tt></td>
+<td>Total rotor force integral control gain</td>
+<td>Determined by you</td>
+<td><span class="math">\(\textrm{N/rad/s}\)</span></td>
+</tr>
+<tr><td><span class="math">\(k_{Td}\)</span></td>
+<td><tt class="docutils literal">kTd</tt></td>
+<td>Total rotor force derivative control gain</td>
+<td>Determined by you</td>
+<td><span class="math">\(\textrm{Ns/rad}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>You will use the section <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#integrating-the-equations">Integrating the Equations</a>
+to for these values.</p>
+</div>
+<div class="section" id="outputs">
+<h3><a class="toc-backref" href="#id8">Outputs</a></h3>
+<p>The output function should return all six of the state variables, the travel
+distance <span class="math">\(x\)</span>, the two rotor forces <span class="math">\(F_f,F_r\)</span>, and the desired
+altitude <span class="math">\(z_d\)</span>. Include these ten time varying variables in your
+simulation plots. You will use the section <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#outputs-other-than-the-states">Outputs Other Than The States</a>
+to compute these values.</p>
+</div>
+</div>
+<div class="section" id="initial-conditions">
+<h2><a class="toc-backref" href="#id9">Initial Conditions</a></h2>
+<p>For the simulations, set the initial conditions all to zero.</p>
+<p>See <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#integrating-the-equations">Integrating the Equations</a>
+for how to set up the initial condition vector. Make sure that your initial
+conditions are arranged in the same order as your state variables.</p>
+</div>
+<div class="section" id="time-steps">
+<h2><a class="toc-backref" href="#id10">Time Steps</a></h2>
+<p>Simulate the system for 20 seconds with time steps of 1/20th of a second for
+all simulations.</p>
+</div>
+<div class="section" id="animation">
+<h2><a class="toc-backref" href="#id11">Animation</a></h2>
+<p>The following function <a class="reference external" href="https://moorepants.github.io/eme134/scripts/animate_drone.m"><tt class="docutils literal">animate_drone.m</tt></a> function will create an animation of
+your drone flight simulation. You can use this to visualize the simulation and
+assess the controller's performance.</p>
+<div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">animate_drone</span><span class="p">(</span>ts, ys, p<span class="p">)</span><span class="w"></span>
+<span class="c">% ANIMATE_DRONE - Creates an animation of the drone flight given the output</span>
+<span class="c">% trajectories.</span>
+<span class="c">%</span>
+<span class="c">% Syntax: animate_drone(ts, ys, p)</span>
+<span class="c">%</span>
+<span class="c">% Inputs:</span>
+<span class="c">%   ts - Vector of time values, size 1x1000.</span>
+<span class="c">%   ys - Matrix of output values , size 1000x10</span>
+<span class="c">%        The outputs are, in order:</span>
+<span class="c">%        1: theta, pitch angle [rad]</span>
+<span class="c">%        2: z, altitude [m]</span>
+<span class="c">%        3: q, pitch rate [rad/s]</span>
+<span class="c">%        4: w, vertical velocity [m/s]</span>
+<span class="c">%        5: thetac, cumlative pitch error [rad]</span>
+<span class="c">%        6: zc, cumlative altitude error [rad]</span>
+<span class="c">%        7: Ff, Front rotor thrust [N]</span>
+<span class="c">%        8: Fr, Rear rotor thrust [N]</span>
+<span class="c">%        9: x, longitudinal position [m]</span>
+<span class="c">%        10: zd, desired altitude [m]</span>
+<span class="c">%   p - Constant parameter structure that includes at least a and b.</span>
+
+<span class="n">figure</span><span class="p">()</span>
+<span class="n">hold</span> <span class="s">on</span>
+<span class="n">box</span> <span class="s">on</span>
+
+<span class="n">extents</span> <span class="p">=</span> <span class="mf">2.0</span><span class="p">;</span>  <span class="c">% meters</span>
+
+<span class="n">delt</span> <span class="p">=</span> <span class="n">ts</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">ts</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="n">thetas</span> <span class="p">=</span> <span class="n">ys</span><span class="p">(:,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">zs</span> <span class="p">=</span> <span class="n">ys</span><span class="p">(:,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">xs</span> <span class="p">=</span> <span class="n">ys</span><span class="p">(:,</span> <span class="mi">9</span><span class="p">);</span>
+<span class="n">zds</span> <span class="p">=</span> <span class="n">ys</span><span class="p">(:,</span> <span class="mi">10</span><span class="p">);</span>
+
+<span class="n">desired_path</span> <span class="p">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">),</span> <span class="n">zds</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">),</span> <span class="s">&#39;r&#39;</span><span class="p">);</span>
+<span class="n">actual_path</span> <span class="p">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">),</span> <span class="n">zs</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">),</span> <span class="s">&#39;b&#39;</span><span class="p">);</span>
+
+<span class="n">for</span> <span class="s">i</span> <span class="s">=</span> <span class="s">2:length(ts)</span>
+    <span class="n">theta</span> <span class="p">=</span> <span class="n">thetas</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span>
+    <span class="n">z</span> <span class="p">=</span> <span class="n">zs</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span>
+    <span class="n">x</span> <span class="p">=</span> <span class="n">xs</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span>
+    <span class="c">% update the desired path</span>
+    <span class="n">set</span><span class="p">(</span><span class="n">desired_path</span><span class="p">,</span> <span class="s">&#39;XData&#39;</span><span class="p">,</span> <span class="n">xs</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="nb">i</span><span class="p">),</span> <span class="s">&#39;YData&#39;</span><span class="p">,</span> <span class="n">zds</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="nb">i</span><span class="p">));</span>
+    <span class="c">% update the acutal path</span>
+    <span class="n">set</span><span class="p">(</span><span class="n">actual_path</span><span class="p">,</span> <span class="s">&#39;XData&#39;</span><span class="p">,</span> <span class="n">xs</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="nb">i</span><span class="p">),</span> <span class="s">&#39;YData&#39;</span><span class="p">,</span> <span class="n">zs</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="nb">i</span><span class="p">));</span>
+    <span class="c">% plot the &quot;wings&quot;</span>
+    <span class="n">plot</span><span class="p">([</span><span class="n">x</span> <span class="o">-</span> <span class="n">p</span><span class="p">.</span><span class="n">b</span><span class="o">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">x</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="n">a</span><span class="o">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)],</span> <span class="c">...</span>
+         <span class="p">[</span><span class="n">z</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="n">b</span><span class="o">*</span><span class="nb">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">z</span> <span class="o">-</span> <span class="n">p</span><span class="p">.</span><span class="n">a</span><span class="o">*</span><span class="nb">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)],</span> <span class="s">&#39;k&#39;</span><span class="p">,</span> <span class="s">&#39;linewidth&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="c">% plot the mass center</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="s">&#39;ob&#39;</span><span class="p">,</span> <span class="s">&#39;MarkerFaceColor&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">)</span>
+    <span class="n">h</span> <span class="p">=</span> <span class="n">gca</span><span class="p">;</span>
+    <span class="n">set</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="s">&#39;YDir&#39;</span><span class="p">,</span> <span class="s">&#39;reverse&#39;</span><span class="p">);</span>
+    <span class="n">xlim</span><span class="p">([</span><span class="n">x</span> <span class="o">-</span> <span class="n">extents</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">extents</span><span class="p">])</span>
+    <span class="n">ylim</span><span class="p">([</span><span class="n">z</span> <span class="o">-</span> <span class="n">extents</span><span class="p">,</span> <span class="n">z</span> <span class="o">+</span> <span class="n">extents</span><span class="p">])</span>
+    <span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;x [m]&#39;</span><span class="p">)</span>
+    <span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;z [m]&#39;</span><span class="p">)</span>
+    <span class="n">t_str</span> <span class="p">=</span> <span class="n">sprintf</span><span class="p">(</span><span class="s">&#39;Time = %1.2f s&#39;</span><span class="p">,</span> <span class="n">ts</span><span class="p">(</span><span class="nb">i</span><span class="p">));</span>
+    <span class="n">title</span><span class="p">(</span><span class="n">t_str</span><span class="p">);</span>
+    <span class="n">pause</span><span class="p">(</span><span class="n">delt</span><span class="p">);</span>
+<span class="n">end</span>
+
+<span class="s">hold</span> <span class="s">off</span>
+
+<span class="n">end</span>
+</pre></div>
+</div>
+<div class="section" id="deliverables">
+<h2><a class="toc-backref" href="#id12">Deliverables</a></h2>
+<p>In your lab report, show your work for creating and evaluating the simulation
+model. Include any calculations you had to do, for example those for state
+equations, initial conditions, input equations, time parameters, and any other
+parameters. Additionally, provide the indicated plots and answer the questions
+below. Append a copy of your Matlab/Octave code to the end of the report. The
+report should follow the <a class="reference external" href="https://moorepants.github.io/eme134/report-guide.html">report template and guidelines</a>.</p>
+<p>Submit a report as a single PDF file to Canvas by the due date that addresses
+the following items:</p>
+<ol class="arabic simple">
+<li>Create a function defined in an m-file that evaluates the right hand side of
+the ODEs, i.e. evaluates the state derivatives. See <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#defining-the-state-derivative-function">Defining the State
+Derivative Function</a> for an explanation.</li>
+<li>Create one function defined in an m-file that calculates the two requested
+inputs: no control and with control. See <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#time-varying-inputs">Time Varying Inputs</a> for an
+explanation.</li>
+<li>Create a function defined in an m-file that calculates the requested
+outputs. See <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#outputs-other-than-the-states">Outputs Other Than the States</a>  and <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#outputs-involving-state-derivatives">Outputs Involving State
+Derivatives</a> for an explanation.</li>
+<li>Create a script in an m-file that utilizes the above functions to simulate
+system for the final path tracking simulation. This should setup the
+constants, integrate the dynamics equations, and plot each state, and output
+versus time. See <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#integrating-the-equations">Integrating the Equations</a> for an explanation.</li>
+<li>Derive the equations of motion of the system. Include your derivation in the
+report and the resulting equations.</li>
+<li>Develop two PID feedback controllers using manual tuning. You should try to
+minimize steady state error, oscillations, the time constant, and overshoot
+in that order of importance for both the altitude tracking and the pitch
+stabilization. Show time history plots of the step responses for pitch and
+altitude using your final gain selection.</li>
+<li>Present a single controlled simulation of the vehicle and explain the
+behaviors you observe in each of the ten output variables using knowledge
+and principles you have learned in the class.</li>
+</ol>
+</div>
+<div class="section" id="assessment-rubric">
+<h2><a class="toc-backref" href="#id13">Assessment Rubric</a></h2>
+<table border="1" class="table table-striped table-bordered docutils">
+<caption>Score will be between 30 and 100.</caption>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Topic</th>
+<th class="head">[10 pts] Exceeds expectations</th>
+<th class="head">[5 pts] Meets expectatoins</th>
+<th class="head">[0 pts] Does not meet expectations</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Functions</td>
+<td>All Matlab/Octave functions are present and take correct inputs and
+produce the expected outputs.</td>
+<td>Some of the functions are present and mostly take correct inputs and
+produce the expected outputs</td>
+<td>No functions are present or not working at all.</td>
+</tr>
+<tr><td>Main Script</td>
+<td>Constant parameters only defined once in main script(s);
+Integration produces the correct state, input, and output trajectories;
+Good choices in number of time steps and resolution are chosen and
+justified; Intermediate calculations present and functioning.</td>
+<td>Parameters are defined in multiple places; Integration produces some
+correct state, input, and output trajectories; Poor choices in number of
+time steps and resolution are chosen; Intermediate calculations mostly
+present and functioning.</td>
+<td>Constants defined redundantly; Integration produces incorrect
+trajectories; Poor choices in time duration and steps; Intermediate
+calculations not present or functioning.</td>
+</tr>
+<tr><td>Equations of Motion</td>
+<td>Derviation of equations is presented and the correct nonlinear equations
+are shown.</td>
+<td>Derviation of equations is presented and the nonlinear equations are
+mostly correct.</td>
+<td>Derviation of equations is not present and the nonlinear equations are
+incorrect.</td>
+</tr>
+<tr><td>Pitch Control</td>
+<td>PID controller working that stabilizes the pitch angle during manuerving
+and has ideal control behavior in terms of steady state error,
+oscillations, time constant, and overshoot. Step response plots included
+that demonstrate this.</td>
+<td>PID or PD controller working that stabilizes the pitch angle during
+manuerving and has moderately good control behavior in terms of steady
+state error, oscillations, time constant, and overshoot. Step response
+plots included that demonstrate this.</td>
+<td>Pitch controller not present or functioning in any way. Step response
+plots not included.</td>
+</tr>
+<tr><td>Altitude Tracking Control</td>
+<td>PID controller working that stabilizes the pitch angle during manuerving
+and has ideal control behavior in terms of steady state error,
+oscillations, time constant, and overshoot. Step response plots included
+that demonstrate this.</td>
+<td>PID or PD controller working that stabilizes the pitch angle during
+manuerving and has moderately good control behavior in terms of steady
+state error, oscillations, time constant, and overshoot. Step response
+plots included that demonstrate this.</td>
+<td>Altitude controller not present or functioning in any way. Step response
+plots not included.</td>
+</tr>
+<tr><td>Report and Code Formatting</td>
+<td>All axes labeled with units, legible font sizes, informative captions;
+Functions are documented with docstrings which fully explain the inputs
+and outputs; Professional, very legible, quality writing; All report
+format requirements met</td>
+<td>Some axes labeled with units, mostly legible font sizes,
+less-than-informative captions; Functions have docstrings but the inputs
+and outputs are not fully explained; Semi-professional, somewhat
+legible, writing needs improvement; Most report format requirements met</td>
+<td>Axes do not have labels, legible font sizes, or informative captions;
+Functions do not have docstrings; Report is not professionally written
+and formatted; Report format requirements are not met</td>
+</tr>
+<tr><td>Contributions</td>
+<td>Clear that all team members have made equitable contributions.</td>
+<td>Not clear that contributions were equitable and you need to improve
+balance of contributions.</td>
+<td>No indication of equitable contributions.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<script type='text/javascript'>if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+  </div>
+</article>
+
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+      <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/authors.html">Authors</a></li>
+    <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="https://moorepants.github.io/eme134/categories.html">Categories</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>
+<div class="row">
+  <div class="col-sm-4 mx-auto text-center text-muted" >
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+      <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+    </a>
+    <br />
+    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+  </div>
+</div>    </div>
+  </footer>
+</body>
+
+</html>
