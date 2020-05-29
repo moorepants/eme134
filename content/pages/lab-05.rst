@@ -102,7 +102,8 @@ drag force should be modeled by the equation:
 This drag force will not affect motion in the :math:`x` direction since
 :math:`U` is specified to be constant but you will need to determine its
 contribution to resisting vertical motion. Make sure that the force is always
-in the opposite direction of :math:`\bar{v} = U \hat{x} + W \hat{z}` using the
+in the opposite direction of the component of :math:`\bar{v} = U \hat{x} + W
+\hat{z}` that is perpendicular to the vehicle (same as :math:`F_D`) using the
 `signum function`_, ``sign()`` in Matlab/Octave. Neglect any lift that may be
 produced due to the vehicles angle of attack or body characteristics.
 
