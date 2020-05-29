@@ -15,6 +15,7 @@ Labs
 - `Lab 2: Dragster Traction Control <{filename}/pages/lab-02.rst>`_
 - `Lab 3: Automobile Steering <{filename}/pages/lab-03.rst>`_
 - `Lab 4: Bicycle Stability and Control <{filename}/pages/lab-04.rst>`_
+- `Lab 5: Drone Flight Control <{filename}/pages/lab-05.rst>`_
 
 Software
 ========
