@@ -132,7 +132,18 @@ Equations of Motion
 You will need to derive the equations of motion for this system. Using the
 coordinates described above write the non-linear Newton-Euler equations. You
 will be expected to show this work in your report. *Note: Use inertial
-coordinates not body fixed for the derivation.*
+coordinates not body fixed for the derivation.* There will be two equations,
+one for vertical deviation from equilibrium and one for pitch deviation from
+equilibrium.
+
+.. topic:: :math:`x` acceleration equation
+   :class: alert alert-warning
+
+   There is no acceleration in the :math:`x` direction so you do not write an
+   equation for that coordinate. This is because we are imposing the assumption
+   that the thrust is always the perfect amount to maintain constant forward
+   speed irrespective of the pitch angle and thrust contributions from the
+   rotors.
 
 It will be useful to rewrite the two force magnitudes in terms of the total
 force :math:`F_T = F_f + F_r` so that you can control :math:`F_T` to control
