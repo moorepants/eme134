@@ -109,6 +109,15 @@ produced due to the vehicles angle of attack or body characteristics.
 
 .. _signum function: https://en.wikipedia.org/wiki/Sign_function
 
+.. topic:: What is :math:`v` in the drag equation?
+   :class: alert alert-info
+
+   :math:`v` in the equation for :math:`F_D` is the scalar component of
+   velocity of the center of pressure (CoP) that is parallel to :math:`F_D`. If
+   you write the velocity vector of the CoP in the body fixed reference frame
+   you can get this component like we have for other body fixed velocity
+   calculations.
+
 .. figure:: https://objects-us-east-1.dream.io/eme134/2020s/lab-05-fig-01.png
    :width: 600px
    :align: center
