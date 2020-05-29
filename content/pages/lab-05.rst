@@ -362,9 +362,9 @@ a self consistent set of SI base units.
    * - :math:`I`
      - ``I``
      - Centroidal pitch moment of inertia
-     - Calculate the moment of inertia about a slender rod of mass :math:`m`
-       and length :math:`a + b` about the mass center location. *Hint: Use the
-       parallel axis thereom.*
+     - Calculate and use the moment of inertia of a slender rod of mass
+       :math:`m` and length :math:`a + b` with a mass center equidistant from
+       the ends. You can find this in a moment of inerta table.
      - :math:`\textrm{kg}\cdot\textrm{m}^2`
    * - :math:`a`
      - ``a``
