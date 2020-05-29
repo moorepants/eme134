@@ -358,6 +358,16 @@ z_d =
 </div>
 <p>Simulate the controlled system for this input and plot all the requested output
 variables.</p>
+<div class="alert alert-info topic">
+<p class="topic-title">Plotting with z positive downward</p>
+<p>For the plots that include <span class="math">\(z\)</span> and <span class="math">\(w\)</span> on the plot's ordinate
+axis it is helpful to reverse the axis so the negative values are above the
+positive values. To do so you can use this code after you call <tt class="docutils literal">plot()</tt>:</p>
+<pre class="literal-block">
+h = gca;  % gets a handle to the most recent axis
+set(h, 'YDir', 'reverse');  % reverses the ordinate
+</pre>
+</div>
 <p>See <a class="reference external" href="https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#time-varying-inputs">Time Varying Inputs</a>
 for more information.</p>
 </div>
