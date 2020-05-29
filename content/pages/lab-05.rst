@@ -307,6 +307,16 @@ second simulation. Setup your input function to have a desired altitude of:
 Simulate the controlled system for this input and plot all the requested output
 variables.
 
+.. topic:: Plotting with z positive downward
+   :class: alert alert-info
+
+   For the plots that include :math:`z` and :math:`w` on the plot's ordinate
+   axis it is helpful to reverse the axis so the negative values are above the
+   positive values. To do so you can use this code after you call ``plot()``::
+
+      h = gca;  % gets a handle to the most recent axis
+      set(h, 'YDir', 'reverse');  % reverses the ordinate
+
 See `Time Varying Inputs
 <https://moorepants.github.io/eme171/ode-integration-best-practices-with-octavematlab.html#time-varying-inputs>`_
 for more information.
