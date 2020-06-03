@@ -497,9 +497,8 @@ the following items:
 1. Create a function defined in an m-file that evaluates the right hand side of
    the ODEs, i.e. evaluates the state derivatives. See `Defining the State
    Derivative Function`_ for an explanation.
-2. Create one function defined in an m-file that calculates the two requested
-   inputs: no control and with control. See `Time Varying Inputs`_ for an
-   explanation.
+2. Create one function defined in an m-file that calculates the control input.
+   See `Time Varying Inputs`_ for an explanation.
 3. Create a function defined in an m-file that calculates the requested
    outputs. See `Outputs Other Than the States`_  and `Outputs Involving State
    Derivatives`_ for an explanation.
