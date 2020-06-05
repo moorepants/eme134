@@ -95,7 +95,7 @@ drag force should be modeled by the equation:
 .. math::
 
    \DeclareMathOperator{\sgn}{sgn}
-   F_D = \sgn{v} \frac{1}{2} \rho v^2 C_D A
+   F_D = \sgn{(v)} \frac{1}{2} \rho v^2 C_D A
 
 .. _drag force: https://en.wikipedia.org/wiki/Drag_(physics)
 
